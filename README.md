@@ -1,7 +1,7 @@
 # RPA (Robotic Process Automation)
 
 ## Description
-This is a UiPath robots.
+This is a software robots programming primary in UiPath platform.
 
 ## Project Requirements
 UiPath, .NET, VBA, SQL
