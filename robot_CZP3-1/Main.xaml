@@ -299,6 +299,10 @@
             <x:Reference>__ReferenceID10</x:Reference>
             <x:Reference>__ReferenceID11</x:Reference>
             <x:Reference>__ReferenceID12</x:Reference>
+            <FlowStep>
+              <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" Text="{x:Null}" Buttons="Ok" DisplayName="test - odstranit" TopMost="True" sap2010:WorkflowViewState.IdRef="MessageBox_1" />
+              <sap2010:WorkflowViewState.IdRef>FlowStep_20</sap2010:WorkflowViewState.IdRef>
+            </FlowStep>
           </Flowchart>
           <ui:LogMessage DisplayName="Log message" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="Info" Message="[strWorkflowName + &quot; Sucesss&quot;]" />
         </Sequence>
@@ -359,7 +363,7 @@
       </TryCatch.Catches>
     </TryCatch>
     <ui:LogMessage DisplayName="Log message" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;ROBOT CZP3-1 -&gt; End &quot; + strWorkflowName]" />
-    <sads:DebugSymbol.Symbol>dz5DOlxVc2Vyc1xWSGxhdmFjZWtcRG9jdW1lbnRzXFVpUGF0aFxyb2JvdF9DWlAzLTFfMC41XE1haW4ueGFtbGZFA+sCDgIBAUc0R1MCAQJaBVqxAQMBnQFbBegCEAIBBukCBekCrgECAQNaclquAQMBngFdCbACFAIBIbgCDcoCGAIBEtICDeQCGAIBB+kCcukCqwECAQReC2UUAwGZAWYLrgIXAgElrwILrwKlAQIBIrkCD7kCwQECAR26Ag/BAhgCARnCAg/JAhgCARPTAg/TAsEBAgEQ1AIP2wIYAgEM3AIP4wIYAgEIYzZjPQMBnAFgN2BLAwGaAWkRcBoDAZUBcxWBASADAYwBhAEZnQEkAgFuoAEdpAE1AgFspwEhrQE5AgFksAElvAE9AgFQvwEpywFBAgE8zgEt0gFFAgE61QEx4QFJAgEmrwJ4rwKiAQIBI7kCfLkCvgECAR6/Ajq/Ak4CARy8Aju8Ak8CARrHAjrHAmUCARbEAjvEAk4CARTTAnzTAr4BAgER2QI62QJLAgEP1gI71gJPAgEN4QI64QJlAgEL3gI73gJOAgEJbjxuRgMBmAFrPWtLAwGWAXQXeC8DAZEBeReAASADAY0BhQEbkwEzAgF0lAEblAHJAQIBc5UBG5wBJAIBb6ABywGgAeYBAgFtqQFvqQGHAQIBaqsBcqsBjQECAWinAcgBpwHeAQIBZ6oBcqoBjQECAWWyAX6yAaEBAgFiugF1ugGPAQIBYLkBfrkBoQECAV63AX63AaEBAgFcuAF+uAGhAQIBWrMBfrMBoQECAVi1AX+1AaMBAgFWsAHUAbAB8gECAVW0AX+0AaMBAgFTtgF+tgGhAQIBUcIBggHCAaUBAgFOwQF5wQGTAQIBTMkBggHJAaUBAgFKxwGCAccBpQECAUjIAYIByAGlAQIBRsMBggHDAaUBAgFExQGDAcUBpwECAUK/AdgBvwH2AQIBQcQBgwHEAacBAgE/xgGCAcYBpQECAT3OAdsBzgH2AQIBO9gBigHYAa0BAgE41wGBAdcBmwECATbfAYoB3wGtAQIBNN0BigHdAa0BAgEy3gGKAd4BrQECATDZAYoB2QGtAQIBLtsBiwHbAa8BAgEs1QHXAdUB7AECASvaAYsB2gGvAQIBKdwBigHcAa0BAgEndMQBdN4BAwGUAXZbdmkDAZIBfkJ+YAMBkAF7Q3tdAwGOAYcBZ4cBfAMBigGKAXWKAZgBAwGIAYkBY4kBdAMBhgGIAWeIAXwDAYQBkAF1kAGYAQMBggGOAXWOAZgBAwGAAY8BdY8BmAECAX6RAXWRAZgBAgF8jAF2jAGaAQIBeoUByAGFAeIBAgF5iwF2iwGaAQIBd40BdY0BmAECAXWaAUaaAa8BAgFylwFHlwFfAgFw</sads:DebugSymbol.Symbol>
+    <sads:DebugSymbol.Symbol>dz5DOlxVc2Vyc1xWSGxhdmFjZWtcRG9jdW1lbnRzXFVpUGF0aFxyb2JvdF9DWlAzLTFfMC41XE1haW4ueGFtbGZFA+8CDgIBAUc0R1MCAQJaBVqxAQMBnQFbBewCEAIBBu0CBe0CrgECAQNaclquAQMBngFdCbQCFAIBIbwCDc4CGAIBEtYCDegCGAIBB+0Ccu0CqwECAQReC2UUAwGZAWYLsgIXAgElswILswKlAQIBIr0CD70CwQECAR2+Ag/FAhgCARnGAg/NAhgCARPXAg/XAsEBAgEQ2AIP3wIYAgEM4AIP5wIYAgEIYzZjPQMBnAFgN2BLAwGaAWkRcBoDAZUBcxWBASADAYwBhAEZnQEkAgFuoAEdpAE1AgFspwEhrQE5AgFksAElvAE9AgFQvwEpywFBAgE8zgEt0gFFAgE61QEx4QFJAgEmswJ4swKiAQIBI70CfL0CvgECAR7DAjrDAk4CARzAAjvAAk8CARrLAjrLAmUCARbIAjvIAk4CARTXAnzXAr4BAgER3QI63QJLAgEP2gI72gJPAgEN5QI65QJlAgEL4gI74gJOAgEJbjxuRgMBmAFrPWtLAwGWAXQXeC8DAZEBeReAASADAY0BhQEbkwEzAgF0lAEblAHJAQIBc5UBG5wBJAIBb6ABywGgAeYBAgFtqQFvqQGHAQIBaqsBcqsBjQECAWinAcgBpwHeAQIBZ6oBcqoBjQECAWWyAX6yAaEBAgFiugF1ugGPAQIBYLkBfrkBoQECAV63AX63AaEBAgFcuAF+uAGhAQIBWrMBfrMBoQECAVi1AX+1AaMBAgFWsAHUAbAB8gECAVW0AX+0AaMBAgFTtgF+tgGhAQIBUcIBggHCAaUBAgFOwQF5wQGTAQIBTMkBggHJAaUBAgFKxwGCAccBpQECAUjIAYIByAGlAQIBRsMBggHDAaUBAgFExQGDAcUBpwECAUK/AdgBvwH2AQIBQcQBgwHEAacBAgE/xgGCAcYBpQECAT3OAdsBzgH2AQIBO9gBigHYAa0BAgE41wGBAdcBmwECATbfAYoB3wGtAQIBNN0BigHdAa0BAgEy3gGKAd4BrQECATDZAYoB2QGtAQIBLtsBiwHbAa8BAgEs1QHXAdUB7AECASvaAYsB2gGvAQIBKdwBigHcAa0BAgEndMQBdN4BAwGUAXZbdmkDAZIBfkJ+YAMBkAF7Q3tdAwGOAYcBZ4cBfAMBigGKAXWKAZgBAwGIAYkBY4kBdAMBhgGIAWeIAXwDAYQBkAF1kAGYAQMBggGOAXWOAZgBAwGAAY8BdY8BmAECAX6RAXWRAZgBAgF8jAF2jAGaAQIBeoUByAGFAeIBAgF5iwF2iwGaAQIBd40BdY0BmAECAXWaAUaaAa8BAgFylwFHlwFfAgFw</sads:DebugSymbol.Symbol>
   </Sequence>
   <sap2010:WorkflowViewState.ViewStateManager>
     <sap2010:ViewStateManager>
@@ -587,6 +591,21 @@
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
       </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="MessageBox_1" sap:VirtualizedContainerService.HintSize="200,49">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="FlowStep_20">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <av:Point x:Key="ShapeLocation">360,445.361666666667</av:Point>
+            <av:Size x:Key="ShapeSize">200,49</av:Size>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
       <sap2010:ViewStateData Id="Flowchart_1" sap:VirtualizedContainerService.HintSize="628,1207">
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -654,7 +673,7 @@
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
       </sap2010:ViewStateData>
-      <sap2010:ViewStateData Id="Main_1" sap:VirtualizedContainerService.HintSize="730,2528" />
+      <sap2010:ViewStateData Id="Main_1" sap:VirtualizedContainerService.HintSize="730,2488" />
     </sap2010:ViewStateManager>
   </sap2010:WorkflowViewState.ViewStateManager>
 </Activity>
