@@ -1,0 +1,23 @@
+{
+  "description": "Simple Process Project",
+  "version": "2016.2.6274.33252",
+  "main": "Main.xaml",
+  "url": "http://tia.cpas.cz/forms/frmservlet?config=TIAPROD2",
+  "fiktivname": "FIKTIV_*",
+  "timeoutsmall": "3000",
+  "timeoutmedium": "5000",
+  "timeoutlarge": "15000",
+  "inputfilepathmail": "\\\\sfsl01\\dokumenty\\OSSA\\ÈKP\\Robot\\Distribuèní seznamy\\Distribuèní seznamy.xlsx",
+  "outputfilepathfiktiv": "\\\\sfsl01\\dokumenty\\OSSA\\ÈKP\\Robot\\Zpracovaná data\\",
+  "outputfilepathcpdirekt": "\\\\sfsl01\\dokumenty\\OSSA\\ÈKP\\Robot\\Odeslané maily\\",
+  "outputfilepathmakleri": "\\\\sfsl01\\dokumenty\\OSSA\\ÈKP\\Robot\\Odeslané maily\\",
+  "outputfilepathpobocky": "\\\\sfsl01\\dokumenty\\OSSA\\ÈKP\\Robot\\Odeslané maily\\",
+  "outputfilepathscreenshoty": "\\\\sfsl01\\dokumenty\\OSSA\\ÈKP\\Robot\\Chybové obrazovky\\",
+  "id": "ROBOT",
+  "dependencies": {},
+  "configurationOptions": {},
+  "excludedData": [
+    "Private:*",
+    "*password*"
+  ]
+}

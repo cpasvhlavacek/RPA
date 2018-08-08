@@ -1,0 +1,217 @@
+﻿<Activity mc:Ignorable="sap sap2010 sads" x:Class="LOGIN_TO_TIA"
+ xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities"
+ xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+ xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities"
+ xmlns:s="clr-namespace:System;assembly=mscorlib"
+ xmlns:sads="http://schemas.microsoft.com/netfx/2010/xaml/activities/debugger"
+ xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation"
+ xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation"
+ xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib"
+ xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=mscorlib"
+ xmlns:ss="clr-namespace:System.Security;assembly=mscorlib"
+ xmlns:ui="http://schemas.uipath.com/workflow/activities"
+ xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="SELECTOR_LOGIN" Type="InArgument(x:String)" />
+    <x:Property Name="TIA_URL_LOGIN" Type="InArgument(x:String)" />
+    <x:Property Name="LOGIN_OK" Type="OutArgument(x:Boolean)" />
+    <x:Property Name="TIMEOUTSMALL_LOGIN" Type="InArgument(x:Int32)" />
+    <x:Property Name="TIMEOUTLARGE_LOGIN" Type="InArgument(x:Int32)" />
+    <x:Property Name="TIMEOUTMEDIUM_LOGIN" Type="InArgument(x:Int32)" />
+  </x:Members>
+  <mva:VisualBasic.Settings>
+    <x:Null />
+  </mva:VisualBasic.Settings>
+  <sap2010:WorkflowViewState.IdRef>LOGIN_TO_TIA_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <sco:Collection x:TypeArguments="x:String">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>UiPath.Excel.Activities</x:String>
+      <x:String>UiPath.CSV.Activities</x:String>
+      <x:String>UiPath.Excel</x:String>
+      <x:String>UiPath.CSV</x:String>
+      <x:String>UiPath.Mail.Activities</x:String>
+      <x:String>UiPath.Mail.Exchange.Activities</x:String>
+      <x:String>UiPath.Mail.IMAP.Activities</x:String>
+      <x:String>UiPath.Mail.Outlook.Activities</x:String>
+      <x:String>UiPath.Mail.POP3.Activities</x:String>
+      <x:String>UiPath.Mail.SMTP.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+    </sco:Collection>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <sco:Collection x:TypeArguments="AssemblyReference">
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>UiPath.Core</AssemblyReference>
+      <AssemblyReference>UiPath.Core.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Excel</AssemblyReference>
+      <AssemblyReference>UiPath.Mail.Activities</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>PresentationCore</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+    </sco:Collection>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence DisplayName="LOGIN TO TIA" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <TryCatch DisplayName="Try catch" sap2010:WorkflowViewState.IdRef="TryCatch_2">
+      <TryCatch.Try>
+        <ui:OpenBrowser UiBrowser="{x:Null}" BrowserType="IE" DisplayName="OTEVŘI PROHLÍŽEČ" Hidden="False" sap2010:WorkflowViewState.IdRef="OpenBrowser_2" NewSession="True" Private="False" Url="[TIA_URL_LOGIN]">
+          <ui:OpenBrowser.Body>
+            <ActivityAction x:TypeArguments="x:Object">
+              <ActivityAction.Argument>
+                <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
+              </ActivityAction.Argument>
+              <Sequence DisplayName="Do" sap2010:WorkflowViewState.IdRef="Sequence_17">
+                <ui:WindowScope ApplicationWindow="{x:Null}" SearchScope="{x:Null}" Window="{x:Null}" DisplayName="V OKNĚ TIA* UDĚLEJ:" sap2010:WorkflowViewState.IdRef="WindowScope_4" InformativeScreenshot="48250e72327aafb2c93ed732b27a54d3" Selector="&lt;wnd app='iexplore.exe' cls='IEFrame' title='TIA*' /&gt;" TimeoutMS="[TIMEOUTMEDIUM_LOGIN]">
+                  <ui:WindowScope.Body>
+                    <ActivityAction x:TypeArguments="x:Object">
+                      <ActivityAction.Argument>
+                        <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
+                      </ActivityAction.Argument>
+                      <Sequence DisplayName="Do" sap2010:WorkflowViewState.IdRef="Sequence_16">
+                        <Sequence DisplayName="Do" sap2010:WorkflowViewState.IdRef="Sequence_15">
+                          <Sequence.Variables>
+                            <Variable x:TypeArguments="ss:SecureString" Name="password" />
+                            <Variable x:TypeArguments="x:String" Name="username" />
+                          </Sequence.Variables>
+                          <ui:MaximizeWindow Window="{x:Null}" DisplayName="MAXIMALIZUJ OKNO" sap2010:WorkflowViewState.IdRef="MaximizeWindow_5" />
+                          <ui:GetSecureCredential CredentialType="Generic" DisplayName="ZÍSKEJ PŘÍSTUPOVÉ ÚDAJE " sap2010:WorkflowViewState.IdRef="GetSecureCredential_3" Password="[password]" PersistanceType="Enterprise" Target="http://tia.cpas.cz/forms/frmservlet?config=TIAPROD2" Username="[username]" />
+                          <Delay DisplayName="POCKEJ 7 VTERIN" Duration="00:00:07" sap2010:WorkflowViewState.IdRef="Delay_7" />
+                          <ui:TypeInto DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" Activate="True" ClickBeforeTyping="False" DisplayName="NAPIŠ PŘIHLAŠOVACÍ JMÉNO" EmptyField="True" sap2010:WorkflowViewState.IdRef="TypeInto_11" SendWindowMessages="False" SimulateType="False" Text="[username + &quot;[k(tab)]&quot;]">
+                            <ui:TypeInto.Target>
+                              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="25f594af9f1918050b14f42408f89abb" Selector="&lt;wnd cls='SunAwtCanvas' /&gt;&lt;java name='Tia Logon' role='internal frame' /&gt;&lt;java idx='1' role='text' /&gt;" TimeoutMS="[TIMEOUTSMALL_LOGIN]" WaitForReady="INTERACTIVE" />
+                            </ui:TypeInto.Target>
+                          </ui:TypeInto>
+                          <ui:TypeSecureText DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" Activate="True" sap2010:Annotation.AnnotationText="SECURE TEXT" ClickBeforeTyping="False" DisplayName="NAPIŠ &quot;SECURE&quot; HESLO" EmptyField="False" sap2010:WorkflowViewState.IdRef="TypeSecureText_3" SecureText="[password]" SendWindowMessages="False" SimulateType="False">
+                            <ui:TypeSecureText.Target>
+                              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="a4b93270fa2b4266d08a94002b3f18d0" Selector="&lt;wnd cls='SunAwtCanvas' /&gt;&lt;java name='Tia Logon' role='internal frame' /&gt;&lt;java role='password text' /&gt;" TimeoutMS="[TIMEOUTSMALL_LOGIN]" WaitForReady="INTERACTIVE" />
+                            </ui:TypeSecureText.Target>
+                          </ui:TypeSecureText>
+                          <ui:Click DelayBefore="{x:Null}" DelayMS="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="KLIKNI NA PŘIHLAŠOVACÍ TLAČÍTKO" sap2010:WorkflowViewState.IdRef="Click_10" KeyModifiers="None" MouseButton="BTN_LEFT" SendWindowMessages="False" SimulateClick="False">
+                            <ui:Click.CursorPosition>
+                              <ui:CursorPosition OffsetX="30" OffsetY="14" Position="TopLeft" />
+                            </ui:Click.CursorPosition>
+                            <ui:Click.Target>
+                              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="5ca01bc30ce8b027cb0e3c09b7fb3644" Selector="&lt;wnd cls='SunAwtCanvas' /&gt;&lt;java name='Tia Logon' role='internal frame' /&gt;&lt;java name='Logon alt L' role='push button' /&gt;" TimeoutMS="[TIMEOUTSMALL_LOGIN]" WaitForReady="INTERACTIVE" />
+                            </ui:Click.Target>
+                          </ui:Click>
+                          <ui:ImageFound DisplayName="ZJISTI, ZDA SE TECHROBOT3 PŘIHLÁSIL DO TIA" Found="[LOGIN_OK]" sap2010:WorkflowViewState.IdRef="ImageFound_7">
+                            <ui:ImageFound.Image>
+                              <ui:ImageTarget Image="{x:Null}" Accuracy="0.6" TargetImageBase64="iVBORw0KGgoAAAANSUhEUgAAALYAAAARCAYAAABw6VZSAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAALKSURBVGhD7Zq9alRRFIV9FRtBfAC1VbRxSm0Un8DWTlDBZxBsVLRQjF1sLPISgmEUI6YQQUEjFjr4k+PsG1dYs7L3ufeMJ8MQzoKPu9daZ2YS2Llchhw6emKUGo2DxsxiH7m2mg5fXXHpztx8vnu20VhmZhbbFvjknfU9YLG768DlNvG10VgkxYt97NZa8XI3GoumeLGP335RtNzLSPuDO/gULzaTW25WroP0DIg6T945Zei5/SD6bM55npca75HDU9Rzvl+dR9FiD0U/vM9HWWnuZctE9PNF+bzUfj8l9/7asee5VhcxaLHt0QN3aYVfb0QfyjnPuaw05wwzrpghZNpFuUk7huX1hnbwuOoMD2nOPedQLkPOPecmeKWkY89zrS4iXOzzj96ky0/fppcfv3f+zL3xbgdKFpvxznhZac4Z5HXqh8yej3L1Xl46e50p6rzZ60w5j5mJckM79jzX6iLcxb74ZCP92U5pc2uSNj5Puuzdl0m6srpZbbFV3jkj6jxpz17hnmdGc/V9uYJzuGqem+fteC7pPM85K9drHnmeIw9xHuEu9qm74/Th2890Y+19Gj183WWm6a6nZ+OtdPb+q/9ebC/3iM5GOfB6Fed8jnOVd85geb3B0jyaVd459TqrvHNDfF9uaMee51pdhLvYk1/b6euP392jCO7YrPGnnceTksXmnOc+orNRDrTPeZ6ZKO8jeh3npbOiHftoVrTr8325oR17nmt1Edk79vXpHfvcg7I7tmEq8Tmis1EOtGcPRZ03ez7K1Xt56Txvx3NJ5/m+3NCOPc+1ugh3sS+t7H3GtnnIMzZgeZ1mEdHZKAdeD3k9xBnnJu0Yltcb2sHjqjM8pHnkIfUmZMhLfF8OWIvoPNzFNi483vlWZP3ftyKnp3dxdCC32LUY+os0Gky42ENoi91YVmYWO/dvqx52nl/faCwHo/QXnfA/lQIRWxUAAAAASUVORK5CYII=" />
+                            </ui:ImageFound.Image>
+                            <ui:ImageFound.Target>
+                              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Selector="{x:Null}" TimeoutMS="[TIMEOUTLARGE_LOGIN]" WaitForReady="INTERACTIVE" />
+                            </ui:ImageFound.Target>
+                          </ui:ImageFound>
+                        </Sequence>
+                      </Sequence>
+                    </ActivityAction>
+                  </ui:WindowScope.Body>
+                </ui:WindowScope>
+              </Sequence>
+            </ActivityAction>
+          </ui:OpenBrowser.Body>
+        </ui:OpenBrowser>
+      </TryCatch.Try>
+      <TryCatch.Catches>
+        <Catch x:TypeArguments="s:Exception" sap2010:WorkflowViewState.IdRef="Catch`1_2">
+          <ActivityAction x:TypeArguments="s:Exception">
+            <ActivityAction.Argument>
+              <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
+            </ActivityAction.Argument>
+            <ui:LogMessage DisplayName="LOG ZPRÁVA" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Error" Message="PROBLÉM S PŘIHLÁŠENÍM DO TIA" />
+          </ActivityAction>
+        </Catch>
+      </TryCatch.Catches>
+    </TryCatch>
+    <sads:DebugSymbol.Symbol>d1BDOlxVc2Vyc1xURUNIUk9CT1QzXERvY3VtZW50c1xVaVBhdGhccm9ib3RfQ0tQXzEuMVw1LiBQxZhJSEzDgcWgRU7DjSBETyBUSUEueGFtbCRVA54BDgIBAVYFnAEQAgECWAmQARoCAQWYAQ2YAZsBAgEDWMMBWNQBAgEuXg+NARoCAQaYAXqYAZgBAgEEXxGMASICAQdf+wFfuAICAS1fwwJf2gICAStlF4kBIgIBCGYZiAEkAgEJaxtrlAECASpsG2yzAgIBJG0bbYABAgEibhtyKQIBHHMbdy8CARZ4G38mAgEQgAEbhwErAgEKbOUBbJoCAgEpbKQCbLACAgEnbLQBbMABAgElbUltUwIBI3CZAXCSAgIBIXCdAnCzAgIBH260Am7XAgIBHXWZAXWTAgIBG3WeAnW0AgIBGXPMAnPYAgIBF32ZAX2kAgIBFX2vAn3FAgIBE3pHeksCARJ6Ono+AgERhQF1hQGLAQIBDoABaYABdQIBDIIBSYIBTgIBCw==</sads:DebugSymbol.Symbol>
+  </Sequence>
+  <sap2010:WorkflowViewState.ViewStateManager>
+    <sap2010:ViewStateManager>
+      <sap2010:ViewStateData Id="MaximizeWindow_5" sap:VirtualizedContainerService.HintSize="314,22" />
+      <sap2010:ViewStateData Id="GetSecureCredential_3" sap:VirtualizedContainerService.HintSize="314,22" />
+      <sap2010:ViewStateData Id="Delay_7" sap:VirtualizedContainerService.HintSize="314,22" />
+      <sap2010:ViewStateData Id="TypeInto_11" sap:VirtualizedContainerService.HintSize="314,134" />
+      <sap2010:ViewStateData Id="TypeSecureText_3" sap:VirtualizedContainerService.HintSize="314,131">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="Click_10" sap:VirtualizedContainerService.HintSize="314,106" />
+      <sap2010:ViewStateData Id="ImageFound_7" sap:VirtualizedContainerService.HintSize="314,106" />
+      <sap2010:ViewStateData Id="Sequence_15" sap:VirtualizedContainerService.HintSize="336,907">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="Sequence_16" sap:VirtualizedContainerService.HintSize="358,1031">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="WindowScope_4" sap:VirtualizedContainerService.HintSize="414,1177" />
+      <sap2010:ViewStateData Id="Sequence_17" sap:VirtualizedContainerService.HintSize="436,1301">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="OpenBrowser_2" sap:VirtualizedContainerService.HintSize="450,1400" />
+      <sap2010:ViewStateData Id="LogMessage_1" sap:VirtualizedContainerService.HintSize="314,87" />
+      <sap2010:ViewStateData Id="Catch`1_2" sap:VirtualizedContainerService.HintSize="454,20">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="TryCatch_2" sap:VirtualizedContainerService.HintSize="468,1618" />
+      <sap2010:ViewStateData Id="Sequence_1" sap:VirtualizedContainerService.HintSize="490,1742">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="LOGIN_TO_TIA_1" sap:VirtualizedContainerService.HintSize="530,2102" />
+    </sap2010:ViewStateManager>
+  </sap2010:WorkflowViewState.ViewStateManager>
+</Activity>

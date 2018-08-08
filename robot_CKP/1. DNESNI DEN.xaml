@@ -1,0 +1,449 @@
+﻿<Activity mc:Ignorable="sap sap2010 sads" x:Class="VARIABLES"
+ xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities"
+ xmlns:av="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+ xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+ xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities"
+ xmlns:s="clr-namespace:System;assembly=mscorlib"
+ xmlns:sads="http://schemas.microsoft.com/netfx/2010/xaml/activities/debugger"
+ xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation"
+ xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation"
+ xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib"
+ xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=mscorlib"
+ xmlns:ui="http://schemas.uipath.com/workflow/activities"
+ xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="TODAY_VARIABLES" Type="OutArgument(x:String)" />
+    <x:Property Name="TODAY_FIKTIV_VARIABLES" Type="OutArgument(x:String)" />
+    <x:Property Name="TIA_URL_VARIABLES" Type="OutArgument(x:String)" />
+    <x:Property Name="TIMEOUTSMALL_VARIALBLES" Type="OutArgument(x:Int32)" />
+    <x:Property Name="TIMEOUTMEDIUM_VARIALBES" Type="OutArgument(x:Int32)" />
+    <x:Property Name="TIMEOUTLARGE_VARIABLES" Type="OutArgument(x:Int32)" />
+    <x:Property Name="INPUTFILE_FIKTIV_VARIABLES" Type="OutArgument(x:String)" />
+    <x:Property Name="INPUTFILEPATHMAIL_VARIALBES" Type="OutArgument(x:String)" />
+    <x:Property Name="INPUTFILEPATHFIKTIV_VARIALBES" Type="OutArgument(x:String)" />
+    <x:Property Name="OUTPUTFILEPATHFIKTIV_VARIABLES" Type="OutArgument(x:String)" />
+    <x:Property Name="OUTPUTFILEPATHCPDIREKT_VARIABLES" Type="OutArgument(x:String)" />
+    <x:Property Name="OUTPUTFILEPATHMAKLERI_VARIABLES" Type="OutArgument(x:String)" />
+    <x:Property Name="OUTPUTFILEPATHPOBOCKY_VARIABLES" Type="OutArgument(x:String)" />
+    <x:Property Name="OUTPUTFILEPATHSCREENSHOTY_VARIABLES" Type="OutArgument(x:String)" />
+  </x:Members>
+  <mva:VisualBasic.Settings>
+    <x:Null />
+  </mva:VisualBasic.Settings>
+  <sap2010:WorkflowViewState.IdRef>VARIABLES_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <sco:Collection x:TypeArguments="x:String">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+    </sco:Collection>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <sco:Collection x:TypeArguments="AssemblyReference">
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>UiPath.Core</AssemblyReference>
+      <AssemblyReference>UiPath.Core.Activities</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>PresentationCore</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+    </sco:Collection>
+  </TextExpression.ReferencesForImplementation>
+  <Flowchart DisplayName="VARIABLES" sap2010:WorkflowViewState.IdRef="Flowchart_1">
+    <Flowchart.Variables>
+      <Variable x:TypeArguments="x:Double" Name="timeout_small" />
+      <Variable x:TypeArguments="x:Double" Name="TIMEOUT_MEDIUM" />
+      <Variable x:TypeArguments="x:Double" Name="TIMEOUT_LARGE" />
+    </Flowchart.Variables>
+    <Flowchart.StartNode>
+      <FlowStep x:Name="__ReferenceID2" sap2010:WorkflowViewState.IdRef="FlowStep_30">
+        <TryCatch DisplayName="NAČTI PROMĚNNÉ" sap2010:WorkflowViewState.IdRef="TryCatch_2">
+          <TryCatch.Variables>
+            <Variable x:TypeArguments="x:String" Name="json" />
+          </TryCatch.Variables>
+          <TryCatch.Try>
+            <ui:ExcelApplicationScope Password="{x:Null}" DisplayName="NACTI PROMENNE" sap2010:WorkflowViewState.IdRef="ExcelApplicationScope_2" Visible="False" WorkbookPath="promenne.xlsx">
+              <ui:ExcelApplicationScope.Body>
+                <ActivityAction x:TypeArguments="ui:WorkbookApplication">
+                  <ActivityAction.Argument>
+                    <DelegateInArgument x:TypeArguments="ui:WorkbookApplication" Name="ExcelWorkbookScope" />
+                  </ActivityAction.Argument>
+                  <Sequence DisplayName="Do" sap2010:WorkflowViewState.IdRef="Sequence_3">
+                    <ui:ExcelReadRange DataTable="{x:Null}" AddHeaders="False" DisplayName="Read Range" sap2010:WorkflowViewState.IdRef="ExcelReadRange_2" SheetName="List1">
+                      <ui:ExcelReadRange.Range>
+                        <InArgument x:TypeArguments="x:String">
+                          <Literal x:TypeArguments="x:String" Value="" />
+                        </InArgument>
+                      </ui:ExcelReadRange.Range>
+                    </ui:ExcelReadRange>
+                    <ui:ExcelReadCell Cell="B1" DisplayName="URL" sap2010:WorkflowViewState.IdRef="ExcelReadCell_14" SheetName="List1">
+                      <ui:ExcelReadCell.Result>
+                        <OutArgument x:TypeArguments="x:String">[TIA_URL_VARIABLES]</OutArgument>
+                      </ui:ExcelReadCell.Result>
+                    </ui:ExcelReadCell>
+                    <ui:ExcelReadCell Result="{x:Null}" sap2010:Annotation.AnnotationText="nepouzivam&#xA;" Cell="B2" DisplayName="FIKTIV NAME" sap2010:WorkflowViewState.IdRef="ExcelReadCell_15" SheetName="List1" />
+                    <ui:ExcelReadCell Cell="B3" DisplayName="TIMEOUT SMALL" sap2010:WorkflowViewState.IdRef="ExcelReadCell_16" SheetName="List1">
+                      <ui:ExcelReadCell.Result>
+                        <OutArgument x:TypeArguments="x:Double">[timeout_small]</OutArgument>
+                      </ui:ExcelReadCell.Result>
+                    </ui:ExcelReadCell>
+                    <Assign sap2010:WorkflowViewState.IdRef="Assign_31">
+                      <Assign.To>
+                        <OutArgument x:TypeArguments="x:Int32">[TIMEOUTSMALL_VARIALBLES]</OutArgument>
+                      </Assign.To>
+                      <Assign.Value>
+                        <InArgument x:TypeArguments="x:Int32">[CINT(timeout_small)]</InArgument>
+                      </Assign.Value>
+                    </Assign>
+                    <ui:ExcelReadCell Cell="B4" DisplayName="TIMEOUT MEDIUM" sap2010:WorkflowViewState.IdRef="ExcelReadCell_17" SheetName="List1">
+                      <ui:ExcelReadCell.Result>
+                        <OutArgument x:TypeArguments="x:Double">[TIMEOUT_MEDIUM]</OutArgument>
+                      </ui:ExcelReadCell.Result>
+                    </ui:ExcelReadCell>
+                    <Assign sap2010:WorkflowViewState.IdRef="Assign_32">
+                      <Assign.To>
+                        <OutArgument x:TypeArguments="x:Int32">[TIMEOUTMEDIUM_VARIALBES]</OutArgument>
+                      </Assign.To>
+                      <Assign.Value>
+                        <InArgument x:TypeArguments="x:Int32">[CINT(TIMEOUT_MEDIUM)]</InArgument>
+                      </Assign.Value>
+                    </Assign>
+                    <ui:ExcelReadCell Cell="B5" DisplayName="TIMEOUT LARGE" sap2010:WorkflowViewState.IdRef="ExcelReadCell_18" SheetName="List1">
+                      <ui:ExcelReadCell.Result>
+                        <OutArgument x:TypeArguments="x:Double">[TIMEOUT_LARGE]</OutArgument>
+                      </ui:ExcelReadCell.Result>
+                    </ui:ExcelReadCell>
+                    <Assign sap2010:WorkflowViewState.IdRef="Assign_33">
+                      <Assign.To>
+                        <OutArgument x:TypeArguments="x:Int32">[TIMEOUTLARGE_VARIABLES]</OutArgument>
+                      </Assign.To>
+                      <Assign.Value>
+                        <InArgument x:TypeArguments="x:Int32">[CINT(TIMEOUT_LARGE)]</InArgument>
+                      </Assign.Value>
+                    </Assign>
+                    <ui:ExcelReadCell Cell="B6" DisplayName="INPUT FILEPATH MAIL" sap2010:WorkflowViewState.IdRef="ExcelReadCell_19" SheetName="List1">
+                      <ui:ExcelReadCell.Result>
+                        <OutArgument x:TypeArguments="x:String">[INPUTFILEPATHMAIL_VARIALBES]</OutArgument>
+                      </ui:ExcelReadCell.Result>
+                    </ui:ExcelReadCell>
+                    <ui:ExcelReadCell Cell="B7" DisplayName="INPUT FILEPATH FIKTIV" sap2010:WorkflowViewState.IdRef="ExcelReadCell_20" SheetName="List1">
+                      <ui:ExcelReadCell.Result>
+                        <OutArgument x:TypeArguments="x:String">[INPUTFILEPATHFIKTIV_VARIALBES]</OutArgument>
+                      </ui:ExcelReadCell.Result>
+                    </ui:ExcelReadCell>
+                    <ui:ExcelReadCell Cell="B8" DisplayName="OUTPUT FILEPATH FIKTIV" sap2010:WorkflowViewState.IdRef="ExcelReadCell_21" SheetName="List1">
+                      <ui:ExcelReadCell.Result>
+                        <OutArgument x:TypeArguments="x:String">[OUTPUTFILEPATHFIKTIV_VARIABLES]</OutArgument>
+                      </ui:ExcelReadCell.Result>
+                    </ui:ExcelReadCell>
+                    <ui:ExcelReadCell Cell="B9" DisplayName="OUTPUT FILEPATH CP DIREKT" sap2010:WorkflowViewState.IdRef="ExcelReadCell_22" SheetName="List1">
+                      <ui:ExcelReadCell.Result>
+                        <OutArgument x:TypeArguments="x:String">[OUTPUTFILEPATHCPDIREKT_VARIABLES]</OutArgument>
+                      </ui:ExcelReadCell.Result>
+                    </ui:ExcelReadCell>
+                    <ui:ExcelReadCell Cell="B10" DisplayName="OUTPUT FILEPATH MAKLERI" sap2010:WorkflowViewState.IdRef="ExcelReadCell_23" SheetName="List1">
+                      <ui:ExcelReadCell.Result>
+                        <OutArgument x:TypeArguments="x:String">[OUTPUTFILEPATHMAKLERI_VARIABLES]</OutArgument>
+                      </ui:ExcelReadCell.Result>
+                    </ui:ExcelReadCell>
+                    <ui:ExcelReadCell Cell="B11" DisplayName="OUTPUT FILEPATH POBOCKY" sap2010:WorkflowViewState.IdRef="ExcelReadCell_24" SheetName="List1">
+                      <ui:ExcelReadCell.Result>
+                        <OutArgument x:TypeArguments="x:String">[OUTPUTFILEPATHPOBOCKY_VARIABLES]</OutArgument>
+                      </ui:ExcelReadCell.Result>
+                    </ui:ExcelReadCell>
+                    <ui:ExcelReadCell Cell="B12" DisplayName="OUTPUT FILEPATH SCREENSHOTY" sap2010:WorkflowViewState.IdRef="ExcelReadCell_25" SheetName="List1">
+                      <ui:ExcelReadCell.Result>
+                        <OutArgument x:TypeArguments="x:String">[OUTPUTFILEPATHSCREENSHOTY_VARIABLES]</OutArgument>
+                      </ui:ExcelReadCell.Result>
+                    </ui:ExcelReadCell>
+                  </Sequence>
+                </ActivityAction>
+              </ui:ExcelApplicationScope.Body>
+            </ui:ExcelApplicationScope>
+          </TryCatch.Try>
+          <TryCatch.Catches>
+            <Catch x:TypeArguments="s:Exception" sap2010:WorkflowViewState.IdRef="Catch`1_1">
+              <ActivityAction x:TypeArguments="s:Exception">
+                <ActivityAction.Argument>
+                  <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
+                </ActivityAction.Argument>
+                <Sequence sap2010:WorkflowViewState.IdRef="Sequence_2">
+                  <ui:LogMessage DisplayName="Log message" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Warn" Message="CHYBÍ SOUBOR S PROMĚNNÝMI ČI ZDE NASTALA CHYBA - UŽITY DEFAULTNÍ HODNOTY" />
+                  <Assign DisplayName="TIA URL" sap2010:WorkflowViewState.IdRef="Assign_20">
+                    <Assign.To>
+                      <OutArgument x:TypeArguments="x:String">[TIA_URL_VARIABLES]</OutArgument>
+                    </Assign.To>
+                    <Assign.Value>
+                      <InArgument x:TypeArguments="x:String">http://tia.cpas.cz/forms/frmservlet?config=TIAPROD2</InArgument>
+                    </Assign.Value>
+                  </Assign>
+                  <Assign DisplayName="MALY TIMEOUT" sap2010:WorkflowViewState.IdRef="Assign_21">
+                    <Assign.To>
+                      <OutArgument x:TypeArguments="x:Int32">[cint(TIMEOUTSMALL_VARIALBLES)]</OutArgument>
+                    </Assign.To>
+                    <Assign.Value>
+                      <InArgument x:TypeArguments="x:Int32">2000</InArgument>
+                    </Assign.Value>
+                  </Assign>
+                  <Assign DisplayName="STŘEDNÍ TIMEOUT" sap2010:WorkflowViewState.IdRef="Assign_22">
+                    <Assign.To>
+                      <OutArgument x:TypeArguments="x:Int32">[cint(TIMEOUTMEDIUM_VARIALBES)]</OutArgument>
+                    </Assign.To>
+                    <Assign.Value>
+                      <InArgument x:TypeArguments="x:Int32">5000</InArgument>
+                    </Assign.Value>
+                  </Assign>
+                  <Assign DisplayName="VELKÝ TIMEOUT" sap2010:WorkflowViewState.IdRef="Assign_23">
+                    <Assign.To>
+                      <OutArgument x:TypeArguments="x:Int32">[cint(TIMEOUTLARGE_VARIABLES)]</OutArgument>
+                    </Assign.To>
+                    <Assign.Value>
+                      <InArgument x:TypeArguments="x:Int32">10000</InArgument>
+                    </Assign.Value>
+                  </Assign>
+                  <Assign DisplayName="DISTRIBUČNÍ KANÁLY" sap2010:WorkflowViewState.IdRef="Assign_24">
+                    <Assign.To>
+                      <OutArgument x:TypeArguments="x:String">[INPUTFILEPATHMAIL_VARIALBES]</OutArgument>
+                    </Assign.To>
+                    <Assign.Value>
+                      <InArgument x:TypeArguments="x:String">\\sfsl01\dokumenty\OSSA\ČKP\Robot\Distribuční seznamy\Distribuční seznamy.xlsx</InArgument>
+                    </Assign.Value>
+                  </Assign>
+                  <Assign DisplayName="CESTA K SOUBORU FIKTIV" sap2010:WorkflowViewState.IdRef="Assign_25">
+                    <Assign.To>
+                      <OutArgument x:TypeArguments="x:String">[INPUTFILEPATHFIKTIV_VARIALBES]</OutArgument>
+                    </Assign.To>
+                    <Assign.Value>
+                      <InArgument x:TypeArguments="x:String">\\sfsl01\dokumenty\OSSA\ČKP\Robot\</InArgument>
+                    </Assign.Value>
+                  </Assign>
+                  <Assign DisplayName="CESTA, KAM ULOŽIT FILE FIKTIV" sap2010:WorkflowViewState.IdRef="Assign_26">
+                    <Assign.To>
+                      <OutArgument x:TypeArguments="x:String">[OUTPUTFILEPATHFIKTIV_VARIABLES]</OutArgument>
+                    </Assign.To>
+                    <Assign.Value>
+                      <InArgument x:TypeArguments="x:String">\\sfsl01\dokumenty\OSSA\ČKP\Robot\Zpracovaná data\</InArgument>
+                    </Assign.Value>
+                  </Assign>
+                  <Assign DisplayName="CESTA, KAM ULOŽIT ČP DIREKT" sap2010:WorkflowViewState.IdRef="Assign_27">
+                    <Assign.To>
+                      <OutArgument x:TypeArguments="x:String">[OUTPUTFILEPATHCPDIREKT_VARIABLES]</OutArgument>
+                    </Assign.To>
+                    <Assign.Value>
+                      <InArgument x:TypeArguments="x:String">\\sfsl01\dokumenty\OSSA\ČKP\Robot\Odeslané maily\</InArgument>
+                    </Assign.Value>
+                  </Assign>
+                  <Assign DisplayName="CESTA, KAM ULOŽIT MAKLÉŘE" sap2010:WorkflowViewState.IdRef="Assign_28">
+                    <Assign.To>
+                      <OutArgument x:TypeArguments="x:String">[OUTPUTFILEPATHMAKLERI_VARIABLES]</OutArgument>
+                    </Assign.To>
+                    <Assign.Value>
+                      <InArgument x:TypeArguments="x:String">\\sfsl01\dokumenty\OSSA\ČKP\Robot\Odeslané maily\</InArgument>
+                    </Assign.Value>
+                  </Assign>
+                  <Assign DisplayName="CESTA, KAM ULOŽIT POBOČKY" sap2010:WorkflowViewState.IdRef="Assign_29">
+                    <Assign.To>
+                      <OutArgument x:TypeArguments="x:String">[OUTPUTFILEPATHPOBOCKY_VARIABLES]</OutArgument>
+                    </Assign.To>
+                    <Assign.Value>
+                      <InArgument x:TypeArguments="x:String">\\sfsl01\dokumenty\OSSA\ČKP\Robot\Odeslané maily\</InArgument>
+                    </Assign.Value>
+                  </Assign>
+                  <Assign DisplayName="CESTA, KAM ULOŽIT SCREENSHOTY" sap2010:WorkflowViewState.IdRef="Assign_30">
+                    <Assign.To>
+                      <OutArgument x:TypeArguments="x:String">[OUTPUTFILEPATHSCREENSHOTY_VARIABLES]</OutArgument>
+                    </Assign.To>
+                    <Assign.Value>
+                      <InArgument x:TypeArguments="x:String">\\sfsl01\dokumenty\OSSA\ČKP\Robot\Chybové obrazovky\</InArgument>
+                    </Assign.Value>
+                  </Assign>
+                </Sequence>
+              </ActivityAction>
+            </Catch>
+          </TryCatch.Catches>
+        </TryCatch>
+        <FlowStep.Next>
+          <FlowStep x:Name="__ReferenceID0" sap2010:WorkflowViewState.IdRef="FlowStep_1">
+            <Assign DisplayName="NASTAV DNESNI DEN" sap2010:WorkflowViewState.IdRef="Assign_1">
+              <Assign.To>
+                <OutArgument x:TypeArguments="x:String">[TODAY_VARIABLES]</OutArgument>
+              </Assign.To>
+              <Assign.Value>
+                <InArgument x:TypeArguments="x:String">[datetime.Now.ToString("yyyyMMdd")]</InArgument>
+              </Assign.Value>
+            </Assign>
+            <FlowStep.Next>
+              <FlowStep x:Name="__ReferenceID1" sap2010:WorkflowViewState.IdRef="FlowStep_2">
+                <Assign DisplayName="NASTAV DNESNI CESTU SOUBORU" sap2010:WorkflowViewState.IdRef="Assign_2">
+                  <Assign.To>
+                    <OutArgument x:TypeArguments="x:String">[TODAY_FIKTIV_VARIABLES]</OutArgument>
+                  </Assign.To>
+                  <Assign.Value>
+                    <InArgument x:TypeArguments="x:String">[INPUTFILEPATHFIKTIV_VARIALBES +"FIKTIV_"+TODAY_VARIABLES+".xlsb"]</InArgument>
+                  </Assign.Value>
+                </Assign>
+              </FlowStep>
+            </FlowStep.Next>
+          </FlowStep>
+        </FlowStep.Next>
+      </FlowStep>
+    </Flowchart.StartNode>
+    <x:Reference>__ReferenceID0</x:Reference>
+    <x:Reference>__ReferenceID1</x:Reference>
+    <x:Reference>__ReferenceID2</x:Reference>
+    <sads:DebugSymbol.Symbol>d0NDOlxVc2Vyc1xURUNIUk9CT1QzXERvY3VtZW50c1xVaVBhdGhcUk9CT1RcUk9CT1RcMS4gRE5FU05JIERFTi54YW1salADwwIPAgEBWAmkAhQCAQynAg2uAhYCAQixAhG4AhoCAQJdDb4BKAIBPMYBEaACHAIBDawCOKwCWwIBC6kCOakCSgIBCbYCPLYCfgIBBbMCPbMCVQIBA12vAV2+AQMBigFjE7sBHgIBPccBE8cBzQECATrIARPPARwCATbQARPXARwCATLYARPfARwCAS7gARPnARwCASroARPvARwCASbwARP3ARwCASL4ARP/ARwCAR6AAhOHAhwCARqIAhOPAhwCARaQAhOXAhwCARKYAhOfAhwCAQ5kFWopAwGHAWsVbygDAYIBcBVw2AECAX9xFXUoAgF6dhV9HgIBdX4VggEoAgFwgwEVigEeAgFriwEVjwEoAgFmkAEVlwEeAgFhmAEVnAEoAgFcnQEVoQEoAgFXogEVpgEoAgFSpwEVqwEoAgFNrAEVsAEoAgFIsQEVtQEoAgFDtgEVugEoAgE+xwGAAccBygECATvNAT7NAXECATnKAT/KAVICATfVAT3VAUECATXSAT7SAV0CATPdAT3dAUECATHaAT7aAV0CAS/lAT3lAUICAS3iAT7iAVwCASvtAT7tAYwBAgEp6gE/6gFcAgEn9QE+9QFgAgEl8gE/8gFeAgEj/QE+/QFwAgEh+gE/+gFfAgEfhQI+hQJvAgEdggI/ggJhAgEbjQI+jQJvAgEZigI/igJgAgEXlQI+lQJvAgEVkgI/kgJgAgETnQI+nQJyAgERmgI/mgJkAgEPZxtnSgMBiQFkpgFkrQEDAYgBayxrMAMBhgFtQW1UAwGEAWuAAWuHAQMBgwFwcnB2AwGBAXDOAXDVAQMBgAFxLHEwAgF+c0FzUAIBfHGKAXGRAQIBe3s/e1QCAXh4QHhZAgF2fix+MAIBdIABQYABUQIBcn6LAX6SAQIBcYgBP4gBVQIBboUBQIUBWQIBbIsBLIsBMAIBao0BQY0BUAIBaIsBigGLAZEBAgFnlQE/lQFUAgFkkgFAkgFYAgFimAEsmAEwAgFgmgFBmgFeAgFemAGQAZgBlwECAV2dASydATACAVufAUGfAWACAVmdAZIBnQGZAQIBWKIBLKIBMAIBVqQBQaQBYQIBVKIBkwGiAZoBAgFTpwEspwEwAgFRqQFBqQFjAgFPpwGWAacBnQECAU6sASysATECAUyuAUGuAWICAUqsAZUBrAGcAQIBSbEBLLEBMQIBR7MBQbMBYgIBRbEBlQGxAZwBAgFEtgEstgExAgFCuAFBuAFmAgFAtgGZAbYBoAECAT8=</sads:DebugSymbol.Symbol>
+  </Flowchart>
+  <sap2010:WorkflowViewState.ViewStateManager>
+    <sap2010:ViewStateManager>
+      <sap2010:ViewStateData Id="ExcelReadRange_2" sap:VirtualizedContainerService.HintSize="314,59" />
+      <sap2010:ViewStateData Id="ExcelReadCell_14" sap:VirtualizedContainerService.HintSize="314,59" />
+      <sap2010:ViewStateData Id="ExcelReadCell_15" sap:VirtualizedContainerService.HintSize="314,59">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsAnnotationDocked">False</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="ExcelReadCell_16" sap:VirtualizedContainerService.HintSize="314,59" />
+      <sap2010:ViewStateData Id="Assign_31" sap:VirtualizedContainerService.HintSize="314,59" />
+      <sap2010:ViewStateData Id="ExcelReadCell_17" sap:VirtualizedContainerService.HintSize="314,59" />
+      <sap2010:ViewStateData Id="Assign_32" sap:VirtualizedContainerService.HintSize="314,59" />
+      <sap2010:ViewStateData Id="ExcelReadCell_18" sap:VirtualizedContainerService.HintSize="314,59" />
+      <sap2010:ViewStateData Id="Assign_33" sap:VirtualizedContainerService.HintSize="314,59" />
+      <sap2010:ViewStateData Id="ExcelReadCell_19" sap:VirtualizedContainerService.HintSize="314,59" />
+      <sap2010:ViewStateData Id="ExcelReadCell_20" sap:VirtualizedContainerService.HintSize="314,59" />
+      <sap2010:ViewStateData Id="ExcelReadCell_21" sap:VirtualizedContainerService.HintSize="314,59" />
+      <sap2010:ViewStateData Id="ExcelReadCell_22" sap:VirtualizedContainerService.HintSize="314,59" />
+      <sap2010:ViewStateData Id="ExcelReadCell_23" sap:VirtualizedContainerService.HintSize="314,59" />
+      <sap2010:ViewStateData Id="ExcelReadCell_24" sap:VirtualizedContainerService.HintSize="314,59" />
+      <sap2010:ViewStateData Id="ExcelReadCell_25" sap:VirtualizedContainerService.HintSize="314,59" />
+      <sap2010:ViewStateData Id="Sequence_3" sap:VirtualizedContainerService.HintSize="336,1668">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="ExcelApplicationScope_2" sap:VirtualizedContainerService.HintSize="414,1777">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="LogMessage_1" sap:VirtualizedContainerService.HintSize="314,87" />
+      <sap2010:ViewStateData Id="Assign_20" sap:VirtualizedContainerService.HintSize="314,59" />
+      <sap2010:ViewStateData Id="Assign_21" sap:VirtualizedContainerService.HintSize="314,59" />
+      <sap2010:ViewStateData Id="Assign_22" sap:VirtualizedContainerService.HintSize="314,59" />
+      <sap2010:ViewStateData Id="Assign_23" sap:VirtualizedContainerService.HintSize="314,59" />
+      <sap2010:ViewStateData Id="Assign_24" sap:VirtualizedContainerService.HintSize="314,59" />
+      <sap2010:ViewStateData Id="Assign_25" sap:VirtualizedContainerService.HintSize="314,59" />
+      <sap2010:ViewStateData Id="Assign_26" sap:VirtualizedContainerService.HintSize="314,59" />
+      <sap2010:ViewStateData Id="Assign_27" sap:VirtualizedContainerService.HintSize="314,59" />
+      <sap2010:ViewStateData Id="Assign_28" sap:VirtualizedContainerService.HintSize="314,59" />
+      <sap2010:ViewStateData Id="Assign_29" sap:VirtualizedContainerService.HintSize="314,59" />
+      <sap2010:ViewStateData Id="Assign_30" sap:VirtualizedContainerService.HintSize="314,59" />
+      <sap2010:ViewStateData Id="Sequence_2" sap:VirtualizedContainerService.HintSize="336,1296">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="Catch`1_1" sap:VirtualizedContainerService.HintSize="400,20">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="TryCatch_2" sap:VirtualizedContainerService.HintSize="432,1995">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="Assign_1" sap:VirtualizedContainerService.HintSize="242,59">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="Assign_2" sap:VirtualizedContainerService.HintSize="242,59">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="FlowStep_2">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <av:Point x:Key="ShapeLocation">179,360.5</av:Point>
+            <av:Size x:Key="ShapeSize">242,59</av:Size>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="FlowStep_1">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <av:Point x:Key="ShapeLocation">179,226.5</av:Point>
+            <av:Size x:Key="ShapeSize">242,59</av:Size>
+            <av:PointCollection x:Key="ConnectorLocation">300,285.5 300,360.5</av:PointCollection>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="FlowStep_30">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <av:Point x:Key="ShapeLocation">200,127.5</av:Point>
+            <av:Size x:Key="ShapeSize">200,49</av:Size>
+            <av:PointCollection x:Key="ConnectorLocation">300,176.5 300,226.5</av:PointCollection>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="Flowchart_1" sap:VirtualizedContainerService.HintSize="614,636">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+            <av:Point x:Key="ShapeLocation">270,2.5</av:Point>
+            <av:Size x:Key="ShapeSize">60,75</av:Size>
+            <av:PointCollection x:Key="ConnectorLocation">300,77.5 300,127.5</av:PointCollection>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="VARIABLES_1" sap:VirtualizedContainerService.HintSize="654,716" />
+    </sap2010:ViewStateManager>
+  </sap2010:WorkflowViewState.ViewStateManager>
+</Activity>

@@ -1,0 +1,741 @@
+﻿<Activity mc:Ignorable="sap sap2010 sads" x:Class="EW_TIA3"
+ xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities"
+ xmlns:av="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+ xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+ xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities"
+ xmlns:s="clr-namespace:System;assembly=mscorlib"
+ xmlns:sads="http://schemas.microsoft.com/netfx/2010/xaml/activities/debugger"
+ xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation"
+ xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation"
+ xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib"
+ xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=mscorlib"
+ xmlns:ui="http://schemas.uipath.com/workflow/activities"
+ xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="ECV_TIA3" Type="InArgument(x:String)" />
+    <x:Property Name="TYPVOZIDLA_TIA3" Type="OutArgument(ui:GenericValue)" />
+    <x:Property Name="PS_TIA3" Type="InArgument(x:String)" />
+    <x:Property Name="TIMEOUT_SMALL_TIA3" Type="InArgument(x:Int32)" />
+  </x:Members>
+  <mva:VisualBasic.Settings>
+    <x:Null />
+  </mva:VisualBasic.Settings>
+  <sap2010:WorkflowViewState.IdRef>EW_TIA3_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <sco:Collection x:TypeArguments="x:String">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>System.Windows.Controls</x:String>
+      <x:String>System.Windows.Documents</x:String>
+      <x:String>System.Windows.Shapes</x:String>
+      <x:String>System.Windows.Shell</x:String>
+      <x:String>System.Windows.Navigation</x:String>
+      <x:String>System.Windows.Data</x:String>
+      <x:String>System.Windows</x:String>
+      <x:String>System.Windows.Controls.Primitives</x:String>
+      <x:String>System.Windows.Media.Animation</x:String>
+      <x:String>System.Windows.Input</x:String>
+      <x:String>System.Windows.Media</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Windows.Media.Effects</x:String>
+      <x:String>System.Windows.Media.Imaging</x:String>
+      <x:String>System.Windows.Automation</x:String>
+      <x:String>System.Windows.Ink</x:String>
+      <x:String>System.Windows.Media.Media3D</x:String>
+      <x:String>System.Windows.Media.TextFormatting</x:String>
+      <x:String>System.Windows.Forms.Integration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>UiPath.Excel.Activities</x:String>
+      <x:String>UiPath.CSV.Activities</x:String>
+      <x:String>UiPath.Excel</x:String>
+      <x:String>UiPath.CSV</x:String>
+      <x:String>UiPath.Mail.Activities</x:String>
+      <x:String>UiPath.Mail.Exchange.Activities</x:String>
+      <x:String>UiPath.Mail.IMAP.Activities</x:String>
+      <x:String>UiPath.Mail.Outlook.Activities</x:String>
+      <x:String>UiPath.Mail.POP3.Activities</x:String>
+      <x:String>UiPath.Mail.SMTP.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>Microsoft.VisualBasic.CompilerServices</x:String>
+    </sco:Collection>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <sco:Collection x:TypeArguments="AssemblyReference">
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>PresentationCore</AssemblyReference>
+      <AssemblyReference>WindowsFormsIntegration</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>UiPath.Core</AssemblyReference>
+      <AssemblyReference>UiPath.Core.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Excel</AssemblyReference>
+      <AssemblyReference>UiPath.Mail.Activities</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+    </sco:Collection>
+  </TextExpression.ReferencesForImplementation>
+  <Flowchart sap2010:WorkflowViewState.IdRef="Flowchart_3">
+    <Flowchart.Variables>
+      <Variable x:TypeArguments="x:Boolean" Name="BLANK_VIN_IMAGE" />
+    </Flowchart.Variables>
+    <Flowchart.StartNode>
+      <FlowStep x:Name="__ReferenceID0" sap2010:WorkflowViewState.IdRef="FlowStep_30">
+        <Sequence DisplayName="ZÁKLADNÍ VS INFORMAČNÍ TEXT" sap2010:WorkflowViewState.IdRef="Sequence_85">
+          <Sequence.Variables>
+            <Variable x:TypeArguments="x:Boolean" Name="found" />
+          </Sequence.Variables>
+          <ui:TextExists DisplayName="ZJISTI ZDA EXISTUJE TEXT ZÁKLADNÍ ÚDAJE" FormattedText="False" sap2010:WorkflowViewState.IdRef="TextExists_11" Occurrence="1" Result="[found]" Text="Základní údaje">
+            <ui:TextExists.Target>
+              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="bdab70bf4eb4527abfdddb73d2088533" Selector="&lt;html title='TIA*' /&gt;&lt;wnd cls='SunAwtCanvas' /&gt;&lt;java name='ČP | Transakce s PS F1090*' role='internal frame' /&gt;" WaitForReady="INTERACTIVE" />
+            </ui:TextExists.Target>
+          </ui:TextExists>
+          <If Condition="[found = true]" sap2010:WorkflowViewState.IdRef="If_9">
+            <If.Then>
+              <Sequence sap2010:WorkflowViewState.IdRef="Sequence_72">
+                <ui:ClickText ContinueOnError="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" ClickType="CLICK_DOUBLE" DisplayName="POKUD ZÁKLADNÍ ÚDAJE EXISTUJE TAK NA NĚ KLIKNI" FormattedText="False" sap2010:WorkflowViewState.IdRef="ClickText_19" KeyModifiers="None" MouseButton="BTN_LEFT" Occurrence="1" SendWindowMessages="False" Text="Základní údaje">
+                  <ui:ClickText.CursorPosition>
+                    <ui:CursorPosition Position="Center">
+                      <ui:CursorPosition.OffsetX>
+                        <InArgument x:TypeArguments="x:Int32" />
+                      </ui:CursorPosition.OffsetX>
+                      <ui:CursorPosition.OffsetY>
+                        <InArgument x:TypeArguments="x:Int32" />
+                      </ui:CursorPosition.OffsetY>
+                    </ui:CursorPosition>
+                  </ui:ClickText.CursorPosition>
+                  <ui:ClickText.Target>
+                    <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="6278c497a1dbbcdf22248b2e2f37914f" Selector="&lt;html title='TIA*' /&gt;&lt;wnd cls='SunAwtCanvas' /&gt;&lt;java name='ČP | Transakce s PS F1090*' role='internal frame' /&gt;&lt;java idx='9' role='panel' /&gt;" WaitForReady="INTERACTIVE" />
+                  </ui:ClickText.Target>
+                </ui:ClickText>
+              </Sequence>
+            </If.Then>
+            <If.Else>
+              <Sequence sap2010:WorkflowViewState.IdRef="Sequence_73">
+                <ui:ClickText ContinueOnError="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" ClickType="CLICK_DOUBLE" DisplayName="V OPAČNÉM PŘÍPADĚ KLIKNI NA INFORMAČNÍ POJIŠTĚNÍ" FormattedText="False" sap2010:WorkflowViewState.IdRef="ClickText_20" KeyModifiers="None" MouseButton="BTN_LEFT" Occurrence="1" SendWindowMessages="False" Text="Informační pojištění">
+                  <ui:ClickText.CursorPosition>
+                    <ui:CursorPosition Position="Center">
+                      <ui:CursorPosition.OffsetX>
+                        <InArgument x:TypeArguments="x:Int32" />
+                      </ui:CursorPosition.OffsetX>
+                      <ui:CursorPosition.OffsetY>
+                        <InArgument x:TypeArguments="x:Int32" />
+                      </ui:CursorPosition.OffsetY>
+                    </ui:CursorPosition>
+                  </ui:ClickText.CursorPosition>
+                  <ui:ClickText.Target>
+                    <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="6278c497a1dbbcdf22248b2e2f37914f" Selector="&lt;html title='TIA*' /&gt;&lt;wnd cls='SunAwtCanvas' /&gt;&lt;java name='ČP | Transakce s PS F1090*' role='internal frame' /&gt;&lt;java idx='9' role='panel' /&gt;" WaitForReady="INTERACTIVE" />
+                  </ui:ClickText.Target>
+                </ui:ClickText>
+              </Sequence>
+            </If.Else>
+          </If>
+          <Switch x:TypeArguments="x:String" sap2010:Annotation.AnnotationText="RELATIVNI KLIKANI&#xA;pro an al af nelze bez mezikliku kliknout na tlacitko karta vozidla" DisplayName="ROZVĚTVENÍ (DEFAULT JE PRO SMLOUVU AH)" Expression="[PS_TIA3]" sap2010:WorkflowViewState.IdRef="Switch`1_6">
+            <Switch.Default>
+              <ui:WindowScope ApplicationWindow="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" Window="{x:Null}" DisplayName="V OKNĚ TIA*" sap2010:WorkflowViewState.IdRef="WindowScope_47" InformativeScreenshot="c911c1136ee2856e46b87d977469fa23" Selector="&lt;wnd app='iexplore.exe' cls='IEFrame' title='TIA*' /&gt;">
+                <ui:WindowScope.Body>
+                  <ActivityAction x:TypeArguments="x:Object">
+                    <ActivityAction.Argument>
+                      <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
+                    </ActivityAction.Argument>
+                    <Sequence DisplayName="Do" sap2010:WorkflowViewState.IdRef="Sequence_95">
+                      <ui:ClickImage ContinueOnError="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="KLIKNI NA TLAČÍTKO KARTA VOZIDLA" sap2010:WorkflowViewState.IdRef="ClickImage_33" KeyModifiers="None" MouseButton="BTN_LEFT" SendWindowMessages="False">
+                        <ui:ClickImage.CursorPosition>
+                          <ui:CursorPosition OffsetX="0" OffsetY="0" Position="Center" />
+                        </ui:ClickImage.CursorPosition>
+                        <ui:ClickImage.Image>
+                          <ui:ImageTarget Image="{x:Null}" Accuracy="0.5" TargetImageBase64="iVBORw0KGgoAAAANSUhEUgAAAIkAAAAaCAYAAACD1n8kAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAE/SURBVGhD7ZlRCsIwEER7U0/hScQbeAd/c4DeqRJhYZxusm0pJLFTeCQ7sxslnQ/BKaW0CFFDIREhCokIUUhEiEIiQlYh0aOHM/ETEnvmeRYX5fl6f8FcrELiDYprcbs/FBJRRyERIUOEZJqmTVqNvf1nUfpc01t9rz0MGZIjF9vby1BITgYv0rvUrBmoscc+awjr0Sxq6NmKPah7Pmo9MFRIvAss1dxb2nu1p1m9d9aby3vW0ffqlgwTktJlol/r82oEPezBlfd76i163iOmt2b43yQl78gM450VzZbqSC/5PfBXIcl7q4/MeNTO4do7xzTuY73k98CQIWENL5VXr4dr7kU8z2bRQw09W7EH9cjvgSFCItqikIiQMCT5H0BvUFyD/P6rIclYk7gunIlVSIRgFBIRopCIEIVEBKTlA3NOsbpVJZq9AAAAAElFTkSuQmCC" />
+                        </ui:ClickImage.Image>
+                        <ui:ClickImage.Target>
+                          <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Selector="{x:Null}" TimeoutMS="{x:Null}" WaitForReady="INTERACTIVE" />
+                        </ui:ClickImage.Target>
+                      </ui:ClickImage>
+                    </Sequence>
+                  </ActivityAction>
+                </ui:WindowScope.Body>
+              </ui:WindowScope>
+            </Switch.Default>
+            <ui:WindowScope ApplicationWindow="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" Window="{x:Null}" x:Key="AS" DisplayName="V OKNĚ TIA*" sap2010:WorkflowViewState.IdRef="WindowScope_49" InformativeScreenshot="c911c1136ee2856e46b87d977469fa23" Selector="&lt;wnd app='iexplore.exe' cls='IEFrame' title='TIA*' /&gt;">
+              <ui:WindowScope.Body>
+                <ActivityAction x:TypeArguments="x:Object">
+                  <ActivityAction.Argument>
+                    <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
+                  </ActivityAction.Argument>
+                  <Sequence DisplayName="Do" sap2010:WorkflowViewState.IdRef="Sequence_97">
+                    <ui:ClickImage ContinueOnError="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="KLIKNI NA TLAČÍTKO KARTA VOZIDLA" sap2010:WorkflowViewState.IdRef="ClickImage_35" KeyModifiers="None" MouseButton="BTN_LEFT" SendWindowMessages="False">
+                      <ui:ClickImage.CursorPosition>
+                        <ui:CursorPosition OffsetX="0" OffsetY="0" Position="Center" />
+                      </ui:ClickImage.CursorPosition>
+                      <ui:ClickImage.Image>
+                        <ui:ImageTarget Image="{x:Null}" Accuracy="0.6" TargetImageBase64="iVBORw0KGgoAAAANSUhEUgAAAIkAAAAaCAYAAACD1n8kAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAE/SURBVGhD7ZlRCsIwEER7U0/hScQbeAd/c4DeqRJhYZxusm0pJLFTeCQ7sxslnQ/BKaW0CFFDIREhCokIUUhEiEIiQlYh0aOHM/ETEnvmeRYX5fl6f8FcrELiDYprcbs/FBJRRyERIUOEZJqmTVqNvf1nUfpc01t9rz0MGZIjF9vby1BITgYv0rvUrBmoscc+awjr0Sxq6NmKPah7Pmo9MFRIvAss1dxb2nu1p1m9d9aby3vW0ffqlgwTktJlol/r82oEPezBlfd76i163iOmt2b43yQl78gM450VzZbqSC/5PfBXIcl7q4/MeNTO4do7xzTuY73k98CQIWENL5VXr4dr7kU8z2bRQw09W7EH9cjvgSFCItqikIiQMCT5H0BvUFyD/P6rIclYk7gunIlVSIRgFBIRopCIEIVEBKTlA3NOsbpVJZq9AAAAAElFTkSuQmCC" />
+                      </ui:ClickImage.Image>
+                      <ui:ClickImage.Target>
+                        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Selector="{x:Null}" TimeoutMS="{x:Null}" WaitForReady="INTERACTIVE" />
+                      </ui:ClickImage.Target>
+                    </ui:ClickImage>
+                  </Sequence>
+                </ActivityAction>
+              </ui:WindowScope.Body>
+            </ui:WindowScope>
+            <Sequence x:Key="AN" sap2010:WorkflowViewState.IdRef="Sequence_108">
+              <ui:SendHotkey DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" Activate="True" ClickBeforeTyping="False" DisplayName="ZMÁČKNI TABULÁTOR" EmptyField="False" sap2010:WorkflowViewState.IdRef="SendHotkey_4" Key="tab" KeyModifiers="None" SendWindowMessages="False" SpecialKey="True">
+                <ui:SendHotkey.Target>
+                  <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="111ccf088211727573f3610f91de854e" Selector="&lt;html title='TIA* - Česká pojišťovna' /&gt;" WaitForReady="INTERACTIVE" />
+                </ui:SendHotkey.Target>
+              </ui:SendHotkey>
+              <ui:WindowScope ApplicationWindow="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" Window="{x:Null}" DisplayName="V OKNĚ TIA*" sap2010:WorkflowViewState.IdRef="WindowScope_53" InformativeScreenshot="db9c8101c6f9ff93b0060321469a6d55" Selector="&lt;html title='TIA* - Česká pojišťovna' /&gt;">
+                <ui:WindowScope.Body>
+                  <ActivityAction x:TypeArguments="x:Object">
+                    <ActivityAction.Argument>
+                      <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
+                    </ActivityAction.Argument>
+                    <Sequence DisplayName="Do" sap2010:WorkflowViewState.IdRef="Sequence_101">
+                      <ui:ClickImage ContinueOnError="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="KLIKNI RELATIVNĚ OD INFORMACÍ O VOZIDLE" sap2010:WorkflowViewState.IdRef="ClickImage_39" KeyModifiers="None" MouseButton="BTN_LEFT" SendWindowMessages="False">
+                        <ui:ClickImage.CursorPosition>
+                          <ui:CursorPosition OffsetX="67" OffsetY="15" Position="BottomLeft" />
+                        </ui:ClickImage.CursorPosition>
+                        <ui:ClickImage.Image>
+                          <ui:ImageTarget Image="{x:Null}" Accuracy="0.5" TargetImageBase64="iVBORw0KGgoAAAANSUhEUgAAAGQAAAARCAYAAAArDQkmAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAEPSURBVFhH7ZFBjgIxDATz/zs/4A9c87OBgBy1mnbiGQ5rab1SKXa5PSvh1ns/ijzUQZJRB0lGHSQZ7XZ/fIrWvoaKaO6/4P0e5s/+Xu14/b2LwGIdI87lg8wCPoDgPOq8l51hs189ssuwx17tosOZvZhBr+boGHkQc9x7Nfbj5Zya8Wtc9St3JnN2V+2Nmj3OVT/9LAKLXo39lf1RIzxHOKty7FQGPc53u16/8+NlMG/8+UG8PHvD84j3TUb9r92u1+88zz1SHWTUymPv+ZVTGWOXxV59xxzn2ONc9dPPIrCoZsYqE6mtVx7dyiORzEDN1S46nNmLGfRqjo6ZBylyUAdJRh0kGXWQZNRBUtGPJ64BnqdbmhnOAAAAAElFTkSuQmCC" />
+                        </ui:ClickImage.Image>
+                        <ui:ClickImage.Target>
+                          <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Selector="{x:Null}" TimeoutMS="{x:Null}" WaitForReady="INTERACTIVE" />
+                        </ui:ClickImage.Target>
+                      </ui:ClickImage>
+                    </Sequence>
+                  </ActivityAction>
+                </ui:WindowScope.Body>
+              </ui:WindowScope>
+            </Sequence>
+            <Sequence x:Key="AL" sap2010:WorkflowViewState.IdRef="Sequence_116">
+              <ui:SendHotkey DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" Activate="True" ClickBeforeTyping="False" DisplayName="ZMÁČKNI TABULÁTOR" EmptyField="False" sap2010:WorkflowViewState.IdRef="SendHotkey_5" Key="tab" KeyModifiers="None" SendWindowMessages="False" SpecialKey="True">
+                <ui:SendHotkey.Target>
+                  <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="111ccf088211727573f3610f91de854e" Selector="&lt;html title='TIA* - Česká pojišťovna' /&gt;" WaitForReady="INTERACTIVE" />
+                </ui:SendHotkey.Target>
+              </ui:SendHotkey>
+              <ui:WindowScope ApplicationWindow="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" Window="{x:Null}" DisplayName="V OKNĚ TIA*" sap2010:WorkflowViewState.IdRef="WindowScope_62" InformativeScreenshot="db9c8101c6f9ff93b0060321469a6d55" Selector="&lt;html title='TIA* - Česká pojišťovna' /&gt;">
+                <ui:WindowScope.Body>
+                  <ActivityAction x:TypeArguments="x:Object">
+                    <ActivityAction.Argument>
+                      <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
+                    </ActivityAction.Argument>
+                    <Sequence DisplayName="Do" sap2010:WorkflowViewState.IdRef="Sequence_115">
+                      <ui:ClickImage ContinueOnError="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="KLIKNI NA TLAČÍTKO RELATIVNĚ OD TEXTU INFORMACE O VOZIDLE" sap2010:WorkflowViewState.IdRef="ClickImage_47" KeyModifiers="None" MouseButton="BTN_LEFT" SendWindowMessages="False">
+                        <ui:ClickImage.CursorPosition>
+                          <ui:CursorPosition OffsetX="67" OffsetY="15" Position="BottomLeft" />
+                        </ui:ClickImage.CursorPosition>
+                        <ui:ClickImage.Image>
+                          <ui:ImageTarget Image="{x:Null}" Accuracy="0.5" TargetImageBase64="iVBORw0KGgoAAAANSUhEUgAAAGQAAAARCAYAAAArDQkmAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAEPSURBVFhH7ZFBjgIxDATz/zs/4A9c87OBgBy1mnbiGQ5rab1SKXa5PSvh1ns/ijzUQZJRB0lGHSQZ7XZ/fIrWvoaKaO6/4P0e5s/+Xu14/b2LwGIdI87lg8wCPoDgPOq8l51hs189ssuwx17tosOZvZhBr+boGHkQc9x7Nfbj5Zya8Wtc9St3JnN2V+2Nmj3OVT/9LAKLXo39lf1RIzxHOKty7FQGPc53u16/8+NlMG/8+UG8PHvD84j3TUb9r92u1+88zz1SHWTUymPv+ZVTGWOXxV59xxzn2ONc9dPPIrCoZsYqE6mtVx7dyiORzEDN1S46nNmLGfRqjo6ZBylyUAdJRh0kGXWQZNRBUtGPJ64BnqdbmhnOAAAAAElFTkSuQmCC" />
+                        </ui:ClickImage.Image>
+                        <ui:ClickImage.Target>
+                          <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Selector="{x:Null}" TimeoutMS="{x:Null}" WaitForReady="INTERACTIVE" />
+                        </ui:ClickImage.Target>
+                      </ui:ClickImage>
+                    </Sequence>
+                  </ActivityAction>
+                </ui:WindowScope.Body>
+              </ui:WindowScope>
+            </Sequence>
+            <Sequence x:Key="AF" sap2010:WorkflowViewState.IdRef="Sequence_118">
+              <ui:SendHotkey DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" Activate="True" ClickBeforeTyping="False" DisplayName="ZMÁČKNI TABULÁTOR" EmptyField="False" sap2010:WorkflowViewState.IdRef="SendHotkey_6" Key="tab" KeyModifiers="None" SendWindowMessages="False" SpecialKey="True">
+                <ui:SendHotkey.Target>
+                  <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="111ccf088211727573f3610f91de854e" Selector="&lt;html title='TIA* - Česká pojišťovna' /&gt;" WaitForReady="INTERACTIVE" />
+                </ui:SendHotkey.Target>
+              </ui:SendHotkey>
+              <ui:WindowScope ApplicationWindow="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" Window="{x:Null}" DisplayName="V OKNĚ TIA*" sap2010:WorkflowViewState.IdRef="WindowScope_63" InformativeScreenshot="db9c8101c6f9ff93b0060321469a6d55" Selector="&lt;html title='TIA* - Česká pojišťovna' /&gt;">
+                <ui:WindowScope.Body>
+                  <ActivityAction x:TypeArguments="x:Object">
+                    <ActivityAction.Argument>
+                      <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
+                    </ActivityAction.Argument>
+                    <Sequence DisplayName="Do" sap2010:WorkflowViewState.IdRef="Sequence_117">
+                      <ui:ClickImage ContinueOnError="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="KLIKNI NA TLAČÍTKO RELATIVNĚ OD TEXTU INFORMACE O VOZIDLE" sap2010:WorkflowViewState.IdRef="ClickImage_48" KeyModifiers="None" MouseButton="BTN_LEFT" SendWindowMessages="False">
+                        <ui:ClickImage.CursorPosition>
+                          <ui:CursorPosition OffsetX="67" OffsetY="15" Position="BottomLeft" />
+                        </ui:ClickImage.CursorPosition>
+                        <ui:ClickImage.Image>
+                          <ui:ImageTarget Image="{x:Null}" Accuracy="0.5" TargetImageBase64="iVBORw0KGgoAAAANSUhEUgAAAGQAAAARCAYAAAArDQkmAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAEPSURBVFhH7ZFBjgIxDATz/zs/4A9c87OBgBy1mnbiGQ5rab1SKXa5PSvh1ns/ijzUQZJRB0lGHSQZ7XZ/fIrWvoaKaO6/4P0e5s/+Xu14/b2LwGIdI87lg8wCPoDgPOq8l51hs189ssuwx17tosOZvZhBr+boGHkQc9x7Nfbj5Zya8Wtc9St3JnN2V+2Nmj3OVT/9LAKLXo39lf1RIzxHOKty7FQGPc53u16/8+NlMG/8+UG8PHvD84j3TUb9r92u1+88zz1SHWTUymPv+ZVTGWOXxV59xxzn2ONc9dPPIrCoZsYqE6mtVx7dyiORzEDN1S46nNmLGfRqjo6ZBylyUAdJRh0kGXWQZNRBUtGPJ64BnqdbmhnOAAAAAElFTkSuQmCC" />
+                        </ui:ClickImage.Image>
+                        <ui:ClickImage.Target>
+                          <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Selector="{x:Null}" TimeoutMS="{x:Null}" WaitForReady="INTERACTIVE" />
+                        </ui:ClickImage.Target>
+                      </ui:ClickImage>
+                    </Sequence>
+                  </ActivityAction>
+                </ui:WindowScope.Body>
+              </ui:WindowScope>
+            </Sequence>
+          </Switch>
+          <TryCatch DisplayName="Try catch" sap2010:WorkflowViewState.IdRef="TryCatch_7">
+            <TryCatch.Try>
+              <Sequence sap2010:WorkflowViewState.IdRef="Sequence_80">
+                <ui:TextExists DisplayName="Text Exists 'label MTA'" FormattedText="False" sap2010:WorkflowViewState.IdRef="TextExists_12" Occurrence="1" Text="MTA mód ! Editace některých polí není povolena !">
+                  <ui:TextExists.Target>
+                    <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="c725c84e7bdfe04aac874dbc66473f46" Selector="&lt;html idx='1' /&gt;&lt;wnd cls='SunAwtCanvas' idx='2' /&gt;&lt;java idx='7' /&gt;" TimeoutMS="3000" WaitForReady="INTERACTIVE" />
+                  </ui:TextExists.Target>
+                </ui:TextExists>
+                <ui:WindowScope ApplicationWindow="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" Window="{x:Null}" DisplayName="V OKNĚ TIA*" sap2010:WorkflowViewState.IdRef="WindowScope_39" InformativeScreenshot="6af45649fbb58952e12788b3c1f11357" Selector="&lt;html title='TIA* - Česká pojišťovna' /&gt;">
+                  <ui:WindowScope.Body>
+                    <ActivityAction x:TypeArguments="x:Object">
+                      <ActivityAction.Argument>
+                        <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
+                      </ActivityAction.Argument>
+                      <Sequence DisplayName="Do" sap2010:WorkflowViewState.IdRef="Sequence_79">
+                        <ui:ClickImage ContinueOnError="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="KLIKNI NA TLAČÍTKO OK" sap2010:WorkflowViewState.IdRef="ClickImage_29" KeyModifiers="None" MouseButton="BTN_LEFT" SendWindowMessages="False">
+                          <ui:ClickImage.CursorPosition>
+                            <ui:CursorPosition OffsetX="0" OffsetY="0" Position="Center" />
+                          </ui:ClickImage.CursorPosition>
+                          <ui:ClickImage.Image>
+                            <ui:ImageTarget Image="{x:Null}" Accuracy="0.8" TargetImageBase64="iVBORw0KGgoAAAANSUhEUgAAADoAAAAmCAYAAACVr4jIAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAE2SURBVGhD7ZbbDYMwDEWzaafoJKgbdIcuwU4UI93IBDvhEcAJiXSk5NpYPv2qe7274Qk00dpoorXRRGtjlahzzjzS3pyoKIaUcFLCqigX7PvePDiarCgKSWkgfjkr9xA6VFs4LYKxiY40pBTohLJVin6+v7hoDZIglG2ipaOKniVJc4FUC7NYvhV4nS4aLpx6a9leLhHVFuZ52KN9sxeTolr/EcyJar1HMSWKt9Z/BFOiWi0Hl4gSKRFJTMr2cpkoQXOBVAuzWL4VUfRM2TvgktMdFxRyidIsDak/N/DxbrigkEv0buDj3XDxQQWy8Jh58ccUjA30z18aQFCdsHKXgMfMiz98ODbFZC2D/RdOYQAgW4ow35t7+FwKAX2kfWiN1K5RUYAhlpH25qwSrYEmWhsPEe2GP5PYwPsnuHs2AAAAAElFTkSuQmCC" />
+                          </ui:ClickImage.Image>
+                          <ui:ClickImage.Target>
+                            <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Selector="{x:Null}" TimeoutMS="{x:Null}" WaitForReady="INTERACTIVE" />
+                          </ui:ClickImage.Target>
+                        </ui:ClickImage>
+                      </Sequence>
+                    </ActivityAction>
+                  </ui:WindowScope.Body>
+                </ui:WindowScope>
+              </Sequence>
+            </TryCatch.Try>
+            <TryCatch.Catches>
+              <Catch x:TypeArguments="s:Exception" sap2010:WorkflowViewState.IdRef="Catch`1_7">
+                <ActivityAction x:TypeArguments="s:Exception">
+                  <ActivityAction.Argument>
+                    <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
+                  </ActivityAction.Argument>
+                  <Sequence sap2010:WorkflowViewState.IdRef="Sequence_119">
+                    <ui:LogMessage DisplayName="LOG ZPRÁVA" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="POP UP: MTA mód ! Editace některých polí není povolena ! SE NEOBJEVIL" />
+                  </Sequence>
+                </ActivityAction>
+              </Catch>
+            </TryCatch.Catches>
+          </TryCatch>
+          <ui:ClickText ContinueOnError="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="KLIKNI NA TLAČÍTKO VEDLE REGISTRAČNÍ ZNAČKY" FormattedText="False" sap2010:WorkflowViewState.IdRef="ClickText_21" KeyModifiers="None" MouseButton="BTN_LEFT" Occurrence="1" SendWindowMessages="False" Text="Registrační značka">
+            <ui:ClickText.CursorPosition>
+              <ui:CursorPosition OffsetX="-63" OffsetY="-3" Position="Center" />
+            </ui:ClickText.CursorPosition>
+            <ui:ClickText.Target>
+              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="c8b01c3eb7dfb66662d12f65a4dd7993" Selector="&lt;html title='TIA*' /&gt;&lt;wnd cls='SunAwtCanvas' /&gt;&lt;java name='ČP | Karta vozidla*' role='internal frame' /&gt;" WaitForReady="INTERACTIVE" />
+            </ui:ClickText.Target>
+          </ui:ClickText>
+          <ui:WindowScope ApplicationWindow="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" Window="{x:Null}" DisplayName="Attach Window 'iexplore.exe TIA4'" sap2010:WorkflowViewState.IdRef="WindowScope_66" InformativeScreenshot="584bb2989876e9c7fff301495a62feb8" Selector="&lt;wnd app='iexplore.exe' cls='IEFrame' title='TIA*' /&gt;">
+            <ui:WindowScope.Body>
+              <ActivityAction x:TypeArguments="x:Object">
+                <ActivityAction.Argument>
+                  <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
+                </ActivityAction.Argument>
+                <Sequence DisplayName="Do" sap2010:WorkflowViewState.IdRef="Sequence_125">
+                  <ui:Click DelayBefore="{x:Null}" DelayMS="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="klikni na tlacitko udaje z ckp" sap2010:WorkflowViewState.IdRef="Click_13" KeyModifiers="None" MouseButton="BTN_LEFT" SendWindowMessages="False" SimulateClick="False">
+                    <ui:Click.CursorPosition>
+                      <ui:CursorPosition Position="Center">
+                        <ui:CursorPosition.OffsetX>
+                          <InArgument x:TypeArguments="x:Int32" />
+                        </ui:CursorPosition.OffsetX>
+                        <ui:CursorPosition.OffsetY>
+                          <InArgument x:TypeArguments="x:Int32" />
+                        </ui:CursorPosition.OffsetY>
+                      </ui:CursorPosition>
+                    </ui:Click.CursorPosition>
+                    <ui:Click.Target>
+                      <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="870fa94aad5c09c0004431f8008a0a09" Selector="&lt;html title='TIA*' /&gt;&lt;wnd cls='SunAwtCanvas' /&gt;&lt;java name='ČP | Karta vozidla*' role='internal frame' /&gt;&lt;java name='Údaje z ČKP' role='push button' /&gt;" WaitForReady="INTERACTIVE" />
+                    </ui:Click.Target>
+                  </ui:Click>
+                </Sequence>
+              </ActivityAction>
+            </ui:WindowScope.Body>
+          </ui:WindowScope>
+        </Sequence>
+        <FlowStep.Next>
+          <FlowStep x:Name="__ReferenceID1" sap2010:WorkflowViewState.IdRef="FlowStep_31">
+            <Sequence DisplayName="VIN" sap2010:WorkflowViewState.IdRef="Sequence_90">
+              <TryCatch DisplayName="ZASKRTNUTI VIN" sap2010:WorkflowViewState.IdRef="TryCatch_9">
+                <TryCatch.Try>
+                  <ui:WindowScope ApplicationWindow="{x:Null}" SearchScope="{x:Null}" Window="{x:Null}" DisplayName="ZAKLIKNI CHECKBOX" sap2010:WorkflowViewState.IdRef="WindowScope_65" InformativeScreenshot="f467c3e9696688069857b4c90af5de31" Selector="&lt;wnd app='iexplore.exe' cls='IEFrame' title='TIA*' /&gt;" TimeoutMS="3000">
+                    <ui:WindowScope.Body>
+                      <ActivityAction x:TypeArguments="x:Object">
+                        <ActivityAction.Argument>
+                          <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
+                        </ActivityAction.Argument>
+                        <Sequence DisplayName="Do" sap2010:WorkflowViewState.IdRef="Sequence_124">
+                          <ui:ClickImage ContinueOnError="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="KLIKNI NA CHECKBOX" sap2010:WorkflowViewState.IdRef="ClickImage_53" KeyModifiers="None" MouseButton="BTN_LEFT" SendWindowMessages="False">
+                            <ui:ClickImage.CursorPosition>
+                              <ui:CursorPosition OffsetX="-16" OffsetY="-9" Position="Center" />
+                            </ui:ClickImage.CursorPosition>
+                            <ui:ClickImage.Image>
+                              <ui:ImageTarget Image="{x:Null}" Accuracy="0.8" TargetImageBase64="iVBORw0KGgoAAAANSUhEUgAAADAAAAAqCAYAAAD1T9h6AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACeSURBVGhD7ZFLDoAgDES9jjfwEB66N8N0gakTMXwWA2ZIXgpjSfpwM7O0MhJgIwE2/xHYj7OKeHkGHgI1y3tz7aX0EDnHGsFsegHsxTNFwPkaLO+x4t6RwAhvA5byUq8ERsGBYobf/IzZUgJvGV1glFughWkFWla8x6TrD8yEBNhIgI0E2EiAjQTYSICNBNhIgI0E2EiAjQTYLC5g6QJ9Vnm5Kdy8sAAAAABJRU5ErkJggg==" />
+                            </ui:ClickImage.Image>
+                            <ui:ClickImage.Target>
+                              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Selector="{x:Null}" TimeoutMS="[TIMEOUT_SMALL_TIA3]" WaitForReady="INTERACTIVE" />
+                            </ui:ClickImage.Target>
+                          </ui:ClickImage>
+                          <ui:LogMessage DisplayName="Log message" sap2010:WorkflowViewState.IdRef="LogMessage_5" Level="Info" Message="VIN NEBYL ZAŠKRTNUT" />
+                        </Sequence>
+                      </ActivityAction>
+                    </ui:WindowScope.Body>
+                  </ui:WindowScope>
+                </TryCatch.Try>
+                <TryCatch.Catches>
+                  <Catch x:TypeArguments="s:Exception" sap2010:WorkflowViewState.IdRef="Catch`1_8">
+                    <ActivityAction x:TypeArguments="s:Exception">
+                      <ActivityAction.Argument>
+                        <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
+                      </ActivityAction.Argument>
+                      <Sequence sap2010:WorkflowViewState.IdRef="Sequence_120">
+                        <ui:LogMessage DisplayName="Log message" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="Info" Message="VIN BYL ZAŠKRTNUT" />
+                      </Sequence>
+                    </ActivityAction>
+                  </Catch>
+                </TryCatch.Catches>
+              </TryCatch>
+              <ui:ImageFound DisplayName="ZJISTI ZDA JE PRÁZDNÝ VIN" Found="[BLANK_VIN_IMAGE]" sap2010:WorkflowViewState.IdRef="ImageFound_7">
+                <ui:ImageFound.Image>
+                  <ui:ImageTarget Image="{x:Null}" Accuracy="0.8" TargetImageBase64="iVBORw0KGgoAAAANSUhEUgAAAIwAAAA7CAYAAACpD2LzAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAGnSURBVHhe7ZrLbcNADAXVaapwJUY6SA++qgD1ZINACNAMV9ITvP5s5gEDcSlKh3AQ++BpnucrwF4QBiQQBiQQBiQQBiQQBiQQBiTeWphpmso+vI5hhfn+uUAH7oTxBdk1L8t7se917q3Nxdrvx3vxfj5XVyefSZ/8ESb+4beW05rP5ziX63h1qr7V+ex1dYY+lP9hqrPVkXx/71xV+2ykNRup5qAvu4RR+/kc+1Wdn3Naz+Ve63l4PPJHUpyJ/XxuzVV17LX6eWarD32Qv/TmuTjjvbW5tdrJvTwbafWhD6sfSZ8AwjyXjxYGWZ7PnTAAWyAMSCAMSCAMSCAMSCAMSCAMSCAMSCAMSCAMSCAMSCAMSMjCVD8MhjGo9p2RhLGXfp3OMCh7pDkkzLIsv78hJ6PEdut7rXbvHBKGjBmEIVIQhkhBGCIFYYgUhCFSEIZIQRgiBWGIFIQhUhCGSEEYIgVhiJRuwviLyTixnT5cGMOk8ZfDWHiqvTuyMAYZN9W+I4eEgf8LwoAEwoAEwoAEwoAEwoAEwoAEwoAEwoAEwoAEwoDAfL0Bwwi6TytHrsAAAAAASUVORK5CYII=" />
+                </ui:ImageFound.Image>
+                <ui:ImageFound.Target>
+                  <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Selector="&lt;html title='TIA*' /&gt;" TimeoutMS="[TIMEOUT_SMALL_TIA3]" WaitForReady="INTERACTIVE" />
+                </ui:ImageFound.Target>
+              </ui:ImageFound>
+              <If Condition="[BLANK_VIN_IMAGE = true]" DisplayName="POKUD JE VIN PRÁZDNÝ" sap2010:WorkflowViewState.IdRef="If_10">
+                <If.Then>
+                  <ui:WindowScope ApplicationWindow="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" Window="{x:Null}" DisplayName="V OKNĚ TIA*" sap2010:WorkflowViewState.IdRef="WindowScope_43" InformativeScreenshot="f467c3e9696688069857b4c90af5de31" Selector="&lt;wnd app='iexplore.exe' cls='IEFrame' title='TIA*' /&gt;">
+                    <ui:WindowScope.Body>
+                      <ActivityAction x:TypeArguments="x:Object">
+                        <ActivityAction.Argument>
+                          <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
+                        </ActivityAction.Argument>
+                        <Sequence sap2010:WorkflowViewState.IdRef="Sequence_88">
+                          <Sequence DisplayName="Do" sap2010:WorkflowViewState.IdRef="Sequence_86">
+                            <ui:LogMessage DisplayName="Log message" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Info" Message="POLE PRO VIN BYLO PRÁZDNÉ" />
+                            <ui:ClickImage ContinueOnError="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="KLIKNI DO POLE VEDLE TEXTU VIN" sap2010:WorkflowViewState.IdRef="ClickImage_30" KeyModifiers="None" MouseButton="BTN_LEFT" SendWindowMessages="False">
+                              <ui:ClickImage.CursorPosition>
+                                <ui:CursorPosition OffsetX="87" OffsetY="10" Position="TopRight" />
+                              </ui:ClickImage.CursorPosition>
+                              <ui:ClickImage.Image>
+                                <ui:ImageTarget Image="{x:Null}" Accuracy="0.8" TargetImageBase64="iVBORw0KGgoAAAANSUhEUgAAACUAAAA/CAYAAABn0wH+AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAADKSURBVGhD7dJRDsIgEEVRtuMOXISLZmc182HSjDP00oKh5n2cUEcabsRSa91WoyhKUZSiqHtHPZ6v5tyve9m7mSlRfm/2bqbr+lqHfZ796p+J+0eZ6NBsnu098h9RJjokC7DPy0Vls5ZTUbMpilIUpShKUZSiKEVRiqIURSmKUhSlKEpRlKIoRVGKohRFdUWVUr70fE91R5FZa05MiboSZIZe335fNKdO/1Kzgsyl64sClosaEWSG/dFtjfj9RFfUryiKUhS1YFTd3nIW80aOr2WdAAAAAElFTkSuQmCC" />
+                              </ui:ClickImage.Image>
+                              <ui:ClickImage.Target>
+                                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Selector="{x:Null}" TimeoutMS="[TIMEOUT_SMALL_TIA3]" WaitForReady="INTERACTIVE" />
+                              </ui:ClickImage.Target>
+                            </ui:ClickImage>
+                            <ui:TypeInto DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" Activate="True" ClickBeforeTyping="False" DisplayName="ZAPIŠ HODNOTU ECV" EmptyField="False" sap2010:WorkflowViewState.IdRef="TypeInto_1" SendWindowMessages="False" SimulateType="False" Text="[ECV_TIA3.tostring]">
+                              <ui:TypeInto.Target>
+                                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="596dfb8044c044146956da0849b56293" Selector="&lt;html title='TIA*' /&gt;&lt;wnd cls='SunAwtCanvas' /&gt;&lt;java name='ČP | Údaje z ČKP*' role='internal frame' /&gt;&lt;java idx='61' role='text' /&gt;" WaitForReady="INTERACTIVE" />
+                              </ui:TypeInto.Target>
+                            </ui:TypeInto>
+                          </Sequence>
+                        </Sequence>
+                      </ActivityAction>
+                    </ui:WindowScope.Body>
+                  </ui:WindowScope>
+                </If.Then>
+              </If>
+              <ui:WindowScope ApplicationWindow="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" Window="{x:Null}" DisplayName="V OKNĚ TIA*" sap2010:WorkflowViewState.IdRef="WindowScope_44" InformativeScreenshot="f467c3e9696688069857b4c90af5de31" Selector="&lt;wnd app='iexplore.exe' cls='IEFrame' title='TIA*' /&gt;">
+                <ui:WindowScope.Body>
+                  <ActivityAction x:TypeArguments="x:Object">
+                    <ActivityAction.Argument>
+                      <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
+                    </ActivityAction.Argument>
+                    <Sequence DisplayName="Do" sap2010:WorkflowViewState.IdRef="Sequence_89">
+                      <ui:ClickImage ContinueOnError="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click image 'iexplore.exe'" sap2010:WorkflowViewState.IdRef="ClickImage_54" KeyModifiers="None" MouseButton="BTN_LEFT" SendWindowMessages="False">
+                        <ui:ClickImage.CursorPosition>
+                          <ui:CursorPosition Position="Center">
+                            <ui:CursorPosition.OffsetX>
+                              <InArgument x:TypeArguments="x:Int32" />
+                            </ui:CursorPosition.OffsetX>
+                            <ui:CursorPosition.OffsetY>
+                              <InArgument x:TypeArguments="x:Int32" />
+                            </ui:CursorPosition.OffsetY>
+                          </ui:CursorPosition>
+                        </ui:ClickImage.CursorPosition>
+                        <ui:ClickImage.Image>
+                          <ui:ImageTarget Image="{x:Null}" Accuracy="0.8" TargetImageBase64="iVBORw0KGgoAAAANSUhEUgAAADcAAAAVCAYAAADiv3Z7AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAADMSURBVFhH7ZbRDcIwDESzKVMwScUG7MBvNiu6ipOurpOSfBQc5UlWkrOb9v0gUs55HbWmXNQ6yEVHXXZy0Xk8X1sNKQdu92XKheRruZTSZ7enlJPe5yw975lyxF6g51JP19I8e5oBzbTHXHt6JpfIeXN2JV6Ofcs8af5BqV3m9eycncFqi7miZ51lrn3yF3IeZ8+R2j3NcsC7iJReTuzHnPUB9i05+bkcwJ6laKY9L9eMdMlFoSqHP55RwbcX5VAciFrqcpAbqQaWy+sbJzpErP4txGYAAAAASUVORK5CYII=" />
+                        </ui:ClickImage.Image>
+                        <ui:ClickImage.Target>
+                          <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Selector="{x:Null}" TimeoutMS="[TIMEOUT_SMALL_TIA3]" WaitForReady="INTERACTIVE" />
+                        </ui:ClickImage.Target>
+                      </ui:ClickImage>
+                    </Sequence>
+                  </ActivityAction>
+                </ui:WindowScope.Body>
+              </ui:WindowScope>
+            </Sequence>
+          </FlowStep>
+        </FlowStep.Next>
+      </FlowStep>
+    </Flowchart.StartNode>
+    <x:Reference>__ReferenceID0</x:Reference>
+    <x:Reference>__ReferenceID1</x:Reference>
+    <sads:DebugSymbol.Symbol>d1FDOlxVc2Vyc1xURUNIUk9CT1QzXERvY3VtZW50c1xVaVBhdGhccm9ib3RfQ0tQXzEuMVw5LjEuNSBaw41TS0VKIFVEQUpFIFogQ0tQLnhhbWyIAWcD7gMPAgEBbQn0AhQCATT3Ag3mAxgCAQJxC3UbAwGNAXYLnQEQAwGAAZ4BC6QCFAIBUaUCC9ECFgIBQNICC9kCGgIBOtoCC/MCHAIBNfgCD54DGgIBJJ8DD6YDHwIBHacDD8gDFAIBCskDD+UDIAIBA3G7AXHLAQMBkQFxrAFxtQEDAY8BcaEBcaQBAwGOAXOeAXOhAgMBkgF2GXYpAwGBAXgPiAEaAwGIAYsBD5sBGgMBgwGeAewBngH3AQIBUrcBDcwBHgIBec0BDekBGAIBb+oBDYYCGAIBZYcCDaMCGAIBW6ABD7UBIAIBVKcCD8MCGgIBRMsCE80CHgIBQdIC0ALSAuQCAgE80gKsAtICrwICATvXAp4B1wKaAgIBP9QCKtQCLwIBPdQCONQCPAIBPtoCmQLaAtYCAgE54AIR8AIcAgE2+gITkAMkAgEomAMXmgMiAgElpANUpANxAgEjpAN8pAOSAQIBIZ8DTJ8DXwIBH6EDPaEDQgIBHqcDHacDNwIBC6kDE8YDJAIBDckDhwLJA8QCAgEJzwMV4gMgAgEEeRGHASADAYkBjAERmgEgAwGEAbcBkAK3Ac0CAgF/vQETyQEeAgF6zgEP0gEfAgF30wEP6AEgAgFw6wEP7wEfAgFt8AEPhQIgAgFmiAIPjAIfAgFjjQIPogIgAgFcoAGHAqABxAICAVqmARWyASACAVWoAhGsAiECAUytAhHCAiICAUXMAhXMAssBAgFC4QIT7wIeAgE3+gL8AfoCuQICATP6AsQC+gLKAgIBMoADGY0DJAIBKZkDGZkDnAECASapA4sCqQPIAgIBHK8DGcMDJAIBDtADF+EDJwIBBXnZAnnpAgMBiwF5tQJ5uAIDAYoBhQGkAYUBygIDAYwBjAHbAowB8QIDAYYBjAG3AowBugIDAYUBmAGkAZgBygIDAYcBvgEVyAElAgF70AGiAdAB0gECAXjTAYcC0wG3AgIBdtkBFeUBIAIBce0BogHtAdIBAgFu8AGHAvABtwICAWz2ARWCAiACAWeKAqIBigLSAQIBZI0ChwKNArcCAgFikwIVnwIgAgFdpwEXsQEnAgFWqAKgAagC0gECAU6oApcBqAKaAQIBTaoCjwGqAuUBAgFQqgLwAaoC9gECAU+tAokCrQK5AgIBS7MCF78CIgIBRswCgQHMAsgBAgFD7QKmAe0C1gICATiBAxuLAysCASyMAxuMA6ABAgEqmQOGAZkDmQECASewAxvCAyYCAQ/fA3HfA4cBAgEH3ANF3ANKAgEGwwFDwwFIAgF+wAE0wAE3AgF8wAFAwAFDAgF92gEX5AEnAgFy9wEXgQInAgFolAIXngInAgFerAFFrAFKAgFZqQE2qQE5AgFXqQFCqQFFAgFYtAIZvgIpAgFHiQN1iQOLAQIBMIYDSYYDTgIBL4MDOoMDPwIBLYMDSIMDTAIBLowDiAGMA50BAgErsQMdsQOoAQIBGrIDHbwDLQIBFL0DHcEDKwIBEN8BRd8BSgIBddwBNtwBOgIBc9wBQ9wBRwIBdPwBRfwBSgIBa/kBNvkBOgIBafkBQ/kBRwIBapkCRZkCSgIBYZYCNpYCOgIBX5YCQ5YCRwIBYLkCR7kCTAIBSrYCOLYCOwIBSLYCRLYCRwIBSbEDigGxA6UBAgEbugN3ugONAQIBGLcDS7cDUAIBF7QDPLQDQAIBFbQDSbQDTQIBFr8DsAG/A80CAgETvQOvAr0DxAICARE=</sads:DebugSymbol.Symbol>
+  </Flowchart>
+  <sap2010:WorkflowViewState.ViewStateManager>
+    <sap2010:ViewStateManager>
+      <sap2010:ViewStateData Id="TextExists_11" sap:VirtualizedContainerService.HintSize="697,134" />
+      <sap2010:ViewStateData Id="ClickText_19" sap:VirtualizedContainerService.HintSize="314,134" />
+      <sap2010:ViewStateData Id="Sequence_72" sap:VirtualizedContainerService.HintSize="336,258">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="ClickText_20" sap:VirtualizedContainerService.HintSize="314,134" />
+      <sap2010:ViewStateData Id="Sequence_73" sap:VirtualizedContainerService.HintSize="336,258">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="If_9" sap:VirtualizedContainerService.HintSize="697,401" />
+      <sap2010:ViewStateData Id="ClickImage_33" sap:VirtualizedContainerService.HintSize="314,106" />
+      <sap2010:ViewStateData Id="Sequence_95" sap:VirtualizedContainerService.HintSize="336,230">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="WindowScope_47" sap:VirtualizedContainerService.HintSize="414,376" />
+      <sap2010:ViewStateData Id="ClickImage_35" sap:VirtualizedContainerService.HintSize="314,106" />
+      <sap2010:ViewStateData Id="Sequence_97" sap:VirtualizedContainerService.HintSize="336,230">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="WindowScope_49" sap:VirtualizedContainerService.HintSize="414,376" />
+      <sap2010:ViewStateData Id="SendHotkey_4" sap:VirtualizedContainerService.HintSize="414,152" />
+      <sap2010:ViewStateData Id="ClickImage_39" sap:VirtualizedContainerService.HintSize="314,106" />
+      <sap2010:ViewStateData Id="Sequence_101" sap:VirtualizedContainerService.HintSize="336,230">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="WindowScope_53" sap:VirtualizedContainerService.HintSize="414,376" />
+      <sap2010:ViewStateData Id="Sequence_108" sap:VirtualizedContainerService.HintSize="436,692">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="SendHotkey_5" sap:VirtualizedContainerService.HintSize="414,152" />
+      <sap2010:ViewStateData Id="ClickImage_47" sap:VirtualizedContainerService.HintSize="314,106" />
+      <sap2010:ViewStateData Id="Sequence_115" sap:VirtualizedContainerService.HintSize="336,230">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="WindowScope_62" sap:VirtualizedContainerService.HintSize="414,376" />
+      <sap2010:ViewStateData Id="Sequence_116" sap:VirtualizedContainerService.HintSize="436,692">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="SendHotkey_6" sap:VirtualizedContainerService.HintSize="414,152" />
+      <sap2010:ViewStateData Id="ClickImage_48" sap:VirtualizedContainerService.HintSize="314,106" />
+      <sap2010:ViewStateData Id="Sequence_117" sap:VirtualizedContainerService.HintSize="336,230">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="WindowScope_63" sap:VirtualizedContainerService.HintSize="414,376" />
+      <sap2010:ViewStateData Id="Sequence_118" sap:VirtualizedContainerService.HintSize="436,652">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="Switch`1_6" sap:VirtualizedContainerService.HintSize="697,233">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="TextExists_12" sap:VirtualizedContainerService.HintSize="414,134">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="ClickImage_29" sap:VirtualizedContainerService.HintSize="314,106" />
+      <sap2010:ViewStateData Id="Sequence_79" sap:VirtualizedContainerService.HintSize="336,230">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="WindowScope_39" sap:VirtualizedContainerService.HintSize="414,376" />
+      <sap2010:ViewStateData Id="Sequence_80" sap:VirtualizedContainerService.HintSize="436,674">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="LogMessage_1" sap:VirtualizedContainerService.HintSize="314,87" />
+      <sap2010:ViewStateData Id="Sequence_119" sap:VirtualizedContainerService.HintSize="336,211">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="Catch`1_7" sap:VirtualizedContainerService.HintSize="440,20">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="TryCatch_7" sap:VirtualizedContainerService.HintSize="697,892" />
+      <sap2010:ViewStateData Id="ClickText_21" sap:VirtualizedContainerService.HintSize="697,134" />
+      <sap2010:ViewStateData Id="Click_13" sap:VirtualizedContainerService.HintSize="314,106" />
+      <sap2010:ViewStateData Id="Sequence_125" sap:VirtualizedContainerService.HintSize="336,230">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="WindowScope_66" sap:VirtualizedContainerService.HintSize="697,376" />
+      <sap2010:ViewStateData Id="Sequence_85" sap:VirtualizedContainerService.HintSize="719,2494">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="ClickImage_53" sap:VirtualizedContainerService.HintSize="314,106" />
+      <sap2010:ViewStateData Id="LogMessage_5" sap:VirtualizedContainerService.HintSize="314,87" />
+      <sap2010:ViewStateData Id="Sequence_124" sap:VirtualizedContainerService.HintSize="336,357">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="WindowScope_65" sap:VirtualizedContainerService.HintSize="414,503" />
+      <sap2010:ViewStateData Id="LogMessage_4" sap:VirtualizedContainerService.HintSize="314,87" />
+      <sap2010:ViewStateData Id="Sequence_120" sap:VirtualizedContainerService.HintSize="336,211">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="Catch`1_8" sap:VirtualizedContainerService.HintSize="418,20">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="TryCatch_9" sap:VirtualizedContainerService.HintSize="432,721" />
+      <sap2010:ViewStateData Id="ImageFound_7" sap:VirtualizedContainerService.HintSize="539,106" />
+      <sap2010:ViewStateData Id="LogMessage_3" sap:VirtualizedContainerService.HintSize="314,87" />
+      <sap2010:ViewStateData Id="ClickImage_30" sap:VirtualizedContainerService.HintSize="314,106" />
+      <sap2010:ViewStateData Id="TypeInto_1" sap:VirtualizedContainerService.HintSize="314,134" />
+      <sap2010:ViewStateData Id="Sequence_86" sap:VirtualizedContainerService.HintSize="336,531">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="Sequence_88" sap:VirtualizedContainerService.HintSize="358,655">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="WindowScope_43" sap:VirtualizedContainerService.HintSize="414,801" />
+      <sap2010:ViewStateData Id="If_10" sap:VirtualizedContainerService.HintSize="539,944" />
+      <sap2010:ViewStateData Id="ClickImage_54" sap:VirtualizedContainerService.HintSize="314,106" />
+      <sap2010:ViewStateData Id="Sequence_89" sap:VirtualizedContainerService.HintSize="336,230">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="WindowScope_44" sap:VirtualizedContainerService.HintSize="539,376" />
+      <sap2010:ViewStateData Id="Sequence_90" sap:VirtualizedContainerService.HintSize="200,49">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="FlowStep_31">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <av:Point x:Key="ShapeLocation">200,226.5</av:Point>
+            <av:Size x:Key="ShapeSize">200,49</av:Size>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="FlowStep_30">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <av:Point x:Key="ShapeLocation">200,127.5</av:Point>
+            <av:Size x:Key="ShapeSize">200,49</av:Size>
+            <av:PointCollection x:Key="ConnectorLocation">300,176.5 300,226.5</av:PointCollection>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="Flowchart_3" sap:VirtualizedContainerService.HintSize="614,636">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            <av:Point x:Key="ShapeLocation">270,2.5</av:Point>
+            <av:Size x:Key="ShapeSize">60,75</av:Size>
+            <av:PointCollection x:Key="ConnectorLocation">300,77.5 300,127.5</av:PointCollection>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="EW_TIA3_1" sap:VirtualizedContainerService.HintSize="654,716" />
+    </sap2010:ViewStateManager>
+  </sap2010:WorkflowViewState.ViewStateManager>
+</Activity>

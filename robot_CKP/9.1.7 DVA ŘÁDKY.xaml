@@ -1,0 +1,198 @@
+﻿<Activity mc:Ignorable="sap sap2010 sads" x:Class="__OR_MORE_ROWS"
+ xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities"
+ xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+ xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities"
+ xmlns:s="clr-namespace:System;assembly=mscorlib"
+ xmlns:sads="http://schemas.microsoft.com/netfx/2010/xaml/activities/debugger"
+ xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation"
+ xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation"
+ xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib"
+ xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=mscorlib"
+ xmlns:ui="http://schemas.uipath.com/workflow/activities"
+ xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="MESSAGE_2ROWS" Type="OutArgument(x:String)" />
+    <x:Property Name="ROWINDEX_2ROWS" Type="InArgument(ui:GenericValue)" />
+    <x:Property Name="TODAY_FIKTIV_2ROWS" Type="InArgument(x:String)" />
+    <x:Property Name="TIMEOUTMEDIUM_2ROWS" Type="InArgument(x:Int32)" />
+  </x:Members>
+  <mva:VisualBasic.Settings>
+    <x:Null />
+  </mva:VisualBasic.Settings>
+  <sap2010:WorkflowViewState.IdRef>__OR_MORE_ROWS_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <sco:Collection x:TypeArguments="x:String">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>UiPath.Excel.Activities</x:String>
+      <x:String>UiPath.CSV.Activities</x:String>
+      <x:String>UiPath.Excel</x:String>
+      <x:String>UiPath.CSV</x:String>
+      <x:String>UiPath.Mail.Activities</x:String>
+      <x:String>UiPath.Mail.Exchange.Activities</x:String>
+      <x:String>UiPath.Mail.IMAP.Activities</x:String>
+      <x:String>UiPath.Mail.Outlook.Activities</x:String>
+      <x:String>UiPath.Mail.POP3.Activities</x:String>
+      <x:String>UiPath.Mail.SMTP.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+    </sco:Collection>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <sco:Collection x:TypeArguments="AssemblyReference">
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>UiPath.Core</AssemblyReference>
+      <AssemblyReference>UiPath.Core.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Excel</AssemblyReference>
+      <AssemblyReference>UiPath.Mail.Activities</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>PresentationCore</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+    </sco:Collection>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence sap2010:WorkflowViewState.IdRef="Sequence_61">
+    <TryCatch DisplayName="Try catch" sap2010:WorkflowViewState.IdRef="TryCatch_2">
+      <TryCatch.Try>
+        <Sequence sap2010:WorkflowViewState.IdRef="Sequence_81">
+          <ui:WindowScope ApplicationWindow="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" Window="{x:Null}" DisplayName="V OKNĚ TIA*" sap2010:WorkflowViewState.IdRef="WindowScope_27" InformativeScreenshot="a628886743b0b901c15c6813f093ca37" Selector="&lt;wnd app='iexplore.exe' cls='IEFrame' title='TIA*' /&gt;">
+            <ui:WindowScope.Body>
+              <ActivityAction x:TypeArguments="x:Object">
+                <ActivityAction.Argument>
+                  <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
+                </ActivityAction.Argument>
+                <Sequence DisplayName="Do" sap2010:WorkflowViewState.IdRef="Sequence_78">
+                  <ui:WaitImageAppear FoundElement="{x:Null}" sap2010:Annotation.AnnotationText="musi byt hodnota 0,9. Pri jedna to nebere. Pri 0,8 vnima 2 radky jako jeden." DisplayName="NAJDI IMAGE, KTERÝ MÁ POUZE JEDEN ŘÁDEK" sap2010:WorkflowViewState.IdRef="WaitImageAppear_16">
+                    <ui:WaitImageAppear.Image>
+                      <ui:ImageTarget Image="{x:Null}" Accuracy="0.9" TargetImageBase64="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" />
+                    </ui:WaitImageAppear.Image>
+                    <ui:WaitImageAppear.Target>
+                      <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Selector="{x:Null}" TimeoutMS="[TIMEOUTMEDIUM_2ROWS]" WaitForReady="INTERACTIVE" />
+                    </ui:WaitImageAppear.Target>
+                  </ui:WaitImageAppear>
+                </Sequence>
+              </ActivityAction>
+            </ui:WindowScope.Body>
+          </ui:WindowScope>
+        </Sequence>
+      </TryCatch.Try>
+      <TryCatch.Catches>
+        <Catch x:TypeArguments="s:Exception" sap2010:WorkflowViewState.IdRef="Catch`1_2">
+          <ActivityAction x:TypeArguments="s:Exception">
+            <ActivityAction.Argument>
+              <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
+            </ActivityAction.Argument>
+            <Sequence sap2010:WorkflowViewState.IdRef="Sequence_79">
+              <ui:LogMessage DisplayName="Log message" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="NALEZENO 2 ČI VÍCE ŘÁDKŮ" />
+              <ui:ExcelApplicationScope Password="{x:Null}" DisplayName="Excel application scope" sap2010:WorkflowViewState.IdRef="ExcelApplicationScope_1" WorkbookPath="[TODAY_FIKTIV_2ROWS]">
+                <ui:ExcelApplicationScope.Body>
+                  <ActivityAction x:TypeArguments="ui:WorkbookApplication">
+                    <ActivityAction.Argument>
+                      <DelegateInArgument x:TypeArguments="ui:WorkbookApplication" Name="ExcelWorkbookScope" />
+                    </ActivityAction.Argument>
+                    <Sequence DisplayName="Do" sap2010:WorkflowViewState.IdRef="Sequence_80">
+                      <ui:ExcelWriteCell Cell="[&quot;I&quot; + ROWINDEX_2ROWS]" DisplayName="ZAPIŠ DO I + ČÍSLA ŘÁDKU" sap2010:WorkflowViewState.IdRef="ExcelWriteCell_1" SheetName="DATA" Text="CHYBA NA PS" />
+                      <ui:ExcelWriteCell Cell="[&quot;J&quot; + ROWINDEX_2ROWS]" DisplayName="ZAPIŠ DO J + ČÍSLA ŘÁDKU" sap2010:WorkflowViewState.IdRef="ExcelWriteCell_2" SheetName="DATA" Text="Dva či více řádků ve vyhledaném vozidle z ČKP" />
+                    </Sequence>
+                  </ActivityAction>
+                </ui:ExcelApplicationScope.Body>
+              </ui:ExcelApplicationScope>
+              <Rethrow DisplayName="OPĚTOVNĚ VYHOĎ CHYBU" sap2010:WorkflowViewState.IdRef="Rethrow_2" />
+            </Sequence>
+          </ActivityAction>
+        </Catch>
+      </TryCatch.Catches>
+    </TryCatch>
+    <sads:DebugSymbol.Symbol>d0lDOlxVc2Vyc1xURUNIUk9CT1QzXERvY3VtZW50c1xVaVBhdGhccm9ib3RfQ0tQXzEuMVw5LjEuNyBEVkEgxZjDgURLWS54YW1sGFIDhwEOAgEBUwWFARACAQJVCWkUAgETcQ2BARgCAQNWC2gcAgEUcg9ymQECARFzD38qAgEFgAEPgAFpAgEEVoMCVsACAgEaXBFlHAIBFXJ8cpYBAgESc6oBc8ABAgEPeRV8IAIBBl0TZCgCARZ6F3rSAQIBC3sXe/QBAgEHYm1ihAECARhfQV9GAgEXei96UQIBDnrCAXrPAQIBDXq2AXq8AQIBDHsve1ECAQp7wgF78QECAQl7tgF7vAECAQg=</sads:DebugSymbol.Symbol>
+  </Sequence>
+  <sap2010:WorkflowViewState.ViewStateManager>
+    <sap2010:ViewStateManager>
+      <sap2010:ViewStateData Id="WaitImageAppear_16" sap:VirtualizedContainerService.HintSize="314,144">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="Sequence_78" sap:VirtualizedContainerService.HintSize="336,268">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="WindowScope_27" sap:VirtualizedContainerService.HintSize="414,414" />
+      <sap2010:ViewStateData Id="Sequence_81" sap:VirtualizedContainerService.HintSize="436,538">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="LogMessage_1" sap:VirtualizedContainerService.HintSize="414,87" />
+      <sap2010:ViewStateData Id="ExcelWriteCell_1" sap:VirtualizedContainerService.HintSize="314,87" />
+      <sap2010:ViewStateData Id="ExcelWriteCell_2" sap:VirtualizedContainerService.HintSize="314,87" />
+      <sap2010:ViewStateData Id="Sequence_80" sap:VirtualizedContainerService.HintSize="336,338">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="ExcelApplicationScope_1" sap:VirtualizedContainerService.HintSize="414,447" />
+      <sap2010:ViewStateData Id="Rethrow_2" sap:VirtualizedContainerService.HintSize="414,22" />
+      <sap2010:ViewStateData Id="Sequence_79" sap:VirtualizedContainerService.HintSize="436,760">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="Catch`1_2" sap:VirtualizedContainerService.HintSize="440,20">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="TryCatch_2" sap:VirtualizedContainerService.HintSize="454,756" />
+      <sap2010:ViewStateData Id="Sequence_61" sap:VirtualizedContainerService.HintSize="476,880">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="__OR_MORE_ROWS_1" sap:VirtualizedContainerService.HintSize="516,1120" />
+    </sap2010:ViewStateManager>
+  </sap2010:WorkflowViewState.ViewStateManager>
+</Activity>

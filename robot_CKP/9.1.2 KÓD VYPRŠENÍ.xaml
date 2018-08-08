@@ -1,0 +1,163 @@
+﻿<Activity mc:Ignorable="sap sap2010 sads" x:Class="EW_TIA2"
+ xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities"
+ xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+ xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities"
+ xmlns:sads="http://schemas.microsoft.com/netfx/2010/xaml/activities/debugger"
+ xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation"
+ xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation"
+ xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib"
+ xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=mscorlib"
+ xmlns:sd="clr-namespace:System.Drawing;assembly=System.Drawing"
+ xmlns:ui="http://schemas.uipath.com/workflow/activities"
+ xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="KOD" Type="OutArgument(ui:GenericValue)" />
+    <x:Property Name="TIMEOUT_SMALL_TIA2" Type="InArgument(x:Int32)" />
+    <x:Property Name="TIMEOUT_MEDIUM_TIA2" Type="InArgument(x:Int32)" />
+  </x:Members>
+  <mva:VisualBasic.Settings>
+    <x:Null />
+  </mva:VisualBasic.Settings>
+  <sap2010:WorkflowViewState.IdRef>EW_TIA2_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <sco:Collection x:TypeArguments="x:String">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>UiPath.Excel.Activities</x:String>
+      <x:String>UiPath.CSV.Activities</x:String>
+      <x:String>UiPath.Excel</x:String>
+      <x:String>UiPath.CSV</x:String>
+      <x:String>UiPath.Mail.Activities</x:String>
+      <x:String>UiPath.Mail.Exchange.Activities</x:String>
+      <x:String>UiPath.Mail.IMAP.Activities</x:String>
+      <x:String>UiPath.Mail.Outlook.Activities</x:String>
+      <x:String>UiPath.Mail.POP3.Activities</x:String>
+      <x:String>UiPath.Mail.SMTP.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+    </sco:Collection>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <sco:Collection x:TypeArguments="AssemblyReference">
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>UiPath.Core</AssemblyReference>
+      <AssemblyReference>UiPath.Core.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Excel</AssemblyReference>
+      <AssemblyReference>UiPath.Mail.Activities</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>PresentationCore</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+    </sco:Collection>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence DisplayName="GET KOD VYPRSENI" sap2010:WorkflowViewState.IdRef="Sequence_8">
+    <ui:WindowScope ApplicationWindow="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" Window="{x:Null}" DisplayName="KOD VYPRSENI" sap2010:WorkflowViewState.IdRef="WindowScope_4" InformativeScreenshot="3c720fe20132d4aeb96e2d2e86d0ef5d" Selector="&lt;wnd app='iexplore.exe' cls='IEFrame' title='TIA*' /&gt;">
+      <ui:WindowScope.Body>
+        <ActivityAction x:TypeArguments="x:Object">
+          <ActivityAction.Argument>
+            <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
+          </ActivityAction.Argument>
+          <Sequence DisplayName="Do" sap2010:WorkflowViewState.IdRef="Sequence_7">
+            <Sequence DisplayName="Find relative image" sap2010:WorkflowViewState.IdRef="Sequence_6">
+              <ui:WaitImageAppear FoundElement="{x:Null}" DisplayName="NAJDI IMAGE - KÓD VYPRŠENÍ" sap2010:WorkflowViewState.IdRef="WaitImageAppear_4">
+                <ui:WaitImageAppear.Image>
+                  <ui:ImageTarget Image="{x:Null}" Accuracy="0.8" TargetImageBase64="iVBORw0KGgoAAAANSUhEUgAAAEQAAAAQCAYAAACvDNlTAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAADkSURBVFhH7ZBRDsMgDEO5/6m4WVcmmVqeA6xUYtL4sJo8O0CTcs7H1qW9ENFeiGgvRPT1QlJKlq8Q3jL7Jp6vC3GHKutdPPuwO5q98+MfQ+PGRSsW8rTsQtyPFQY5jpo9x6Ks8vLljPqcYRZxZspRv3s1dIA97Zm7OXDXtzh7Pa79NK/FafSGte/llI+cM5Jhz+VV4JqzvBbBQMtrzTg+cs5IRtWaj3h07mMLKbXmWJGnXM9B7XKun+a1EENZqSHNgKnHijx3Hr7suXlk1HPcZSznZoWih67S0oW4n//rhfye8vEC1p5x9fqCcM4AAAAASUVORK5CYII=" />
+                </ui:WaitImageAppear.Image>
+                <ui:WaitImageAppear.Target>
+                  <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Selector="{x:Null}" TimeoutMS="[TIMEOUT_MEDIUM_TIA2]" WaitForReady="INTERACTIVE" />
+                </ui:WaitImageAppear.Target>
+              </ui:WaitImageAppear>
+              <ui:SetClippingRegion Element="{x:Null}" Region="{x:Null}" Direction="TRANSLATE" DisplayName="Translate clipping region" sap2010:WorkflowViewState.IdRef="SetClippingRegion_5">
+                <ui:SetClippingRegion.Size>
+                  <ui:Region Rectangle="-75, -2, 104, 0" />
+                </ui:SetClippingRegion.Size>
+              </ui:SetClippingRegion>
+            </Sequence>
+            <ui:GetOCRText WordsInfo="{x:Null}" DisplayName="ZÍSKEJ HODNOTU POMOCÍ OCR NÁSTROJE" sap2010:WorkflowViewState.IdRef="GetOCRText_3">
+              <ui:GetOCRText.OCREngine>
+                <ActivityFunc x:TypeArguments="sd:Image, scg:IEnumerable(scg:KeyValuePair(sd:Rectangle, x:String))">
+                  <ActivityFunc.Argument>
+                    <DelegateInArgument x:TypeArguments="sd:Image" Name="Image" />
+                  </ActivityFunc.Argument>
+                  <ui:GoogleOCR FilterRegion="{x:Null}" Text="{x:Null}" AllowedCharacters="" DeniedCharacters="" DisplayName="Google OCR" ExtractWords="False" sap2010:WorkflowViewState.IdRef="GoogleOCR_3" Image="[Image]" Invert="False" Language="eng" Profile="Screen" Scale="3" />
+                </ActivityFunc>
+              </ui:GetOCRText.OCREngine>
+              <ui:GetOCRText.Target>
+                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Selector="{x:Null}" InformativeScreenshot="2929fba4c93c9b3efe45f9ddf51bf031" TimeoutMS="[TIMEOUT_MEDIUM_TIA2]" WaitForReady="INTERACTIVE" />
+              </ui:GetOCRText.Target>
+              <ui:GetOCRText.Text>
+                <OutArgument x:TypeArguments="ui:GenericValue">[KOD]</OutArgument>
+              </ui:GetOCRText.Text>
+            </ui:GetOCRText>
+            <ui:SetClippingRegion Element="{x:Null}" Region="{x:Null}" Direction="RECTANGLE" DisplayName="Reset clipping region" sap2010:WorkflowViewState.IdRef="SetClippingRegion_6">
+              <ui:SetClippingRegion.Size>
+                <ui:Region Rectangle="0, 0, 0, 0" />
+              </ui:SetClippingRegion.Size>
+            </ui:SetClippingRegion>
+          </Sequence>
+        </ActivityAction>
+      </ui:WindowScope.Body>
+    </ui:WindowScope>
+    <sads:DebugSymbol.Symbol>d01DOlxVc2Vyc1xURUNIUk9CT1QzXERvY3VtZW50c1xVaVBhdGhccm9ib3RfQ0tQXzEuMVw5LjEuMiBLw5NEIFZZUFLFoEVOw40ueGFtbBFRA4IBDgIBAVIFgAEWAgECUv0BUroCAgEVWAt9FgIBA1kNZxgCAQ9oDXcdAgEFeA18JAIBBFoPYSQCARFiD2YmAgEQcqABcrcBAgENdUB1RQIBC24TbpkCAgEGX2lfgAECARNcPVxCAgESbpMCbpYCAgEKbtQBbt0BAgEIbvYBbvsBAgEH</sads:DebugSymbol.Symbol>
+  </Sequence>
+  <sap2010:WorkflowViewState.ViewStateManager>
+    <sap2010:ViewStateManager>
+      <sap2010:ViewStateData Id="WaitImageAppear_4" sap:VirtualizedContainerService.HintSize="314,106" />
+      <sap2010:ViewStateData Id="SetClippingRegion_5" sap:VirtualizedContainerService.HintSize="314,22" />
+      <sap2010:ViewStateData Id="Sequence_6" sap:VirtualizedContainerService.HintSize="336,292">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="GoogleOCR_3" sap:VirtualizedContainerService.HintSize="200,22" />
+      <sap2010:ViewStateData Id="GetOCRText_3" sap:VirtualizedContainerService.HintSize="336,168" />
+      <sap2010:ViewStateData Id="SetClippingRegion_6" sap:VirtualizedContainerService.HintSize="336,22" />
+      <sap2010:ViewStateData Id="Sequence_7" sap:VirtualizedContainerService.HintSize="358,686">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="WindowScope_4" sap:VirtualizedContainerService.HintSize="414,832" />
+      <sap2010:ViewStateData Id="Sequence_8" sap:VirtualizedContainerService.HintSize="436,956">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="EW_TIA2_1" sap:VirtualizedContainerService.HintSize="476,1156" />
+    </sap2010:ViewStateManager>
+  </sap2010:WorkflowViewState.ViewStateManager>
+</Activity>

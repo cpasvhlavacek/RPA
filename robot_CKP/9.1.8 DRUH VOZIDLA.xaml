@@ -1,0 +1,192 @@
+﻿<Activity mc:Ignorable="sap sap2010 sads" x:Class="DRUH_VOZIDLA"
+ xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities"
+ xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+ xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities"
+ xmlns:s="clr-namespace:System;assembly=mscorlib"
+ xmlns:sads="http://schemas.microsoft.com/netfx/2010/xaml/activities/debugger"
+ xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation"
+ xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation"
+ xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib"
+ xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=mscorlib"
+ xmlns:ui="http://schemas.uipath.com/workflow/activities"
+ xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="TYPVOZIDLA_DRUHVOZIDLA" Type="InArgument(x:String)" />
+    <x:Property Name="MESSAGE_DRUH_VOZIDLA" Type="OutArgument(x:String)" />
+    <x:Property Name="ROWINDEX_DRUH_VOZIDLA" Type="InArgument(ui:GenericValue)" />
+    <x:Property Name="TODAY_FIKTIV_DRUH_VOZIDLA" Type="InArgument(x:String)" />
+    <x:Property Name="TIMEOUT_LARGE_DRUH_VOZIDLA" Type="InArgument(x:Int32)" />
+  </x:Members>
+  <mva:VisualBasic.Settings>
+    <x:Null />
+  </mva:VisualBasic.Settings>
+  <sap2010:WorkflowViewState.IdRef>DRUH_VOZIDLA_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <sco:Collection x:TypeArguments="x:String">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>UiPath.Excel.Activities</x:String>
+      <x:String>UiPath.CSV.Activities</x:String>
+      <x:String>UiPath.Excel</x:String>
+      <x:String>UiPath.CSV</x:String>
+      <x:String>UiPath.Mail.Activities</x:String>
+      <x:String>UiPath.Mail.Exchange.Activities</x:String>
+      <x:String>UiPath.Mail.IMAP.Activities</x:String>
+      <x:String>UiPath.Mail.Outlook.Activities</x:String>
+      <x:String>UiPath.Mail.POP3.Activities</x:String>
+      <x:String>UiPath.Mail.SMTP.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>System.Xml.Serialization</x:String>
+      <x:String>Microsoft.VisualBasic.CompilerServices</x:String>
+    </sco:Collection>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <sco:Collection x:TypeArguments="AssemblyReference">
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>UiPath.Core</AssemblyReference>
+      <AssemblyReference>UiPath.Core.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Excel</AssemblyReference>
+      <AssemblyReference>UiPath.Mail.Activities</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>PresentationCore</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+    </sco:Collection>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence sap2010:WorkflowViewState.IdRef="Sequence_65">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="ui:GenericValue" Name="DRUHVOZIDLA" />
+    </Sequence.Variables>
+    <ui:WindowScope ApplicationWindow="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" Window="{x:Null}" DisplayName="V OKNĚ TIA*" sap2010:WorkflowViewState.IdRef="WindowScope_18" InformativeScreenshot="3a2d198adddd40304841c68d56c6a7b8" Selector="&lt;wnd app='iexplore.exe' cls='IEFrame' title='TIA*' /&gt;">
+      <ui:WindowScope.Body>
+        <ActivityAction x:TypeArguments="x:Object">
+          <ActivityAction.Argument>
+            <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
+          </ActivityAction.Argument>
+          <Sequence sap2010:WorkflowViewState.IdRef="Sequence_57">
+            <ui:GetValue ContinueOnError="{x:Null}" DisplayName="ZÍSKEJ DRUH VOZIDLA" sap2010:WorkflowViewState.IdRef="GetValue_3">
+              <ui:GetValue.Target>
+                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="1f0fba270b40776d5c2686e719e53dac" Selector="&lt;html title='TIA*' /&gt;&lt;wnd cls='SunAwtCanvas' /&gt;&lt;java name='ČP | Údaje z ČKP*' role='internal frame' /&gt;&lt;java idx='51' role='text' /&gt;" TimeoutMS="[TIMEOUT_LARGE_DRUH_VOZIDLA]" WaitForReady="INTERACTIVE" />
+              </ui:GetValue.Target>
+              <ui:GetValue.Value>
+                <OutArgument x:TypeArguments="ui:GenericValue">[DRUHVOZIDLA]</OutArgument>
+              </ui:GetValue.Value>
+            </ui:GetValue>
+          </Sequence>
+        </ActivityAction>
+      </ui:WindowScope.Body>
+    </ui:WindowScope>
+    <TryCatch DisplayName="Try catch" sap2010:WorkflowViewState.IdRef="TryCatch_2">
+      <TryCatch.Try>
+        <ui:CheckTrue DisplayName="ZJISTI, ZDA JE DRUH VOZIDLA STEJNÝ" ErrorMessage="HODNOTY DRUH VOZIDLA NEJSOU STEJNÉ" Expression="[DRUHVOZIDLA = TYPVOZIDLA_DRUHVOZIDLA]" sap2010:WorkflowViewState.IdRef="CheckTrue_6" />
+      </TryCatch.Try>
+      <TryCatch.Catches>
+        <Catch x:TypeArguments="s:Exception" sap2010:WorkflowViewState.IdRef="Catch`1_2">
+          <ActivityAction x:TypeArguments="s:Exception">
+            <ActivityAction.Argument>
+              <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
+            </ActivityAction.Argument>
+            <Sequence sap2010:WorkflowViewState.IdRef="Sequence_78">
+              <ui:LogMessage DisplayName="Log message" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="HODNOTY DRUH VOZIDLA NEJSOU STEJNÉ" />
+              <ui:ExcelApplicationScope Password="{x:Null}" DisplayName="Excel application scope" sap2010:WorkflowViewState.IdRef="ExcelApplicationScope_5" WorkbookPath="[TODAY_FIKTIV_DRUH_VOZIDLA]">
+                <ui:ExcelApplicationScope.Body>
+                  <ActivityAction x:TypeArguments="ui:WorkbookApplication">
+                    <ActivityAction.Argument>
+                      <DelegateInArgument x:TypeArguments="ui:WorkbookApplication" Name="ExcelWorkbookScope" />
+                    </ActivityAction.Argument>
+                    <Sequence DisplayName="Do" sap2010:WorkflowViewState.IdRef="Sequence_77">
+                      <ui:ExcelWriteCell Cell="[&quot;I&quot; + ROWINDEX_DRUH_VOZIDLA]" DisplayName="ZAPIŠ DO I + ČÍSLO ŘÁDKU" sap2010:WorkflowViewState.IdRef="ExcelWriteCell_5" SheetName="DATA" Text="CHYBA NA PS" />
+                      <ui:ExcelWriteCell Cell="[&quot;J&quot; + ROWINDEX_DRUH_VOZIDLA]" DisplayName="ZAPIŠ DO J + ČÍSLO ŘÁDKU" sap2010:WorkflowViewState.IdRef="ExcelWriteCell_6" SheetName="DATA" Text="Druh vozidla není shodný" />
+                    </Sequence>
+                  </ActivityAction>
+                </ui:ExcelApplicationScope.Body>
+              </ui:ExcelApplicationScope>
+              <Rethrow DisplayName="OPĚTOVNĚ VYHOĎ CHYBU" sap2010:WorkflowViewState.IdRef="Rethrow_3" />
+            </Sequence>
+          </ActivityAction>
+        </Catch>
+      </TryCatch.Catches>
+    </TryCatch>
+    <sads:DebugSymbol.Symbol>d0pDOlxVc2Vyc1xURUNIUk9CT1QzXERvY3VtZW50c1xVaVBhdGhccm9ib3RfQ0tQXzEuMVw5LjEuOCBEUlVIIFZPWklETEEueGFtbBtWA40BDgIBAVoFbBYCARZtBYsBEAIBAlr9AVq6AgIBHmALaRYCARdvCW/eAQIBE3cNhwEYAgEDYQ1oGwIBGG+FAW+tAQIBFW9Vb3kCARR4D3ijAQIBEXkPhQEqAgEFhgEPhgFpAgEEZkBmTQIBGWOLAWOoAgIBHWOzAmPRAgIBG3h8eKABAgESeaoBeccBAgEPfxWCASACAQaAAReAAdkBAgELgQEXgQHmAQIBB4ABL4ABWAIBDoAByQGAAdYBAgENgAG9AYABwwECAQyBAS+BAVgCAQqBAckBgQHjAQIBCYEBvQGBAcMBAgEI</sads:DebugSymbol.Symbol>
+  </Sequence>
+  <sap2010:WorkflowViewState.ViewStateManager>
+    <sap2010:ViewStateManager>
+      <sap2010:ViewStateData Id="GetValue_3" sap:VirtualizedContainerService.HintSize="314,106" />
+      <sap2010:ViewStateData Id="Sequence_57" sap:VirtualizedContainerService.HintSize="336,230">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="WindowScope_18" sap:VirtualizedContainerService.HintSize="418,376" />
+      <sap2010:ViewStateData Id="CheckTrue_6" sap:VirtualizedContainerService.HintSize="314,87" />
+      <sap2010:ViewStateData Id="LogMessage_1" sap:VirtualizedContainerService.HintSize="414,87" />
+      <sap2010:ViewStateData Id="ExcelWriteCell_5" sap:VirtualizedContainerService.HintSize="314,87" />
+      <sap2010:ViewStateData Id="ExcelWriteCell_6" sap:VirtualizedContainerService.HintSize="314,87" />
+      <sap2010:ViewStateData Id="Sequence_77" sap:VirtualizedContainerService.HintSize="336,338">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="ExcelApplicationScope_5" sap:VirtualizedContainerService.HintSize="414,447" />
+      <sap2010:ViewStateData Id="Rethrow_3" sap:VirtualizedContainerService.HintSize="414,22" />
+      <sap2010:ViewStateData Id="Sequence_78" sap:VirtualizedContainerService.HintSize="436,760">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="Catch`1_2" sap:VirtualizedContainerService.HintSize="404,20">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="TryCatch_2" sap:VirtualizedContainerService.HintSize="418,305" />
+      <sap2010:ViewStateData Id="Sequence_65" sap:VirtualizedContainerService.HintSize="440,845">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="DRUH_VOZIDLA_1" sap:VirtualizedContainerService.HintSize="480,1205" />
+    </sap2010:ViewStateManager>
+  </sap2010:WorkflowViewState.ViewStateManager>
+</Activity>
