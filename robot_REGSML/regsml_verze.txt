@@ -1,0 +1,10 @@
+regsml-verze-1.2
+Nove generovani emailu dle priznaku, zda chybi data ve zdrojovem souboru. 
+
+Invoke activity
+
+================================================================================
+regsml-verze-1.3
+- odesílání emailu na začátku zpracování
+- centrální nastavení emailových kontaktů (RPA admin)
+- oveření, zda se registr v IE načetl, pokud ne, automatická aktualizace stránky

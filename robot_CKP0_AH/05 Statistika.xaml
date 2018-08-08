@@ -1,0 +1,307 @@
+﻿<Activity mc:Ignorable="sap sap2010 sads" x:Class="_0"
+ xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities"
+ xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+ xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities"
+ xmlns:sads="http://schemas.microsoft.com/netfx/2010/xaml/activities/debugger"
+ xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation"
+ xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation"
+ xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib"
+ xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=mscorlib"
+ xmlns:ui="http://schemas.uipath.com/workflow/activities"
+ xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="ARG_CKP0_StrCestaRpaAktualne" Type="InArgument(x:String)" />
+    <x:Property Name="ARG_CKP0_StrNazevSouborZdroj" Type="InArgument(x:String)" />
+  </x:Members>
+  <mva:VisualBasic.Settings>
+    <x:Null />
+  </mva:VisualBasic.Settings>
+  <sap2010:WorkflowViewState.IdRef>_0_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <sco:Collection x:TypeArguments="x:String">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>UiPath.Credentials.Activities</x:String>
+      <x:String>UiPath.Excel.Activities</x:String>
+      <x:String>UiPath.CSV.Activities</x:String>
+      <x:String>UiPath.Excel</x:String>
+      <x:String>UiPath.CSV</x:String>
+      <x:String>UiPath.Mail.Activities</x:String>
+      <x:String>UiPath.Mail.Exchange.Activities</x:String>
+      <x:String>UiPath.Mail.IMAP.Activities</x:String>
+      <x:String>UiPath.Mail.Outlook.Activities</x:String>
+      <x:String>UiPath.Mail.POP3.Activities</x:String>
+      <x:String>UiPath.Mail.SMTP.Activities</x:String>
+      <x:String>UiPath.Script.Activities</x:String>
+      <x:String>UiPath.Script.Activities.PowerShell</x:String>
+      <x:String>UiPath.Script.Activities.AutoHotKey</x:String>
+      <x:String>System.Windows.Markup</x:String>
+    </sco:Collection>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <sco:Collection x:TypeArguments="AssemblyReference">
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>UiPath.Core</AssemblyReference>
+      <AssemblyReference>UiPath.Core.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Credentials.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Excel</AssemblyReference>
+      <AssemblyReference>UiPath.Mail.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Script.Activities</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>PresentationCore</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+    </sco:Collection>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence DisplayName="05 Statistika" sap2010:WorkflowViewState.IdRef="Sequence_20">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="x:String" Default="FINAL TEST" Name="StrPriznakEmail" />
+      <Variable x:TypeArguments="x:String" Default="vaclav.hlavacek@ceskapojistovna.cz" Name="StrKontaktRpaUzivatel1" />
+      <Variable x:TypeArguments="x:String" Name="StrKontaktRpaAdmin2" />
+      <Variable x:TypeArguments="x:String" Name="StrKontaktRpaAdmin1" />
+    </Sequence.Variables>
+    <ui:Comment sap2010:WorkflowViewState.IdRef="Comment_2" Text="// musi byt jine&#xA;" />
+    <ui:ExcelApplicationScope Password="{x:Null}" DisplayName="Excel application scope" sap2010:WorkflowViewState.IdRef="ExcelApplicationScope_4" WorkbookPath="[ARG_CKP0_StrCestaRpaAktualne+ARG_CKP0_StrNazevSouborZdroj]">
+      <ui:ExcelApplicationScope.Body>
+        <ActivityAction x:TypeArguments="ui:WorkbookApplication">
+          <ActivityAction.Argument>
+            <DelegateInArgument x:TypeArguments="ui:WorkbookApplication" Name="ExcelWorkbookScope" />
+          </ActivityAction.Argument>
+          <Sequence DisplayName="Do" sap2010:WorkflowViewState.IdRef="Sequence_21">
+            <Sequence DisplayName="OPRAVENÉ + CHYBA NA PS" sap2010:WorkflowViewState.IdRef="Sequence_22">
+              <ui:ExcelWriteCell Cell="b1" DisplayName="ZAPIŠ HODNOTU PRO TP OPRAVEN" sap2010:WorkflowViewState.IdRef="ExcelWriteCell_5" SheetName="seznam" Text="=COUNTIF(DATA!I2:I1500,SEZNAM!A1)" />
+              <ui:ExcelWriteCell Cell="c1" DisplayName="ZAPIŠ HODNOTU PRO TP OPRAVEN" sap2010:WorkflowViewState.IdRef="ExcelWriteCell_6" SheetName="seznam" Text="=b1/b13*100" />
+              <ui:ExcelReadCell Cell="c1" DisplayName="TP opraven" sap2010:WorkflowViewState.IdRef="ExcelReadCell_19" SheetName="seznam">
+                <ui:ExcelReadCell.Result>
+                  <OutArgument x:TypeArguments="ui:GenericValue">[TP_OPRAVEN]</OutArgument>
+                </ui:ExcelReadCell.Result>
+              </ui:ExcelReadCell>
+              <ui:ExcelWriteCell Cell="b2" DisplayName="ZAPIŠ HODNOTU PRO RZ ORPAVENA" sap2010:WorkflowViewState.IdRef="ExcelWriteCell_7" SheetName="seznam" Text="=COUNTIF(DATA!I2:I1500,SEZNAM!A2)" />
+              <ui:ExcelWriteCell Cell="c2" DisplayName="ZAPIŠ HODNOTU PRO RZ ORPAVENA" sap2010:WorkflowViewState.IdRef="ExcelWriteCell_8" SheetName="seznam" Text="=b2/b13*100" />
+              <ui:ExcelReadCell Cell="c2" DisplayName="RZ Opravena" sap2010:WorkflowViewState.IdRef="ExcelReadCell_20" SheetName="seznam">
+                <ui:ExcelReadCell.Result>
+                  <OutArgument x:TypeArguments="ui:GenericValue">[RZ_OPRAVENA]</OutArgument>
+                </ui:ExcelReadCell.Result>
+              </ui:ExcelReadCell>
+              <ui:ExcelWriteCell Cell="b3" DisplayName="ZAPIŠ HODNOTU PRO RZ + TP ORPAVEN" sap2010:WorkflowViewState.IdRef="ExcelWriteCell_9" SheetName="seznam" Text="=COUNTIF(DATA!I2:I1500,SEZNAM!A3)" />
+              <ui:ExcelWriteCell Cell="c3" DisplayName="ZAPIŠ HODNOTU PRO RZ + TP ORPAVEN" sap2010:WorkflowViewState.IdRef="ExcelWriteCell_10" SheetName="seznam" Text="=b3/b13*100" />
+              <ui:ExcelReadCell Cell="c3" DisplayName="RZ + TP Opraven" sap2010:WorkflowViewState.IdRef="ExcelReadCell_21" SheetName="seznam">
+                <ui:ExcelReadCell.Result>
+                  <OutArgument x:TypeArguments="ui:GenericValue">[RZTP_OPRAVEN]</OutArgument>
+                </ui:ExcelReadCell.Result>
+              </ui:ExcelReadCell>
+              <ui:ExcelWriteCell Cell="b4" DisplayName="ZAPIŠ HODNOTU PRO CHYBA NA PS" sap2010:WorkflowViewState.IdRef="ExcelWriteCell_11" SheetName="seznam" Text="=COUNTIF(DATA!I2:I1500,SEZNAM!A4)" />
+              <ui:ExcelWriteCell Cell="c4" DisplayName="ZAPIŠ HODNOTU PRO CHYBA NA PS" sap2010:WorkflowViewState.IdRef="ExcelWriteCell_12" SheetName="seznam" Text="=b4/b13*100" />
+              <ui:ExcelReadCell Cell="c4" DisplayName="CHYBA NA PS" sap2010:WorkflowViewState.IdRef="ExcelReadCell_22" SheetName="seznam">
+                <ui:ExcelReadCell.Result>
+                  <OutArgument x:TypeArguments="ui:GenericValue">[CHYBA_NA_PS]</OutArgument>
+                </ui:ExcelReadCell.Result>
+              </ui:ExcelReadCell>
+              <ui:ExcelWriteCell Cell="b13" DisplayName="ZJISTI CELKOVÝ POČET ZPARCOVANÝCH SMLUV" sap2010:WorkflowViewState.IdRef="ExcelWriteCell_27" SheetName="seznam" Text="=SUM(b1:b11)" />
+            </Sequence>
+            <Sequence DisplayName="ROZDĚLENÍ CHYB" sap2010:WorkflowViewState.IdRef="Sequence_66">
+              <ui:ExcelWriteCell Cell="D1" DisplayName="ZAPIŠ Jiná hodnota než PS a 0" sap2010:WorkflowViewState.IdRef="ExcelWriteCell_28" SheetName="seznam" Text="JINÁ HODNOTA NEŽ PS A 0" />
+              <ui:ExcelWriteCell Cell="E1" DisplayName="ZAPIŠ Jiná hodnota než PS a 0" sap2010:WorkflowViewState.IdRef="ExcelWriteCell_45" SheetName="seznam" Text="=COUNTIF(DATA!j2:j1500,SEZNAM!D1)" />
+              <ui:ExcelWriteCell Cell="F1" DisplayName="ZAPIŠ Jiná hodnota než PS a 0" sap2010:WorkflowViewState.IdRef="ExcelWriteCell_46" SheetName="seznam" Text="=E1/b13*100" />
+              <ui:ExcelReadCell Cell="F1" DisplayName="Jiná hodnota než PS a 0" sap2010:WorkflowViewState.IdRef="ExcelReadCell_29" SheetName="SEZNAM">
+                <ui:ExcelReadCell.Result>
+                  <OutArgument x:TypeArguments="ui:GenericValue">[PSAND0]</OutArgument>
+                </ui:ExcelReadCell.Result>
+              </ui:ExcelReadCell>
+              <ui:ExcelWriteCell Cell="D2" DisplayName="ZAPIŠ Data v ČKP nenalezena" sap2010:WorkflowViewState.IdRef="ExcelWriteCell_37" SheetName="seznam" Text="Data v ČKP nenalezena" />
+              <ui:ExcelWriteCell Cell="E2" DisplayName="ZAPIŠ Data v ČKP nenalezena" sap2010:WorkflowViewState.IdRef="ExcelWriteCell_47" SheetName="seznam" Text="=COUNTIF(DATA!j2:j1500,SEZNAM!D2)" />
+              <ui:ExcelWriteCell Cell="F2" DisplayName="ZAPIŠ Data v ČKP nenalezena" sap2010:WorkflowViewState.IdRef="ExcelWriteCell_48" SheetName="seznam" Text="=E2/b13*100" />
+              <ui:ExcelReadCell Cell="F2" DisplayName="Data v ČKP nenalezena" sap2010:WorkflowViewState.IdRef="ExcelReadCell_30" SheetName="SEZNAM">
+                <ui:ExcelReadCell.Result>
+                  <OutArgument x:TypeArguments="ui:GenericValue">[DATAVČKP]</OutArgument>
+                </ui:ExcelReadCell.Result>
+              </ui:ExcelReadCell>
+              <ui:ExcelWriteCell Cell="D3" DisplayName="ZAPIŠ Dva či více řádků ve vyhledaném vozidle z ČKP" sap2010:WorkflowViewState.IdRef="ExcelWriteCell_38" SheetName="seznam" Text="Dva či více řádků ve vyhledaném vozidle z ČKP" />
+              <ui:ExcelWriteCell Cell="E3" DisplayName="ZAPIŠ Dva či více řádků ve vyhledaném vozidle z ČKP" sap2010:WorkflowViewState.IdRef="ExcelWriteCell_49" SheetName="seznam" Text="=COUNTIF(DATA!j2:j1500,SEZNAM!D3)" />
+              <ui:ExcelWriteCell Cell="F3" DisplayName="ZAPIŠ Dva či více řádků ve vyhledaném vozidle z ČKP" sap2010:WorkflowViewState.IdRef="ExcelWriteCell_50" SheetName="seznam" Text="=E3/b13*100" />
+              <ui:ExcelReadCell Cell="F3" DisplayName="Dva či více řádků ve vyhledaném vozidle z ČKP" sap2010:WorkflowViewState.IdRef="ExcelReadCell_31" SheetName="SEZNAM">
+                <ui:ExcelReadCell.Result>
+                  <OutArgument x:TypeArguments="ui:GenericValue">[DVARADKY]</OutArgument>
+                </ui:ExcelReadCell.Result>
+              </ui:ExcelReadCell>
+              <ui:ExcelWriteCell Cell="D4" DisplayName="ZAPIŠ Druh vozidla není shodný" sap2010:WorkflowViewState.IdRef="ExcelWriteCell_39" SheetName="seznam" Text="Druh vozidla není shodný" />
+              <ui:ExcelWriteCell Cell="E4" DisplayName="ZAPIŠ Druh vozidla není shodný" sap2010:WorkflowViewState.IdRef="ExcelWriteCell_51" SheetName="seznam" Text="=COUNTIF(DATA!j2:j1500,SEZNAM!D4)" />
+              <ui:ExcelWriteCell Cell="F4" DisplayName="ZAPIŠ Druh vozidla není shodný" sap2010:WorkflowViewState.IdRef="ExcelWriteCell_52" SheetName="seznam" Text="=E4/b13*100" />
+              <ui:ExcelReadCell Cell="F4" DisplayName="Druh vozidla není shodný" sap2010:WorkflowViewState.IdRef="ExcelReadCell_32" SheetName="SEZNAM">
+                <ui:ExcelReadCell.Result>
+                  <OutArgument x:TypeArguments="ui:GenericValue">[DRUHVOZIDLA]</OutArgument>
+                </ui:ExcelReadCell.Result>
+              </ui:ExcelReadCell>
+              <ui:ExcelWriteCell Cell="D5" DisplayName="ZAPIŠ Dopočet pojistného není 0" sap2010:WorkflowViewState.IdRef="ExcelWriteCell_40" SheetName="seznam" Text="Dopočet pojistného není 0" />
+              <ui:ExcelWriteCell Cell="E5" DisplayName="ZAPIŠ Dopočet pojistného není 0" sap2010:WorkflowViewState.IdRef="ExcelWriteCell_53" SheetName="seznam" Text="=COUNTIF(DATA!j2:j1500,SEZNAM!D5)" />
+              <ui:ExcelWriteCell Cell="F5" DisplayName="ZAPIŠ Dopočet pojistného není 0" sap2010:WorkflowViewState.IdRef="ExcelWriteCell_54" SheetName="seznam" Text="=E5/b13*100" />
+              <ui:ExcelReadCell Cell="F5" DisplayName="Dopočet pojistného není 0" sap2010:WorkflowViewState.IdRef="ExcelReadCell_33" SheetName="SEZNAM">
+                <ui:ExcelReadCell.Result>
+                  <OutArgument x:TypeArguments="ui:GenericValue">[DOPOCETPOJISTNEHO]</OutArgument>
+                </ui:ExcelReadCell.Result>
+              </ui:ExcelReadCell>
+              <ui:ExcelWriteCell Cell="D6" DisplayName="ZAPIŠ Problém s tiskem/archivací" sap2010:WorkflowViewState.IdRef="ExcelWriteCell_41" SheetName="seznam" Text="Problém s tiskem/archivací" />
+              <ui:ExcelWriteCell Cell="E6" DisplayName="ZAPIŠ Problém s tiskem/archivací" sap2010:WorkflowViewState.IdRef="ExcelWriteCell_55" SheetName="seznam" Text="=COUNTIF(DATA!j2:j1500,SEZNAM!D6)" />
+              <ui:ExcelWriteCell Cell="F6" DisplayName="ZAPIŠ Problém s tiskem/archivací" sap2010:WorkflowViewState.IdRef="ExcelWriteCell_56" SheetName="seznam" Text="=E6/b13*100" />
+              <ui:ExcelReadCell Cell="F6" DisplayName="Problém s tiskem/archivací" sap2010:WorkflowViewState.IdRef="ExcelReadCell_34" SheetName="SEZNAM">
+                <ui:ExcelReadCell.Result>
+                  <OutArgument x:TypeArguments="ui:GenericValue">[TISK]</OutArgument>
+                </ui:ExcelReadCell.Result>
+              </ui:ExcelReadCell>
+              <ui:ExcelWriteCell Cell="D7" DisplayName="ZAPIŠ Neznámá hláška" sap2010:WorkflowViewState.IdRef="ExcelWriteCell_42" SheetName="seznam" Text="Neznámá hláška" />
+              <ui:ExcelWriteCell Cell="E7" DisplayName="ZAPIŠ Neznámá hláška" sap2010:WorkflowViewState.IdRef="ExcelWriteCell_57" SheetName="seznam" Text="=COUNTIF(DATA!j2:j1500,SEZNAM!D7)" />
+              <ui:ExcelWriteCell Cell="F7" DisplayName="ZAPIŠ Neznámá hláška" sap2010:WorkflowViewState.IdRef="ExcelWriteCell_58" SheetName="seznam" Text="=E7/b13*100" />
+              <ui:ExcelReadCell Cell="F7" DisplayName="Neznámá hláška" sap2010:WorkflowViewState.IdRef="ExcelReadCell_35" SheetName="SEZNAM">
+                <ui:ExcelReadCell.Result>
+                  <OutArgument x:TypeArguments="ui:GenericValue">[NEZNAMAHLASKA]</OutArgument>
+                </ui:ExcelReadCell.Result>
+              </ui:ExcelReadCell>
+              <ui:ExcelWriteCell Cell="D8" DisplayName="ZAPIŠ VNITŘNÍ CHYBA SERVERU - TYP VOZIDLA" sap2010:WorkflowViewState.IdRef="ExcelWriteCell_43" SheetName="seznam" Text="VNITŘNÍ CHYBA SERVERU - TYP VOZIDLA" />
+              <ui:ExcelWriteCell Cell="E8" DisplayName="ZAPIŠ VNITŘNÍ CHYBA SERVERU - TYP VOZIDLA" sap2010:WorkflowViewState.IdRef="ExcelWriteCell_59" SheetName="seznam" Text="=COUNTIF(DATA!j2:j1500,SEZNAM!D8)" />
+              <ui:ExcelWriteCell Cell="F8" DisplayName="ZAPIŠ VNITŘNÍ CHYBA SERVERU - TYP VOZIDLA" sap2010:WorkflowViewState.IdRef="ExcelWriteCell_60" SheetName="seznam" Text="=E8/b13*100" />
+              <ui:ExcelReadCell Cell="F8" DisplayName="VNITŘNÍ CHYBA SERVERU - TYP VOZIDLA" sap2010:WorkflowViewState.IdRef="ExcelReadCell_36" SheetName="SEZNAM">
+                <ui:ExcelReadCell.Result>
+                  <OutArgument x:TypeArguments="ui:GenericValue">[VNITRNICHYBASERVERU]</OutArgument>
+                </ui:ExcelReadCell.Result>
+              </ui:ExcelReadCell>
+              <ui:ExcelWriteCell Cell="D9" DisplayName="ZAPIŠ NELZE SE PŘIPOJIT DO TIA" sap2010:WorkflowViewState.IdRef="ExcelWriteCell_44" SheetName="seznam" Text="NELZE SE PŘIPOJIT DO TIA" />
+              <ui:ExcelWriteCell Cell="E9" DisplayName="ZAPIŠ NELZE SE PŘIPOJIT DO TIA" sap2010:WorkflowViewState.IdRef="ExcelWriteCell_61" SheetName="seznam" Text="=COUNTIF(DATA!j2:j1500,SEZNAM!D9)" />
+              <ui:ExcelWriteCell Cell="F9" DisplayName="ZAPIŠ NELZE SE PŘIPOJIT DO TIA" sap2010:WorkflowViewState.IdRef="ExcelWriteCell_62" SheetName="seznam" Text="=E9/b13*100" />
+              <ui:ExcelReadCell Cell="F9" DisplayName="NELZE SE PŘIPOJIT DO TIA" sap2010:WorkflowViewState.IdRef="ExcelReadCell_37" SheetName="SEZNAM">
+                <ui:ExcelReadCell.Result>
+                  <OutArgument x:TypeArguments="ui:GenericValue">[NELZESEPRIPOJIT]</OutArgument>
+                </ui:ExcelReadCell.Result>
+              </ui:ExcelReadCell>
+            </Sequence>
+            <ui:SendOutlookMail Account="{x:Null}" MailMessage="{x:Null}" TimeoutMS="{x:Null}" Bcc="[StrKontaktRpaAdmin1 + &quot;;&quot;+ StrKontaktRpaAdmin2]" Body="[&quot;TP OPRAVEN: &quot; + TP_OPRAVEN.ToString + &quot;%&quot; + ENVIRONMENT.NewLine +&#xD;&#xA;&quot;RZ OPRAVENA: &quot; + RZ_OPRAVENA.ToString + &quot;%&quot; + ENVIRONMENT.NewLine +&#xD;&#xA;&quot;TP + RZ OPRAVENA: &quot; + RZTP_OPRAVEN.ToString + &quot;%&quot; + ENVIRONMENT.NewLine +&#xD;&#xA;&quot;CHYBA PS: &quot; + CHYBA_NA_PS.ToString + &quot;%&quot; + ENVIRONMENT.NewLine + environment.NewLine +&#xD;&#xA;&quot;JINÁ HODNOTA NEŽ PS A 0: &quot; + PSAND0.ToString + &quot;%&quot; + ENVIRONMENT.NewLine +&#xD;&#xA;&quot;DATA V ČKP NENALEZENA: &quot; + DATAVČKP.ToString + &quot;%&quot; + ENVIRONMENT.NewLine +&#xD;&#xA;&quot;DVA ČI VÍCE ŘÁDKŮ VE VYHLEDANÉM VOZIDLE Z ČKP: &quot; + DVARADKY.ToString + &quot;%&quot; + ENVIRONMENT.NewLine +&#xD;&#xA;&quot;DRUH VOZIDLA NENÍ SHONÝ: &quot; + DRUHVOZIDLA.ToString + &quot;%&quot; + ENVIRONMENT.NewLine +&#xD;&#xA;&quot;DOPOČET POJISTNÉHO NENÍ 0: &quot; + DOPOCETPOJISTNEHO.ToString + &quot;%&quot; + ENVIRONMENT.NewLine +&#xD;&#xA;&quot;PROBLÉM S TISKEM/ARCHIVACÍ: &quot; + TISK.ToString + &quot;%&quot; + ENVIRONMENT.NewLine +&#xD;&#xA;&quot;NEZNÁMÁ HLÁŠKA: &quot; + NEZNAMAHLASKA.ToString + &quot;%&quot; + ENVIRONMENT.NewLine +&#xD;&#xA;&quot;VNITŘNÍ CHYBA SERVERU - TYP VOZIDLA: &quot; +VNITRNICHYBASERVERU.ToString + &quot;%&quot; + ENVIRONMENT.NewLine +&#xD;&#xA;&quot;NELZE SE PŘIPOJIT DO TIA: &quot; + NELZESEPRIPOJIT.ToString + &quot;%&quot;]" Cc="[StrKontaktRpaAdmin1 + &quot;;&quot;+ StrKontaktRpaAdmin2]" DisplayName="ODEŠLI STATISTIKU" sap2010:WorkflowViewState.IdRef="SendOutlookMail_6" IsBodyHtml="False" IsDraft="False" Subject="[&quot;Robot CKP0: Zpracováno - statistika (&quot; + today.ToString(&quot;dd.MM.yyyy&quot;) + &quot;) &quot; + StrPriznakEmail]" To="[StrKontaktRpaUzivatel1 + &quot;;&quot;+ StrKontaktRpaAdmin1]">
+              <ui:SendOutlookMail.Files>
+                <scg:List x:TypeArguments="InArgument(x:String)" Capacity="0" />
+              </ui:SendOutlookMail.Files>
+            </ui:SendOutlookMail>
+          </Sequence>
+        </ActivityAction>
+      </ui:ExcelApplicationScope.Body>
+    </ui:ExcelApplicationScope>
+    <sads:DebugSymbol.Symbol>d0VDOlxVc2Vyc1xWSGxhdmFjZWtcRG9jdW1lbnRzXFVpUGF0aFxyb2JvdF9DS1AwXzAuM1wwNSBTdGF0aXN0aWthLnhhbWzTAVUD1wEOAgEBVzRXQAIBA1g0WFgCAQJcBVxcAwHbAV0F1QEgAgEEXaABXd0BAwHYAWML0gEWAgEFZA2CARgDAaMBgwENzAEYAgESzQEN0QEiAgEGZQ9lyAEDAdQBZg9msgEDAdABZw9rIgMBzAFsD2zJAQMByAFtD22zAQMBxAFuD3IiAwHAAXMPc80BAwG8AXQPdLgBAwG4AXUPeSIDAbQBeg96ygEDAbABew97tAEDAawBfA+AASIDAagBgQEPgQHAAQMBpAGEAQ+EAcABAwGfAYUBD4UBygEDAZsBhgEPhgG0AQMBlwGHAQ+LASIDAZMBjAEPjAG8AQMBjwGNAQ+NAcgBAwGLAY4BD44BsgEDAYcBjwEPkwEiAwGDAZQBD5QB7AECAX+VAQ+VAeABAgF7lgEPlgHKAQIBd5cBD5sBIgIBc5wBD5wBwgECAW+dAQ+dAcsBAgFrngEPngG1AQIBZ58BD6MBIgIBY6QBD6QBxAECAV+lAQ+lAcwBAgFbpgEPpgG2AQIBV6cBD6sBIgIBU6wBD6wBxgECAU+tAQ+tAc0BAgFLrgEPrgG3AQIBR68BD7MBIgIBQ7QBD7QBrgECAT+1AQ+1AcEBAgE7tgEPtgGrAQIBN7cBD7sBIgIBM7wBD7wB2AECAS+9AQ+9AdYBAgErvgEPvgHAAQIBJ78BD8MBIgIBI8QBD8QBwgECAR/FAQ/FAcsBAgEbxgEPxgG1AQIBF8cBD8sBIgIBE80B6A7NAacPAgEPzQFkzQGgAQIBDM0BpwzNAeMMAgEJzQGmAc0BowwCAQjNAeMNzQHkDgIBB2UnZSsDAdcBZaIBZcUBAwHWAWWUAWWcAQMB1QFmJ2YrAwHTAWaiAWavAQMB0gFmlAFmnAEDAdEBZyZnKgMBzwFpQmlOAwHOAWeBAWeJAQMBzQFsJ2wrAwHLAWyjAWzGAQMBygFslQFsnQEDAckBbSdtKwMBxwFtowFtsAEDAcYBbZUBbZ0BAwHFAW4mbioDAcMBcEJwTwMBwgFuggFuigEDAcEBcydzKwMBvwFzpwFzygEDAb4Bc5kBc6EBAwG9AXQndCsDAbsBdKgBdLUBAwG6AXSaAXSiAQMBuQF1JnUqAwG3AXdCd1ADAbYBdYYBdY4BAwG1AXoneisDAbMBeqQBescBAwGyAXqWAXqeAQMBsQF7J3srAwGvAXukAXuxAQMBrgF7lgF7ngEDAa0BfCZ8KgMBqwF+Qn5PAwGqAXyCAXyKAQMBqQGBASeBASwDAacBgQGvAYEBvQEDAaYBgQGhAYEBqQEDAaUBhAEnhAErAwGiAYQBpAGEAb0BAwGhAYQBlgGEAZ4BAwGgAYUBJ4UBKwMBngGFAaQBhQHHAQMBnQGFAZYBhQGeAQMBnAGGASeGASsDAZoBhgGkAYYBsQEDAZkBhgGWAYYBngEDAZgBhwEmhwEqAwGWAYkBQokBSgMBlQGHAY4BhwGWAQMBlAGMASeMASsDAZIBjAGiAYwBuQEDAZEBjAGUAYwBnAEDAZABjQEnjQErAwGOAY0BogGNAcUBAwGNAY0BlAGNAZwBAwGMAY4BJ44BKwMBigGOAaIBjgGvAQMBiQGOAZQBjgGcAQMBiAGPASaPASoDAYYBkQFCkQFMAwGFAY8BjAGPAZQBAwGEAZQBJ5QBKwMBggGUAboBlAHpAQMBgQGUAawBlAG0AQMBgAGVASeVASsCAX6VAboBlQHdAQIBfZUBrAGVAbQBAgF8lgEnlgErAgF6lgG6AZYBxwECAXmWAawBlgG0AQIBeJcBJpcBKgIBdpkBQpkBTAIBdZcBpAGXAawBAgF0nAEnnAErAgFynAGlAZwBvwECAXGcAZcBnAGfAQIBcJ0BJ50BKwIBbp0BpQGdAcgBAgFtnQGXAZ0BnwECAWyeASeeASsCAWqeAaUBngGyAQIBaZ4BlwGeAZ8BAgFonwEmnwEqAgFmoQFCoQFPAgFlnwGPAZ8BlwECAWSkASekASsCAWKkAaYBpAHBAQIBYaQBmAGkAaABAgFgpQEnpQErAgFepQGmAaUByQECAV2lAZgBpQGgAQIBXKYBJ6YBKwIBWqYBpgGmAbMBAgFZpgGYAaYBoAECAVinASanASoCAVapAUKpAVUCAVWnAZABpwGYAQIBVKwBJ6wBKwIBUqwBpwGsAcMBAgFRrAGZAawBoQECAVCtASetASsCAU6tAacBrQHKAQIBTa0BmQGtAaEBAgFMrgEnrgErAgFKrgGnAa4BtAECAUmuAZkBrgGhAQIBSK8BJq8BKgIBRrEBQrEBSAIBRa8BkQGvAZkBAgFEtAEntAErAgFCtAGbAbQBqwECAUG0AY0BtAGVAQIBQLUBJ7UBKwIBPrUBmwG1Ab4BAgE9tQGNAbUBlQECATy2ASe2ASsCATq2AZsBtgGoAQIBObYBjQG2AZUBAgE4twEmtwEqAgE2uQFCuQFRAgE1twGFAbcBjQECATS8ASe8ASsCATK8AbABvAHVAQIBMbwBogG8AaoBAgEwvQEnvQErAgEuvQGwAb0B0wECAS29AaIBvQGqAQIBLL4BJ74BKwIBKr4BsAG+Ab0BAgEpvgGiAb4BqgECASi/ASa/ASoCASbBAULBAVcCASW/AZoBvwGiAQIBJMQBJ8QBKwIBIsQBpQHEAb8BAgEhxAGXAcQBnwECASDFASfFASsCAR7FAaUBxQHIAQIBHcUBlwHFAZ8BAgEcxgEnxgErAgEaxgGlAcYBsgECARnGAZcBxgGfAQIBGMcBJscBKgIBFskBQskBUwIBFccBjwHHAZcBAgEU</sads:DebugSymbol.Symbol>
+  </Sequence>
+  <sap2010:WorkflowViewState.ViewStateManager>
+    <sap2010:ViewStateManager>
+      <sap2010:ViewStateData Id="Comment_2" sap:VirtualizedContainerService.HintSize="414,55" />
+      <sap2010:ViewStateData Id="ExcelWriteCell_5" sap:VirtualizedContainerService.HintSize="314,87" />
+      <sap2010:ViewStateData Id="ExcelWriteCell_6" sap:VirtualizedContainerService.HintSize="314,87" />
+      <sap2010:ViewStateData Id="ExcelReadCell_19" sap:VirtualizedContainerService.HintSize="314,59" />
+      <sap2010:ViewStateData Id="ExcelWriteCell_7" sap:VirtualizedContainerService.HintSize="314,87" />
+      <sap2010:ViewStateData Id="ExcelWriteCell_8" sap:VirtualizedContainerService.HintSize="314,87" />
+      <sap2010:ViewStateData Id="ExcelReadCell_20" sap:VirtualizedContainerService.HintSize="314,59" />
+      <sap2010:ViewStateData Id="ExcelWriteCell_9" sap:VirtualizedContainerService.HintSize="314,87" />
+      <sap2010:ViewStateData Id="ExcelWriteCell_10" sap:VirtualizedContainerService.HintSize="314,87" />
+      <sap2010:ViewStateData Id="ExcelReadCell_21" sap:VirtualizedContainerService.HintSize="314,59" />
+      <sap2010:ViewStateData Id="ExcelWriteCell_11" sap:VirtualizedContainerService.HintSize="314,87" />
+      <sap2010:ViewStateData Id="ExcelWriteCell_12" sap:VirtualizedContainerService.HintSize="314,87" />
+      <sap2010:ViewStateData Id="ExcelReadCell_22" sap:VirtualizedContainerService.HintSize="314,59" />
+      <sap2010:ViewStateData Id="ExcelWriteCell_27" sap:VirtualizedContainerService.HintSize="314,87" />
+      <sap2010:ViewStateData Id="Sequence_22" sap:VirtualizedContainerService.HintSize="336,1623">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="ExcelWriteCell_28" sap:VirtualizedContainerService.HintSize="314,87" />
+      <sap2010:ViewStateData Id="ExcelWriteCell_45" sap:VirtualizedContainerService.HintSize="314,87" />
+      <sap2010:ViewStateData Id="ExcelWriteCell_46" sap:VirtualizedContainerService.HintSize="314,87" />
+      <sap2010:ViewStateData Id="ExcelReadCell_29" sap:VirtualizedContainerService.HintSize="314,59" />
+      <sap2010:ViewStateData Id="ExcelWriteCell_37" sap:VirtualizedContainerService.HintSize="314,87" />
+      <sap2010:ViewStateData Id="ExcelWriteCell_47" sap:VirtualizedContainerService.HintSize="314,87" />
+      <sap2010:ViewStateData Id="ExcelWriteCell_48" sap:VirtualizedContainerService.HintSize="314,87" />
+      <sap2010:ViewStateData Id="ExcelReadCell_30" sap:VirtualizedContainerService.HintSize="314,59" />
+      <sap2010:ViewStateData Id="ExcelWriteCell_38" sap:VirtualizedContainerService.HintSize="314,87" />
+      <sap2010:ViewStateData Id="ExcelWriteCell_49" sap:VirtualizedContainerService.HintSize="314,87" />
+      <sap2010:ViewStateData Id="ExcelWriteCell_50" sap:VirtualizedContainerService.HintSize="314,87" />
+      <sap2010:ViewStateData Id="ExcelReadCell_31" sap:VirtualizedContainerService.HintSize="314,59" />
+      <sap2010:ViewStateData Id="ExcelWriteCell_39" sap:VirtualizedContainerService.HintSize="314,87" />
+      <sap2010:ViewStateData Id="ExcelWriteCell_51" sap:VirtualizedContainerService.HintSize="314,87" />
+      <sap2010:ViewStateData Id="ExcelWriteCell_52" sap:VirtualizedContainerService.HintSize="314,87" />
+      <sap2010:ViewStateData Id="ExcelReadCell_32" sap:VirtualizedContainerService.HintSize="314,59" />
+      <sap2010:ViewStateData Id="ExcelWriteCell_40" sap:VirtualizedContainerService.HintSize="314,87" />
+      <sap2010:ViewStateData Id="ExcelWriteCell_53" sap:VirtualizedContainerService.HintSize="314,87" />
+      <sap2010:ViewStateData Id="ExcelWriteCell_54" sap:VirtualizedContainerService.HintSize="314,87" />
+      <sap2010:ViewStateData Id="ExcelReadCell_33" sap:VirtualizedContainerService.HintSize="314,59" />
+      <sap2010:ViewStateData Id="ExcelWriteCell_41" sap:VirtualizedContainerService.HintSize="314,87" />
+      <sap2010:ViewStateData Id="ExcelWriteCell_55" sap:VirtualizedContainerService.HintSize="314,87" />
+      <sap2010:ViewStateData Id="ExcelWriteCell_56" sap:VirtualizedContainerService.HintSize="314,87" />
+      <sap2010:ViewStateData Id="ExcelReadCell_34" sap:VirtualizedContainerService.HintSize="314,59" />
+      <sap2010:ViewStateData Id="ExcelWriteCell_42" sap:VirtualizedContainerService.HintSize="314,87" />
+      <sap2010:ViewStateData Id="ExcelWriteCell_57" sap:VirtualizedContainerService.HintSize="314,87" />
+      <sap2010:ViewStateData Id="ExcelWriteCell_58" sap:VirtualizedContainerService.HintSize="314,87" />
+      <sap2010:ViewStateData Id="ExcelReadCell_35" sap:VirtualizedContainerService.HintSize="314,59" />
+      <sap2010:ViewStateData Id="ExcelWriteCell_43" sap:VirtualizedContainerService.HintSize="314,87" />
+      <sap2010:ViewStateData Id="ExcelWriteCell_59" sap:VirtualizedContainerService.HintSize="314,87" />
+      <sap2010:ViewStateData Id="ExcelWriteCell_60" sap:VirtualizedContainerService.HintSize="314,87" />
+      <sap2010:ViewStateData Id="ExcelReadCell_36" sap:VirtualizedContainerService.HintSize="314,59" />
+      <sap2010:ViewStateData Id="ExcelWriteCell_44" sap:VirtualizedContainerService.HintSize="314,87" />
+      <sap2010:ViewStateData Id="ExcelWriteCell_61" sap:VirtualizedContainerService.HintSize="314,87" />
+      <sap2010:ViewStateData Id="ExcelWriteCell_62" sap:VirtualizedContainerService.HintSize="314,87" />
+      <sap2010:ViewStateData Id="ExcelReadCell_37" sap:VirtualizedContainerService.HintSize="314,59" />
+      <sap2010:ViewStateData Id="Sequence_66" sap:VirtualizedContainerService.HintSize="336,4404">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="SendOutlookMail_6" sap:VirtualizedContainerService.HintSize="336,143">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="Sequence_21" sap:VirtualizedContainerService.HintSize="358,6374">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="ExcelApplicationScope_4" sap:VirtualizedContainerService.HintSize="414,6483" />
+      <sap2010:ViewStateData Id="Sequence_20" sap:VirtualizedContainerService.HintSize="436,6702">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="_0_1" sap:VirtualizedContainerService.HintSize="476,6862" />
+    </sap2010:ViewStateManager>
+  </sap2010:WorkflowViewState.ViewStateManager>
+</Activity>

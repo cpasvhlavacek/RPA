@@ -1,0 +1,722 @@
+﻿<Activity mc:Ignorable="sap sap2010 sads" x:Class="ROBOT_CKP0 - 04"
+ xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities"
+ xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+ xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities"
+ xmlns:s="clr-namespace:System;assembly=mscorlib"
+ xmlns:sads="http://schemas.microsoft.com/netfx/2010/xaml/activities/debugger"
+ xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation"
+ xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation"
+ xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib"
+ xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=mscorlib"
+ xmlns:sd="clr-namespace:System.Data;assembly=System.Data"
+ xmlns:ui="http://schemas.uipath.com/workflow/activities"
+ xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="TODAY_OPEN_FILE" Type="InArgument(x:String)" />
+    <x:Property Name="TODAY_FIKTIV_OPEN_FILE" Type="InArgument(x:String)" />
+    <x:Property Name="SELECTOR_OPENFILE" Type="InArgument(x:String)" />
+    <x:Property Name="TIA_URL_OPENFILE" Type="InArgument(x:String)" />
+    <x:Property Name="TIMEOUTSMALL_OPENFILE" Type="InArgument(x:Int32)" />
+    <x:Property Name="TIMEOUTMEDIUM_OPENFILE" Type="InArgument(x:Int32)" />
+    <x:Property Name="TIMEOUTLARGE_OPENFILE" Type="InArgument(x:Int32)" />
+    <x:Property Name="OUTPUT_FILEPATH_SCREENSHOTY_OPENFILE" Type="InArgument(x:String)" />
+    <x:Property Name="ARG_CKP0_StrNazevSouborZdroj" Type="InArgument(x:String)" />
+    <x:Property Name="ARG_CKP0_StrCestaRpaAktualne" Type="InArgument(x:String)" />
+    <x:Property Name="ARG_CKP0_BoolExistujeTiaKlient" Type="InArgument(x:Boolean)" />
+  </x:Members>
+  <mva:VisualBasic.Settings>
+    <x:Null />
+  </mva:VisualBasic.Settings>
+  <sap2010:WorkflowViewState.IdRef>OPEN_FILE_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <sco:Collection x:TypeArguments="x:String">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>UiPath.Excel.Activities</x:String>
+      <x:String>UiPath.CSV.Activities</x:String>
+      <x:String>UiPath.Excel</x:String>
+      <x:String>UiPath.CSV</x:String>
+      <x:String>UiPath.Mail.Activities</x:String>
+      <x:String>UiPath.Mail.Exchange.Activities</x:String>
+      <x:String>UiPath.Mail.IMAP.Activities</x:String>
+      <x:String>UiPath.Mail.Outlook.Activities</x:String>
+      <x:String>UiPath.Mail.POP3.Activities</x:String>
+      <x:String>UiPath.Mail.SMTP.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>System.Xml.Serialization</x:String>
+      <x:String>Microsoft.VisualBasic.CompilerServices</x:String>
+    </sco:Collection>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <sco:Collection x:TypeArguments="AssemblyReference">
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>UiPath.Core</AssemblyReference>
+      <AssemblyReference>UiPath.Core.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Excel</AssemblyReference>
+      <AssemblyReference>UiPath.Mail.Activities</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>PresentationCore</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+    </sco:Collection>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence DisplayName="ROBOT_CKP0 - 04" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="ui:GenericValue" Name="MESSAGE" />
+      <Variable x:TypeArguments="x:String" Default="[ARG_CKP0_StrNazevSouborZdroj]" Name="CKP0_StrNazevSouborZdroj" />
+      <Variable x:TypeArguments="x:String" Default="[ARG_CKP0_StrCestaRpaAktualne]" Name="CKP0_StrCestaRpaAktualne" />
+      <Variable x:TypeArguments="x:Boolean" Default="[CKP0_BoolExistujeTiaKlient]" Name="CKP0_BoolExistujeTiaKlient" />
+      <Variable x:TypeArguments="x:String" Default="&lt;ROBOT_CKP0&gt; - &lt;Prace v Excelu a TIA&gt;" Name="strComponentName" />
+    </Sequence.Variables>
+    <ui:LogMessage DisplayName="LOG: start component" sap2010:WorkflowViewState.IdRef="LogMessage_6" Level="Info" Message="[strComponentName + &quot;: Start&quot;]" />
+    <ui:ExcelApplicationScope Password="{x:Null}" DisplayName="OTEVŘI EXCEL FILE" sap2010:WorkflowViewState.IdRef="ExcelApplicationScope_3" WorkbookPath="[ARG_CKP0_StrCestaRpaAktualne+ARG_CKP0_StrNazevSouborZdroj]">
+      <ui:ExcelApplicationScope.Body>
+        <ActivityAction x:TypeArguments="ui:WorkbookApplication">
+          <ActivityAction.Argument>
+            <DelegateInArgument x:TypeArguments="ui:WorkbookApplication" Name="ExcelWorkbookScope" />
+          </ActivityAction.Argument>
+          <Sequence DisplayName="Do" sap2010:WorkflowViewState.IdRef="Sequence_4">
+            <Sequence.Variables>
+              <Variable x:TypeArguments="sd:DataTable" Name="DT" />
+            </Sequence.Variables>
+            <ui:ExcelReadRange AddHeaders="False" DataTable="[DT]" DisplayName="NAČTI TABULKU" sap2010:WorkflowViewState.IdRef="ExcelReadRange_2" SheetName="DATA">
+              <ui:ExcelReadRange.Range>
+                <InArgument x:TypeArguments="x:String">
+                  <Literal x:TypeArguments="x:String" Value="" />
+                </InArgument>
+              </ui:ExcelReadRange.Range>
+            </ui:ExcelReadRange>
+            <ui:ForEachRow DataTable="[DT]" DisplayName="PRO KAŽDÝ ŘÁDEK V TABULCE" sap2010:WorkflowViewState.IdRef="ForEachRow_1">
+              <ui:ForEachRow.Body>
+                <ActivityAction x:TypeArguments="sd:DataRow">
+                  <ActivityAction.Argument>
+                    <DelegateInArgument x:TypeArguments="sd:DataRow" Name="row" />
+                  </ActivityAction.Argument>
+                  <Sequence DisplayName="Body" sap2010:WorkflowViewState.IdRef="Sequence_5">
+                    <Sequence.Variables>
+                      <Variable x:TypeArguments="ui:GenericValue" Name="ROWINDEX" />
+                      <Variable x:TypeArguments="ui:GenericValue" Name="STATUS" />
+                      <Variable x:TypeArguments="ui:GenericValue" Name="SPZ" />
+                      <Variable x:TypeArguments="ui:GenericValue" Name="CPT" />
+                      <Variable x:TypeArguments="ui:GenericValue" Name="PS" />
+                      <Variable x:TypeArguments="ui:GenericValue" Name="ECV" />
+                      <Variable x:TypeArguments="ui:GenericValue" Name="CISLO_PS" />
+                      <Variable x:TypeArguments="x:String" Name="MESSAGE_NEW" />
+                      <Variable x:TypeArguments="ui:GenericValue" Name="TYP_VOZIDLA" />
+                      <Variable x:TypeArguments="x:Boolean" Name="ATTACHED" />
+                      <Variable x:TypeArguments="ui:GenericValue" Name="Ivalue" />
+                      <Variable x:TypeArguments="ui:GenericValue" Name="Zvalue" />
+                    </Sequence.Variables>
+                    <Assign DisplayName="NASTAV ČÍSLO ŘÁDKU" sap2010:WorkflowViewState.IdRef="Assign_7">
+                      <Assign.To>
+                        <OutArgument x:TypeArguments="ui:GenericValue">[ROWINDEX]</OutArgument>
+                      </Assign.To>
+                      <Assign.Value>
+                        <InArgument x:TypeArguments="ui:GenericValue">[1]</InArgument>
+                      </Assign.Value>
+                    </Assign>
+                    <Assign DisplayName="NASTAV ČÍSLO ŘÁDKU" sap2010:WorkflowViewState.IdRef="Assign_2">
+                      <Assign.To>
+                        <OutArgument x:TypeArguments="ui:GenericValue">[ROWINDEX]</OutArgument>
+                      </Assign.To>
+                      <Assign.Value>
+                        <InArgument x:TypeArguments="ui:GenericValue">[DT.Rows.IndexOf(ROW) + 1]</InArgument>
+                      </Assign.Value>
+                    </Assign>
+                    <ui:ExcelReadCell Cell="[&quot;z&quot; + ROWINDEX]" DisplayName="PŘEČTI HODNOTU Z BUŇKY Z + ČÍSLO ŘÁDKU" sap2010:WorkflowViewState.IdRef="ExcelReadCell_14" SheetName="data">
+                      <ui:ExcelReadCell.Result>
+                        <OutArgument x:TypeArguments="ui:GenericValue">[Zvalue]</OutArgument>
+                      </ui:ExcelReadCell.Result>
+                    </ui:ExcelReadCell>
+                    <ui:ExcelReadCell Cell="[&quot;i&quot; + ROWINDEX]" DisplayName="PŘEČTI HODNOTU Z BUŇKY I + ČÍSLO ŘÁDKU" sap2010:WorkflowViewState.IdRef="ExcelReadCell_11" SheetName="data">
+                      <ui:ExcelReadCell.Result>
+                        <OutArgument x:TypeArguments="ui:GenericValue">[Ivalue]</OutArgument>
+                      </ui:ExcelReadCell.Result>
+                    </ui:ExcelReadCell>
+                    <If Condition="[Ivalue = nothing]" DisplayName="POKUD JE V I PRÁZNÁ HODNOTA - PROVEĎ ÚKONY V TIA" sap2010:WorkflowViewState.IdRef="If_17">
+                      <If.Then>
+                        <Sequence sap2010:WorkflowViewState.IdRef="Sequence_37">
+                          <If Condition="[Zvalue=&quot;AN&quot;]" DisplayName="pokud neni produkt AH tak nic" sap2010:WorkflowViewState.IdRef="If_10">
+                            <If.Then>
+                              <Sequence DisplayName="nalezeno" sap2010:WorkflowViewState.IdRef="Sequence_24">
+                                <ui:LogMessage DisplayName="Log message" sap2010:WorkflowViewState.IdRef="LogMessage_8" Level="Trace" Message="robot CKP0 -&gt; zpracovavam jako AN" />
+                                <Sequence sap2010:WorkflowViewState.IdRef="Sequence_36">
+                                  <Sequence sap2010:WorkflowViewState.IdRef="Sequence_31">
+                                    <Sequence.Variables>
+                                      <Variable x:TypeArguments="ui:Window" Name="tiaAktivni" />
+                                      <Variable x:TypeArguments="ui:UiElement" Name="existujeTia" />
+                                    </Sequence.Variables>
+                                    <ui:ImageFound DisplayName="Image Exists 'iexplore.exe'" Found="[CKP0_BoolExistujeTiaKlient]" sap2010:WorkflowViewState.IdRef="ImageFound_3">
+                                      <ui:ImageFound.Image>
+                                        <ui:ImageTarget Image="{x:Null}" Accuracy="0.8" TargetImageBase64="iVBORw0KGgoAAAANSUhEUgAAAMsAAAArCAYAAADWv3yxAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAVjSURBVHhe7Zoxi11VFIXfX7ERxB+gaSPaOKU2StppbO0EFfwNAZsoikSMXSy0yE+YRjCMYsQUIhjQiIUOmuQ6+41rWLPe3ufsc9+dMZPZCz7P2mud+5JANm9ucLW7uzsVRdGnlqUoktSyFEWSWpaiSFLLUhRJalmKIkktS1EkqWUpigATzxvLohc0x6l+LnM/Q+XdybDNs6eNJ+15juB77Jck+twoH2GJzxjF+zVTy8IZ+yWY83neM16WYe5zZ4H3e+OMfQu+x35JIC/XbJQlPmMJusvSmtljhjTnnnMIWQbvPmfwEOcmzMh0hjT3Zpyaw0N8J4v3HGfsMUNRxqeJ78F7cw/cx6k5zxDnUcfqZfA6s7w7kNcxzWVh72WR9zpT1MFn6T0Dteaez3Y4s/kI3jOcRb7VQdrh1DwL7uPUfKmOPc84szm8KergQbgsOBXOI79Nl0WlXXaO/JwOp0eri/CkPc8Md5GPOpwj8DORV7hjr2Q7eJzqt+kMd1lM8F4feZV3T2f228Cfw743R35Oh5NzFncZes9or/LusY86nCPoM5hxcs6KOs11Zuk9nN5dk973ZvZgsXcW9op2PLPP4j3DGfveHPk5HU713pyh9wz37Fsd+6jDOYI+gxmnem9muIt81OFUr2jHM3vQXRbNMn6bLoP3DGfse3PkWx2EWXudIe4z9J7hXr1ptPPmLN5zEM+ZTueWN2HWvjez73VGalk4x6keM6R5NEPcZ1Bpl53ZY4Y45w5eO56RmaK+R+8Z7SHtIM4h3AFeliF6TnOo1Zm83JtxcsczMkjzaGYPNpaluNh4f0mKI8IXfJXe+z+J5N09z0Ty7i7BNp/dknf/PFLfLEWRpJalKJLUshRFklqWokhSy1IUSdbLsre3VxRFh5X955nnd4qi6LDywqIoNjmxLE+/dXN66s0bLus77351fLcoLhonlsWW4tL7tzfAsqzP5MKY+CyK887wsjz73q3hhSmKJ4HhZXnu6tdDC/M4Ukt8cbj6yZdrvM4Y6YeXhWktDKvVQXoHRJ0n756SvXcaRL825+znssRntPAU9ZyfVtfi+C/6arXRGSP90LJk0T9Qb46y0dzLHiei31+Uz2Xpz1Nan68dz+yX6jJEiwCyfWpZ7McufJso/LwR/UE4Z9/KRnPO4HHCQ8i0i3KTdgzL6w3tMONUjxnSnHvOoVaGnHvOTZiVkY5n9kt1Z0m4LK9c/3668vkP0ze//LmeX/xg/7gDI8vCeHe8bDTnDPI6nTPem6NcZy8f9V5nijrPe52pNcMzUW5oxzP7pbpR+B3Eo9W7y/LaZ3emh4+m6e79g+nOrwfr7MffDqY3bt5dbFlU3j0j6jxpz7PCPXtGc517uYJ7ODVv+bkd+5HOmzlntXrNo5l9NEOcj8LvINoZrd5dlsvX9qef//h7eufWT9POx9+tM9Ph/kxf7N+fXvrw262Xxcs9ortRDrxexTnf41zl3TNYXm+wNI+8yruns3qVdy8z93JDO57ZL9XNYe47jLssB/88mn7/68H6xzB8s7D27x39aDayLJyz7xHdjXKgfWtmz0R5j+g5zke9oh3PkVe068293NCOZ/ZLdWdJ85vl7cNvlpc/GvtmMUwjc4vobpQD7XmGos7z3hzlOnv5qJ/bsR/pvLmXG9rxzH6prkfrHcQY6d1lef3G5juL+cw7C2B5nWYR0d0oB14PeT3EGecm7RiW1xvaYcapHjOkeTRDOpuQIR+ZezlgnUXX4vgv+ox3FIN7d1mMVz89+tew2//9a9gLh9826EBrWZbC5OVFkWXuOwpAHy5LhlqW4iJxYlla/4u+h93n54viyWVn+hcMtJ1nL7PMXAAAAABJRU5ErkJggg==" />
+                                      </ui:ImageFound.Image>
+                                      <ui:ImageFound.Target>
+                                        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Selector="&lt;html title='TIA*' /&gt;" TimeoutMS="3000" WaitForReady="INTERACTIVE" />
+                                      </ui:ImageFound.Target>
+                                    </ui:ImageFound>
+                                    <ui:CommentOut DisplayName="Comment out" sap2010:WorkflowViewState.IdRef="CommentOut_2">
+                                      <ui:CommentOut.Body>
+                                        <Sequence DisplayName="Ignored Activities" sap2010:WorkflowViewState.IdRef="Sequence_42">
+                                          <ui:GetActiveWindow ApplicationWindow="{x:Null}" DisplayName="Get active window" sap2010:WorkflowViewState.IdRef="GetActiveWindow_1">
+                                            <ui:GetActiveWindow.Body>
+                                              <ActivityAction x:TypeArguments="x:Object">
+                                                <ActivityAction.Argument>
+                                                  <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
+                                                </ActivityAction.Argument>
+                                                <Sequence DisplayName="Do" sap2010:WorkflowViewState.IdRef="Sequence_41">
+                                                  <ui:WindowScope ApplicationWindow="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" Window="{x:Null}" DisplayName="Attach Window 'iexplore.exe TIA*'" sap2010:WorkflowViewState.IdRef="WindowScope_1" InformativeScreenshot="53bbefcd21babeec4ba4906b683e0908" Selector="&lt;wnd app='iexplore.exe' cls='IEFrame' title='TIA*' /&gt;">
+                                                    <ui:WindowScope.Body>
+                                                      <ActivityAction x:TypeArguments="x:Object">
+                                                        <ActivityAction.Argument>
+                                                          <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
+                                                        </ActivityAction.Argument>
+                                                        <Sequence DisplayName="Do" sap2010:WorkflowViewState.IdRef="Sequence_39" />
+                                                      </ActivityAction>
+                                                    </ui:WindowScope.Body>
+                                                  </ui:WindowScope>
+                                                </Sequence>
+                                              </ActivityAction>
+                                            </ui:GetActiveWindow.Body>
+                                          </ui:GetActiveWindow>
+                                        </Sequence>
+                                      </ui:CommentOut.Body>
+                                    </ui:CommentOut>
+                                    <If Condition="[CKP0_BoolExistujeTiaKlient = true]" DisplayName="POKUD NENÍ TIA OTEVŘENA, TAK SE ZALOGUJ" sap2010:WorkflowViewState.IdRef="If_11">
+                                      <If.Else>
+                                        <Sequence sap2010:WorkflowViewState.IdRef="Sequence_30">
+                                          <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="ZALOGUJ SE DO TIA" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_16" UnSafe="False" WorkflowFileName="03 Prihlaseni TIA.xaml">
+                                            <ui:InvokeWorkflowFile.Arguments>
+                                              <scg:Dictionary x:TypeArguments="x:String, Argument" />
+                                            </ui:InvokeWorkflowFile.Arguments>
+                                          </ui:InvokeWorkflowFile>
+                                          <ui:CommentOut DisplayName="Comment out" sap2010:WorkflowViewState.IdRef="CommentOut_1">
+                                            <ui:CommentOut.Body>
+                                              <Sequence DisplayName="Ignored Activities" sap2010:WorkflowViewState.IdRef="Sequence_40">
+                                                <TryCatch DisplayName="Try catch" sap2010:WorkflowViewState.IdRef="TryCatch_3">
+                                                  <TryCatch.Try>
+                                                    <Sequence DisplayName="Prihlaseni do TIA" sap2010:WorkflowViewState.IdRef="Sequence_28">
+                                                      <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="ZALOGUJ SE DO TIA" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_12" UnSafe="False" WorkflowFileName="03 Prihlaseni TIA.xaml">
+                                                        <ui:InvokeWorkflowFile.Arguments>
+                                                          <InArgument x:TypeArguments="x:String" x:Key="SELECTOR_LOGIN">[SELECTOR_OPENFILE]</InArgument>
+                                                          <InArgument x:TypeArguments="x:String" x:Key="TIA_URL_LOGIN">[TIA_URL_OPENFILE]</InArgument>
+                                                          <OutArgument x:TypeArguments="x:Boolean" x:Key="LOGIN_OK" />
+                                                          <InArgument x:TypeArguments="x:Int32" x:Key="TIMEOUTSMALL_LOGIN">[TIMEOUTSMALL_OPENFILE]</InArgument>
+                                                          <InArgument x:TypeArguments="x:Int32" x:Key="TIMEOUTLARGE_LOGIN">[TIMEOUTLARGE_OPENFILE]</InArgument>
+                                                          <InArgument x:TypeArguments="x:Int32" x:Key="TIMEOUTMEDIUM_LOGIN">[TIMEOUTMEDIUM_OPENFILE]</InArgument>
+                                                        </ui:InvokeWorkflowFile.Arguments>
+                                                      </ui:InvokeWorkflowFile>
+                                                    </Sequence>
+                                                  </TryCatch.Try>
+                                                  <TryCatch.Catches>
+                                                    <Catch x:TypeArguments="s:Exception" sap2010:WorkflowViewState.IdRef="Catch`1_3">
+                                                      <ActivityAction x:TypeArguments="s:Exception">
+                                                        <ActivityAction.Argument>
+                                                          <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
+                                                        </ActivityAction.Argument>
+                                                        <Sequence DisplayName="Chyba nelze se prihlasit do TIA" sap2010:WorkflowViewState.IdRef="Sequence_29">
+                                                          <ui:ExcelWriteCell Cell="[&quot;I&quot; + ROWINDEX]" DisplayName="ZAPIŠ DO EXCELU I + ČÍSLO ŘÁDKUl" sap2010:WorkflowViewState.IdRef="ExcelWriteCell_12" SheetName="DATA" Text="CHYBA NA PS" />
+                                                          <ui:ExcelWriteCell Cell="[&quot;J&quot; + ROWINDEX]" DisplayName="ZAPIŠ DO EXCELU J + ČÍSLO ŘÁDKU" sap2010:WorkflowViewState.IdRef="ExcelWriteCell_13" SheetName="DATA" Text="NELZE SE PŘIPOJIT DO TIA" />
+                                                        </Sequence>
+                                                      </ActivityAction>
+                                                    </Catch>
+                                                  </TryCatch.Catches>
+                                                </TryCatch>
+                                              </Sequence>
+                                            </ui:CommentOut.Body>
+                                          </ui:CommentOut>
+                                        </Sequence>
+                                      </If.Else>
+                                    </If>
+                                  </Sequence>
+                                  <ui:ExcelReadCell Cell="[&quot;C&quot; + ROWINDEX]" DisplayName="ZJISTI STATUS" sap2010:WorkflowViewState.IdRef="ExcelReadCell_15" SheetName="DATA">
+                                    <ui:ExcelReadCell.Result>
+                                      <OutArgument x:TypeArguments="ui:GenericValue">[STATUS]</OutArgument>
+                                    </ui:ExcelReadCell.Result>
+                                  </ui:ExcelReadCell>
+                                  <If Condition="[STATUS = &quot;registrační značka&quot;]" DisplayName="JAKÝ STATUS ROBOT ŘEŠÍ" sap2010:WorkflowViewState.IdRef="If_13">
+                                    <If.Then>
+                                      <Assign sap2010:WorkflowViewState.IdRef="Assign_8">
+                                        <Assign.To>
+                                          <OutArgument x:TypeArguments="ui:GenericValue">[MESSAGE]</OutArgument>
+                                        </Assign.To>
+                                        <Assign.Value>
+                                          <InArgument x:TypeArguments="ui:GenericValue">["RZ OPRAVENA"]</InArgument>
+                                        </Assign.Value>
+                                      </Assign>
+                                    </If.Then>
+                                    <If.Else>
+                                      <If Condition="[STATUS = &quot;technický průkaz&quot;]" sap2010:WorkflowViewState.IdRef="If_12">
+                                        <If.Then>
+                                          <Assign sap2010:WorkflowViewState.IdRef="Assign_9">
+                                            <Assign.To>
+                                              <OutArgument x:TypeArguments="ui:GenericValue">[MESSAGE]</OutArgument>
+                                            </Assign.To>
+                                            <Assign.Value>
+                                              <InArgument x:TypeArguments="ui:GenericValue">["TP OPRAVEN"]</InArgument>
+                                            </Assign.Value>
+                                          </Assign>
+                                        </If.Then>
+                                        <If.Else>
+                                          <Assign sap2010:WorkflowViewState.IdRef="Assign_10">
+                                            <Assign.To>
+                                              <OutArgument x:TypeArguments="ui:GenericValue">[MESSAGE]</OutArgument>
+                                            </Assign.To>
+                                            <Assign.Value>
+                                              <InArgument x:TypeArguments="ui:GenericValue">["RZ + TP OPRAVEN"]</InArgument>
+                                            </Assign.Value>
+                                          </Assign>
+                                        </If.Else>
+                                      </If>
+                                    </If.Else>
+                                  </If>
+                                  <ui:ExcelReadCell Cell="[&quot;G&quot; + ROWINDEX]" DisplayName="SPZ" sap2010:WorkflowViewState.IdRef="ExcelReadCell_16" SheetName="DATA">
+                                    <ui:ExcelReadCell.Result>
+                                      <OutArgument x:TypeArguments="ui:GenericValue">[SPZ]</OutArgument>
+                                    </ui:ExcelReadCell.Result>
+                                  </ui:ExcelReadCell>
+                                  <ui:ExcelReadCell Cell="[&quot;H&quot; + ROWINDEX]" DisplayName="CPT" sap2010:WorkflowViewState.IdRef="ExcelReadCell_17" SheetName="DATA">
+                                    <ui:ExcelReadCell.Result>
+                                      <OutArgument x:TypeArguments="ui:GenericValue">[CPT]</OutArgument>
+                                    </ui:ExcelReadCell.Result>
+                                  </ui:ExcelReadCell>
+                                  <ui:ExcelReadCell Cell="[&quot;Z&quot; + ROWINDEX]" DisplayName="PS" sap2010:WorkflowViewState.IdRef="ExcelReadCell_18" SheetName="DATA">
+                                    <ui:ExcelReadCell.Result>
+                                      <OutArgument x:TypeArguments="ui:GenericValue">[PS]</OutArgument>
+                                    </ui:ExcelReadCell.Result>
+                                  </ui:ExcelReadCell>
+                                  <ui:ExcelReadCell Cell="[&quot;E&quot; + ROWINDEX]" DisplayName="ECV" sap2010:WorkflowViewState.IdRef="ExcelReadCell_19" SheetName="DATA">
+                                    <ui:ExcelReadCell.Result>
+                                      <OutArgument x:TypeArguments="ui:GenericValue">[ECV]</OutArgument>
+                                    </ui:ExcelReadCell.Result>
+                                  </ui:ExcelReadCell>
+                                  <ui:ExcelReadCell Cell="[&quot;D&quot; + ROWINDEX]" DisplayName="CISLO_PS" sap2010:WorkflowViewState.IdRef="ExcelReadCell_20" SheetName="DATA">
+                                    <ui:ExcelReadCell.Result>
+                                      <OutArgument x:TypeArguments="ui:GenericValue">[CISLO_PS]</OutArgument>
+                                    </ui:ExcelReadCell.Result>
+                                  </ui:ExcelReadCell>
+                                  <ui:ExcelReadCell Cell="[&quot;AB&quot; + ROWINDEX]" DisplayName="TYP VOZIDLA" sap2010:WorkflowViewState.IdRef="ExcelReadCell_21" SheetName="DATA">
+                                    <ui:ExcelReadCell.Result>
+                                      <OutArgument x:TypeArguments="ui:GenericValue">[TYP_VOZIDLA]</OutArgument>
+                                    </ui:ExcelReadCell.Result>
+                                  </ui:ExcelReadCell>
+                                  <ui:LogMessage DisplayName="Log message" sap2010:WorkflowViewState.IdRef="LogMessage_9" Level="Info" Message="[&quot;robot CKP0 -&gt; zacatek zpracovani PS &quot; + CISLO_PS]" />
+                                  <TryCatch DisplayName="Try catch TIA" sap2010:WorkflowViewState.IdRef="TryCatch_4">
+                                    <TryCatch.Try>
+                                      <Sequence sap2010:WorkflowViewState.IdRef="Sequence_32">
+                                        <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="PRACE V TIA" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_13" UnSafe="False" WorkflowFileName="04_01 Prace v TIA.xaml">
+                                          <ui:InvokeWorkflowFile.Arguments>
+                                            <InArgument x:TypeArguments="ui:GenericValue" x:Key="STATUS_TIA">[STATUS]</InArgument>
+                                            <InArgument x:TypeArguments="ui:GenericValue" x:Key="SPZ_TIA">[SPZ]</InArgument>
+                                            <InArgument x:TypeArguments="ui:GenericValue" x:Key="CPT_TIA">[CPT]</InArgument>
+                                            <InArgument x:TypeArguments="ui:GenericValue" x:Key="PS_TIA">[PS]</InArgument>
+                                            <InArgument x:TypeArguments="ui:GenericValue" x:Key="ECV_TIA">[ECV]</InArgument>
+                                            <InArgument x:TypeArguments="ui:GenericValue" x:Key="CISLO_PS_TIA">[CISLO_PS]</InArgument>
+                                            <InArgument x:TypeArguments="x:String" x:Key="MESSAGE_TIA">[MESSAGE]</InArgument>
+                                            <OutArgument x:TypeArguments="x:String" x:Key="MESSAGE_NEW_TIA">[MESSAGE_NEW]</OutArgument>
+                                            <InArgument x:TypeArguments="x:String" x:Key="TYP_VOZIDLA_TIA">[TYP_VOZIDLA]</InArgument>
+                                            <InArgument x:TypeArguments="ui:GenericValue" x:Key="ROWINDEX_TIA">[ROWINDEX]</InArgument>
+                                            <InArgument x:TypeArguments="x:String" x:Key="TODAY_FIKTIV_TIA">[TODAY_FIKTIV_OPEN_FILE]</InArgument>
+                                            <InArgument x:TypeArguments="x:Int32" x:Key="TIMEOUTSMALL_TIA">[TIMEOUTSMALL_OPENFILE]</InArgument>
+                                            <InArgument x:TypeArguments="x:Int32" x:Key="TIMEOUTMEDIUM_TIA">[TIMEOUTMEDIUM_OPENFILE]</InArgument>
+                                            <InArgument x:TypeArguments="x:Int32" x:Key="TIMEOUTLARGE_TIA">[TIMEOUTLARGE_OPENFILE]</InArgument>
+                                            <InArgument x:TypeArguments="x:String" x:Key="ARG_CKP0_StrCestaRpaAktualne">[CKP0_StrCestaRpaAktualne]</InArgument>
+                                            <InArgument x:TypeArguments="x:String" x:Key="ARG_CKP0_StrNazevSouborZdroj">[CKP0_StrNazevSouborZdroj]</InArgument>
+                                          </ui:InvokeWorkflowFile.Arguments>
+                                        </ui:InvokeWorkflowFile>
+                                      </Sequence>
+                                    </TryCatch.Try>
+                                    <TryCatch.Catches>
+                                      <Catch x:TypeArguments="s:Exception" sap2010:WorkflowViewState.IdRef="Catch`1_4">
+                                        <ActivityAction x:TypeArguments="s:Exception">
+                                          <ActivityAction.Argument>
+                                            <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
+                                          </ActivityAction.Argument>
+                                          <Sequence sap2010:WorkflowViewState.IdRef="Sequence_34">
+                                            <Sequence.Variables>
+                                              <Variable x:TypeArguments="ui:GenericValue" Name="Jvalue" />
+                                              <Variable x:TypeArguments="ui:Image" Name="screenshot" />
+                                              <Variable x:TypeArguments="ui:GenericValue" Name="ivalue" />
+                                            </Sequence.Variables>
+                                            <ui:LogMessage DisplayName="LOG ZPRÁVA" sap2010:WorkflowViewState.IdRef="LogMessage_10" Level="Warn" Message="[&quot;robot CKP0 -&gt; behem zpracovani PS &quot; + CISLO_PS + &quot; - problem pri praci v TIA &quot;]" />
+                                            <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke workflow file" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_14" UnSafe="False" WorkflowFileName="00 Udelej screen.xaml">
+                                              <ui:InvokeWorkflowFile.Arguments>
+                                                <scg:Dictionary x:TypeArguments="x:String, Argument" />
+                                              </ui:InvokeWorkflowFile.Arguments>
+                                            </ui:InvokeWorkflowFile>
+                                            <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke workflow file" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_15" UnSafe="False" WorkflowFileName="00 Ukonceni TIA.xaml">
+                                              <ui:InvokeWorkflowFile.Arguments>
+                                                <scg:Dictionary x:TypeArguments="x:String, Argument" />
+                                              </ui:InvokeWorkflowFile.Arguments>
+                                            </ui:InvokeWorkflowFile>
+                                            <ui:ExcelReadCell Cell="[&quot;i&quot; + ROWINDEX]" DisplayName="PŘEČTI BUŇKU i +  ČÍSLO ŘÁDKU" sap2010:WorkflowViewState.IdRef="ExcelReadCell_22" SheetName="data">
+                                              <ui:ExcelReadCell.Result>
+                                                <OutArgument x:TypeArguments="ui:GenericValue">[ivalue]</OutArgument>
+                                              </ui:ExcelReadCell.Result>
+                                            </ui:ExcelReadCell>
+                                            <ui:ExcelReadCell Cell="[&quot;j&quot; + ROWINDEX]" DisplayName="PŘEČTI BUŇKU J +  ČÍSLO ŘÁDKU" sap2010:WorkflowViewState.IdRef="ExcelReadCell_23" SheetName="data">
+                                              <ui:ExcelReadCell.Result>
+                                                <OutArgument x:TypeArguments="ui:GenericValue">[Jvalue]</OutArgument>
+                                              </ui:ExcelReadCell.Result>
+                                            </ui:ExcelReadCell>
+                                            <If Condition="[ivalue = nothing]" DisplayName="KONTROLA ZDA NEBYL PROBLEM S CKP" sap2010:WorkflowViewState.IdRef="If_15">
+                                              <If.Then>
+                                                <If Condition="[Jvalue = nothing]" DisplayName="POKUD V BUŇCE NIC NENÍ - NAPIŠ NEZNÁMÁ HLÁŠKA" sap2010:WorkflowViewState.IdRef="If_14">
+                                                  <If.Then>
+                                                    <Sequence sap2010:WorkflowViewState.IdRef="Sequence_33">
+                                                      <ui:ExcelWriteCell Cell="[&quot;I&quot; + ROWINDEX]" DisplayName="Write Cell" sap2010:WorkflowViewState.IdRef="ExcelWriteCell_14" SheetName="DATA" Text="CHYBA NA PS" />
+                                                      <ui:ExcelWriteCell Cell="[&quot;J&quot; + ROWINDEX]" DisplayName="Write Cell" sap2010:WorkflowViewState.IdRef="ExcelWriteCell_15" SheetName="DATA" Text="NEZNÁMÁ HLÁŠKA" />
+                                                    </Sequence>
+                                                  </If.Then>
+                                                </If>
+                                              </If.Then>
+                                            </If>
+                                          </Sequence>
+                                        </ActivityAction>
+                                      </Catch>
+                                    </TryCatch.Catches>
+                                  </TryCatch>
+                                  <ui:ExcelReadCell Cell="[&quot;I&quot; + ROWINDEX]" DisplayName="PŘEČTI BUŇKU I + ČÍSLO ŘÁDKU" sap2010:WorkflowViewState.IdRef="ExcelReadCell_24" SheetName="data">
+                                    <ui:ExcelReadCell.Result>
+                                      <OutArgument x:TypeArguments="ui:GenericValue">[Ivalue]</OutArgument>
+                                    </ui:ExcelReadCell.Result>
+                                  </ui:ExcelReadCell>
+                                  <If Condition="[Ivalue &lt;&gt; nothing]" DisplayName="POKUD NENÍ I + ČÍSLO ŘÁDKU VYPLNĚNÉ -&gt; VYPLŇ HO DLE STATUSU" sap2010:WorkflowViewState.IdRef="If_16">
+                                    <If.Else>
+                                      <Sequence sap2010:WorkflowViewState.IdRef="Sequence_35">
+                                        <ui:ExcelWriteCell Cell="[&quot;I&quot; + ROWINDEX]" DisplayName="Write Cell" sap2010:WorkflowViewState.IdRef="ExcelWriteCell_16" SheetName="DATA" Text="[MESSAGE]" />
+                                      </Sequence>
+                                    </If.Else>
+                                  </If>
+                                  <ui:LogMessage DisplayName="Log message" sap2010:WorkflowViewState.IdRef="LogMessage_11" Level="Info" Message="[&quot;robot CKP0 -&gt; PS &quot; + CISLO_PS +&quot; zpracovana&quot;]" />
+                                </Sequence>
+                              </Sequence>
+                            </If.Then>
+                            <If.Else>
+                              <Sequence DisplayName="nenalezeno" sap2010:WorkflowViewState.IdRef="Sequence_25">
+                                <ui:LogMessage DisplayName="Log message" sap2010:WorkflowViewState.IdRef="LogMessage_7" Level="Trace" Message="robot CKP0 -&gt; neni produkt AN - preskoceni" />
+                                <ui:ExcelApplicationScope Password="{x:Null}" DisplayName="Excel application scope" sap2010:WorkflowViewState.IdRef="ExcelApplicationScope_4" WorkbookPath="[ARG_CKP0_StrCestaRpaAktualne + ARG_CKP0_StrNazevSouborZdroj]">
+                                  <ui:ExcelApplicationScope.Body>
+                                    <ActivityAction x:TypeArguments="ui:WorkbookApplication">
+                                      <ActivityAction.Argument>
+                                        <DelegateInArgument x:TypeArguments="ui:WorkbookApplication" Name="ExcelWorkbookScope" />
+                                      </ActivityAction.Argument>
+                                      <Sequence DisplayName="Do" sap2010:WorkflowViewState.IdRef="Sequence_26">
+                                        <ui:ExcelWriteCell Cell="[&quot;I&quot; + ROWINDEX]" DisplayName="ZAPIŠ DO EXCELU I + ČÍSLO ŘÁDKUl" sap2010:WorkflowViewState.IdRef="ExcelWriteCell_10" SheetName="DATA" Text="[&quot;Produkt: &quot; + Zvalue]" />
+                                      </Sequence>
+                                    </ActivityAction>
+                                  </ui:ExcelApplicationScope.Body>
+                                </ui:ExcelApplicationScope>
+                              </Sequence>
+                            </If.Else>
+                          </If>
+                        </Sequence>
+                      </If.Then>
+                    </If>
+                  </Sequence>
+                </ActivityAction>
+              </ui:ForEachRow.Body>
+            </ui:ForEachRow>
+          </Sequence>
+        </ActivityAction>
+      </ui:ExcelApplicationScope.Body>
+    </ui:ExcelApplicationScope>
+    <ui:LogMessage DisplayName="LOG: end component" sap2010:WorkflowViewState.IdRef="LogMessage_5" Level="Info" Message="[strComponentName + &quot;: End&quot;]" />
+    <sads:DebugSymbol.Symbol>d1ZDOlxVc2Vyc1xWSGxhdmFjZWtcRG9jdW1lbnRzXFVpUGF0aFxyb2JvdF9DS1AwXzAuNCDigJMgQU5cMDQgUHJhY2UgdiBFeGNlbHUgYSBUSUEueGFtbKkBXQPHAw4CAQFgNGBUAgEHYTRhVAIBBWI1YlMCAQNjNGNnAgECZQVlqAEDAdMBZgXEAyACAQzFAwXFA6QBAgEJZXtlpQEDAdQBZpoBZtcBAwHQAWwLwQMWAgENxQN5xQOhAQIBCnANdiEDAcsBdw3AAx0CAQ5wPXBDAwHOAXMTc0IDAc0BcJ0BcKMBAwHMAXcmdywDAckBfRO9Ax4CAQ+MARWTAR4DAcUBlAEVmwEeAwHBAZwBFaABKAMBvAGhARWlASgDAbcBpgEVvAMaAgEQkQFHkQFKAwHIAY4BSI4BUgMBxgGZAUeZAWEDAcQBlgFIlgFSAwHCAZwBLJwBSAMBwAGeAUieAVADAb4BnAG7AZwBwQEDAb0BoQEsoQFIAwG7AaMBSKMBUAMBuQGhAbsBoQHBAQMBuAGmASOmATcCARGoARm6AyQCARKpARu5AyACAROpASmpAUICARSrAR+mAyoCASGpAx+3AyoCARWsASGsAbgBAwG1Aa0BIaUDLAIBIqoDIaoDwQECAR+rAyG2AzwCARasAY8BrAG1AQMBtgGuASOEAi4DAaYBhQIjiQI2AwGhAYoCI60CKAMBkQGuAiOyAjYDAYwBswIjtwI2AwGHAbgCI7wCNgMBggG9AiPBAjYCAX3CAiPGAjYCAXjHAiPLAjYCAXPMAiPMAtUBAgFxzQIjlwMuAgExmAMjnAM2AgEsnQMjowMoAgElpAMjpAPcAQIBI6oDjwGqA74BAgEgqwO8AasD+wECARyxAyezAzICARezASW6ATUDAa8BuwEl1QE1AwGuAdYBJYMCKgMBpwGFAjqFAlYDAaUBhwJWhwJeAwGjAYUCsAGFArYBAwGiAYoCMYoCXAMBkgGMAieTAjADAZ0BlgInqwIsAwGTAa4COq4CVgMBkAGwAlawAlsDAY4BrgKmAa4CrAEDAY0BswI6swJWAwGLAbUCVrUCWwMBiQGzAqYBswKsAQMBiAG4Ajq4AlYDAYYBugJWugJaAwGEAbgCpQG4AqsBAwGDAb0COr0CVgMBgQG/Ala/AlsCAX+9AqYBvQKsAQIBfsICOsICVgIBfMQCVsQCYAIBesICqwHCArEBAgF5xwI6xwJXAgF3yQJWyQJjAgF1xwKvAccCtQECAXTMApABzALSAQIBcs8CJ+QCMgIBUOwCK5MDNgIBMpgDOpgDVgIBMJoDVpoDXgIBLpgDvwGYA8UBAgEtnQMxnQNMAgEmnwMnoQMyAgEnpAORAaQD2QECASSyAymyA/wBAgEYuAFquAGHAQMBtAG4AZIBuAGYAQMBswGzAWSzAYIBAwGxAbUBU7UBWAMBsAHWATPWAVgDAagB2AEpgQI0AwGqAZECWZECaAMBoAGOAlqOAmMDAZ4BlgI1lgJeAwGUAZgCK58CNAMBmQGiAiupAjQDAZUB0AIp4wJBAgFR8gIt8gKHAgIBTvMCLfcCRQIBTPgCLfwCRQIBSv0CLYEDQAIBRYIDLYYDQAIBQIcDLZIDMgIBM6ADKaADzwECASiyA0GyA10CARuyA9cBsgP5AQIBGrIDywGyA9EBAgEZ2QEr3QFDAwGsAd4BK4ACOwMBqwGdAl2dAmsDAZwBmgJemgJnAwGaAacCXacCcAMBmAGkAl6kAmcDAZYB2QJt2QJ6AgFv1AJr1AJwAgFt3AJt3AKFAQIBa9YCa9YCcAIBadcCcNcCegIBZ+ECeeECkwECAWXfAmzfAoMBAgFj2wJw2wJ6AgFh3QJs3QKDAQIBX+ACeeACkwECAV3VAmrVAm4CAVveAm3eAoUBAgFZ0wJr0wJwAgFX2AJo2AJxAgFW0gJu0gJ2AgFU2gJs2gJ5AgFT0ALNAdAC5QECAVLyApoB8gKEAgIBT/MC2gHzAvEBAgFN+ALaAfgC8AECAUv9AkT9AmACAUn/AmD/AmgCAUf9AsoB/QLQAQIBRoIDRIIDYAIBRIQDYIQDaAIBQoIDygGCA9ABAgFBhwM7hwNPAgE0iQMxkAM2AgE1oANBoANdAgEroAPBAaADzAECASqgA7UBoAO7AQIBKdkB1QHZAe0BAwGtAYkDP4kDUwIBNosDNY4DQAIBN4wDN4wD3wECATyNAzeNA+IBAgE4jANPjANrAgE/jAPPAYwD3AECAT6MA8MBjAPJAQIBPY0DT40DawIBO40DzwGNA98BAgE6jQPDAY0DyQECATk=</sads:DebugSymbol.Symbol>
+  </Sequence>
+  <sap2010:WorkflowViewState.ViewStateManager>
+    <sap2010:ViewStateManager>
+      <sap2010:ViewStateData Id="LogMessage_6" sap:VirtualizedContainerService.HintSize="1032,87" />
+      <sap2010:ViewStateData Id="ExcelReadRange_2" sap:VirtualizedContainerService.HintSize="996,59" />
+      <sap2010:ViewStateData Id="Assign_7" sap:VirtualizedContainerService.HintSize="944,59" />
+      <sap2010:ViewStateData Id="Assign_2" sap:VirtualizedContainerService.HintSize="944,59" />
+      <sap2010:ViewStateData Id="ExcelReadCell_14" sap:VirtualizedContainerService.HintSize="944,59" />
+      <sap2010:ViewStateData Id="ExcelReadCell_11" sap:VirtualizedContainerService.HintSize="944,59" />
+      <sap2010:ViewStateData Id="LogMessage_8" sap:VirtualizedContainerService.HintSize="314,87" />
+      <sap2010:ViewStateData Id="ImageFound_3" sap:VirtualizedContainerService.HintSize="464,106" />
+      <sap2010:ViewStateData Id="Sequence_39" sap:VirtualizedContainerService.HintSize="200,97">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="WindowScope_1" sap:VirtualizedContainerService.HintSize="414,243" />
+      <sap2010:ViewStateData Id="Sequence_41" sap:VirtualizedContainerService.HintSize="436,367">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="GetActiveWindow_1" sap:VirtualizedContainerService.HintSize="452,445" />
+      <sap2010:ViewStateData Id="Sequence_42" sap:VirtualizedContainerService.HintSize="200,49">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="CommentOut_2" sap:VirtualizedContainerService.HintSize="464,127" />
+      <sap2010:ViewStateData Id="InvokeWorkflowFile_16" sap:VirtualizedContainerService.HintSize="314,87" />
+      <sap2010:ViewStateData Id="InvokeWorkflowFile_12" sap:VirtualizedContainerService.HintSize="314,87" />
+      <sap2010:ViewStateData Id="Sequence_28" sap:VirtualizedContainerService.HintSize="336,211">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="ExcelWriteCell_12" sap:VirtualizedContainerService.HintSize="314,87" />
+      <sap2010:ViewStateData Id="ExcelWriteCell_13" sap:VirtualizedContainerService.HintSize="314,87" />
+      <sap2010:ViewStateData Id="Sequence_29" sap:VirtualizedContainerService.HintSize="336,338">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="Catch`1_3" sap:VirtualizedContainerService.HintSize="404,20">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="TryCatch_3" sap:VirtualizedContainerService.HintSize="418,429" />
+      <sap2010:ViewStateData Id="Sequence_40" sap:VirtualizedContainerService.HintSize="440,553">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="CommentOut_1" sap:VirtualizedContainerService.HintSize="314,49">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="Sequence_30" sap:VirtualizedContainerService.HintSize="336,300">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="If_11" sap:VirtualizedContainerService.HintSize="464,443">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="Sequence_31" sap:VirtualizedContainerService.HintSize="776,880">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="ExcelReadCell_15" sap:VirtualizedContainerService.HintSize="776,59" />
+      <sap2010:ViewStateData Id="Assign_8" sap:VirtualizedContainerService.HintSize="242,59" />
+      <sap2010:ViewStateData Id="Assign_9" sap:VirtualizedContainerService.HintSize="242,59" />
+      <sap2010:ViewStateData Id="Assign_10" sap:VirtualizedContainerService.HintSize="242,59" />
+      <sap2010:ViewStateData Id="If_12" sap:VirtualizedContainerService.HintSize="509,203" />
+      <sap2010:ViewStateData Id="If_13" sap:VirtualizedContainerService.HintSize="776,346" />
+      <sap2010:ViewStateData Id="ExcelReadCell_16" sap:VirtualizedContainerService.HintSize="776,59" />
+      <sap2010:ViewStateData Id="ExcelReadCell_17" sap:VirtualizedContainerService.HintSize="776,59" />
+      <sap2010:ViewStateData Id="ExcelReadCell_18" sap:VirtualizedContainerService.HintSize="776,59" />
+      <sap2010:ViewStateData Id="ExcelReadCell_19" sap:VirtualizedContainerService.HintSize="776,59" />
+      <sap2010:ViewStateData Id="ExcelReadCell_20" sap:VirtualizedContainerService.HintSize="776,59" />
+      <sap2010:ViewStateData Id="ExcelReadCell_21" sap:VirtualizedContainerService.HintSize="776,59" />
+      <sap2010:ViewStateData Id="LogMessage_9" sap:VirtualizedContainerService.HintSize="776,87" />
+      <sap2010:ViewStateData Id="InvokeWorkflowFile_13" sap:VirtualizedContainerService.HintSize="314,87">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="Sequence_32" sap:VirtualizedContainerService.HintSize="336,211">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="LogMessage_10" sap:VirtualizedContainerService.HintSize="589,87" />
+      <sap2010:ViewStateData Id="InvokeWorkflowFile_14" sap:VirtualizedContainerService.HintSize="589,87" />
+      <sap2010:ViewStateData Id="InvokeWorkflowFile_15" sap:VirtualizedContainerService.HintSize="589,87" />
+      <sap2010:ViewStateData Id="ExcelReadCell_22" sap:VirtualizedContainerService.HintSize="589,59" />
+      <sap2010:ViewStateData Id="ExcelReadCell_23" sap:VirtualizedContainerService.HintSize="589,59" />
+      <sap2010:ViewStateData Id="ExcelWriteCell_14" sap:VirtualizedContainerService.HintSize="314,87" />
+      <sap2010:ViewStateData Id="ExcelWriteCell_15" sap:VirtualizedContainerService.HintSize="314,87" />
+      <sap2010:ViewStateData Id="Sequence_33" sap:VirtualizedContainerService.HintSize="336,338">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="If_14" sap:VirtualizedContainerService.HintSize="464,481" />
+      <sap2010:ViewStateData Id="If_15" sap:VirtualizedContainerService.HintSize="589,624" />
+      <sap2010:ViewStateData Id="Sequence_34" sap:VirtualizedContainerService.HintSize="611,1283">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="Catch`1_4" sap:VirtualizedContainerService.HintSize="404,20">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="TryCatch_4" sap:VirtualizedContainerService.HintSize="776,429">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="ExcelReadCell_24" sap:VirtualizedContainerService.HintSize="776,59" />
+      <sap2010:ViewStateData Id="ExcelWriteCell_16" sap:VirtualizedContainerService.HintSize="314,87" />
+      <sap2010:ViewStateData Id="Sequence_35" sap:VirtualizedContainerService.HintSize="336,211">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="If_16" sap:VirtualizedContainerService.HintSize="776,354" />
+      <sap2010:ViewStateData Id="LogMessage_11" sap:VirtualizedContainerService.HintSize="776,87" />
+      <sap2010:ViewStateData Id="Sequence_36" sap:VirtualizedContainerService.HintSize="314,49">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="Sequence_24" sap:VirtualizedContainerService.HintSize="336,300">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="LogMessage_7" sap:VirtualizedContainerService.HintSize="414,87" />
+      <sap2010:ViewStateData Id="ExcelWriteCell_10" sap:VirtualizedContainerService.HintSize="314,87" />
+      <sap2010:ViewStateData Id="Sequence_26" sap:VirtualizedContainerService.HintSize="336,211">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="ExcelApplicationScope_4" sap:VirtualizedContainerService.HintSize="414,320">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="Sequence_25" sap:VirtualizedContainerService.HintSize="436,571">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="If_10" sap:VirtualizedContainerService.HintSize="797,714">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="Sequence_37" sap:VirtualizedContainerService.HintSize="819,838">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="If_17" sap:VirtualizedContainerService.HintSize="944,981">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="Sequence_5" sap:VirtualizedContainerService.HintSize="966,1501">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="ForEachRow_1" sap:VirtualizedContainerService.HintSize="996,1646" />
+      <sap2010:ViewStateData Id="Sequence_4" sap:VirtualizedContainerService.HintSize="1018,1869">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="ExcelApplicationScope_3" sap:VirtualizedContainerService.HintSize="1032,1978" />
+      <sap2010:ViewStateData Id="LogMessage_5" sap:VirtualizedContainerService.HintSize="1032,87" />
+      <sap2010:ViewStateData Id="Sequence_1" sap:VirtualizedContainerService.HintSize="1054,2356">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="OPEN_FILE_1" sap:VirtualizedContainerService.HintSize="1094,2436" />
+    </sap2010:ViewStateManager>
+  </sap2010:WorkflowViewState.ViewStateManager>
+</Activity>

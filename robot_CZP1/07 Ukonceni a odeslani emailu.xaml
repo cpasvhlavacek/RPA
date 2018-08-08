@@ -1,0 +1,669 @@
+﻿<Activity mc:Ignorable="sap sap2010 sads" x:Class="Main"
+ xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities"
+ xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+ xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities"
+ xmlns:s="clr-namespace:System;assembly=mscorlib"
+ xmlns:sads="http://schemas.microsoft.com/netfx/2010/xaml/activities/debugger"
+ xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation"
+ xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation"
+ xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib"
+ xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=mscorlib"
+ xmlns:ui="http://schemas.uipath.com/workflow/activities"
+ xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="BoolSuccess" Type="OutArgument(x:Boolean)" />
+    <x:Property Name="StrExceptionMessage" Type="OutArgument(x:String)" />
+    <x:Property Name="ARG_CZP1_StrCestaZdrojAdresar" Type="InArgument(x:String)" />
+    <x:Property Name="ARG_StrKontaktRpaAdmin1" Type="InArgument(x:String)" />
+    <x:Property Name="ARG_StrKontaktRpaAdmin2" Type="InArgument(x:String)" />
+    <x:Property Name="ARG_StrPriznakEmail" Type="InArgument(x:String)" />
+    <x:Property Name="ARG_StrKontaktRpaUzivatel1" Type="InArgument(x:String)" />
+  </x:Members>
+  <mva:VisualBasic.Settings>
+    <x:Null />
+  </mva:VisualBasic.Settings>
+  <sap2010:WorkflowViewState.IdRef>Main_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <sco:Collection x:TypeArguments="x:String">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Framework.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>System.Xml.Serialization</x:String>
+    </sco:Collection>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <sco:Collection x:TypeArguments="AssemblyReference">
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>UiPath.Core</AssemblyReference>
+      <AssemblyReference>UiPath.Framework.Activities</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>PresentationCore</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
+      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
+    </sco:Collection>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence sap2010:Annotation.AnnotationText="Component Name: &lt;ROBOT_CZP1&gt; - &lt;Ukonceni a odeslani emailu&gt;&#xA;Description: Narrative of what task this component will perform" DisplayName="Component" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="x:String" Default="&lt;ROBOT_CZP1&gt; - &lt;Ukonceni a odeslani emailu&gt;" Name="strComponentName" />
+      <Variable x:TypeArguments="x:String" Default="[ARG_StrKontaktRpaAdmin1]" Name="StrKontaktRpaAdmin1" />
+      <Variable x:TypeArguments="x:String" Default="[ARG_StrKontaktRpaAdmin2]" Name="StrKontaktRpaAdmin2" />
+      <Variable x:TypeArguments="x:String" Default="[ARG_StrKontaktRpaUzivatel1]" Name="StrKontaktRpaUzivatel1" />
+      <Variable x:TypeArguments="x:String" Default="[ARG_StrPriznakEmail]" Name="StrPriznakEmail" />
+      <Variable x:TypeArguments="x:Int32" Name="TIA_xlsx" />
+      <Variable x:TypeArguments="x:Int32" Name="KDP_xlsx" />
+      <Variable x:TypeArguments="x:Int32" Name="APO_xlsx" />
+      <Variable x:TypeArguments="x:String" Default="[ARG_CZP1_StrCestaZdrojAdresar]" Name="CZP1_StrCestaZdrojAdresar" />
+    </Sequence.Variables>
+    <ui:LogMessage DisplayName="Log message" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[strComponentName + &quot;: Start&quot;]" />
+    <TryCatch DisplayName="Try catch" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+      <TryCatch.Try>
+        <Sequence sap2010:WorkflowViewState.IdRef="Sequence_2">
+          <Sequence DisplayName="statistika" sap2010:WorkflowViewState.IdRef="Sequence_5">
+            <Sequence.Variables>
+              <Variable x:TypeArguments="x:Boolean" Name="CZP1_BoolExistjeSouborTiaXlsx" />
+              <Variable x:TypeArguments="x:Boolean" Name="CZP1_BoolExistjeSouborKdpXlsx" />
+              <Variable x:TypeArguments="x:Boolean" Name="CZP1_BoolExistjeSouborApoXlsx" />
+            </Sequence.Variables>
+            <ui:PathExists DisplayName="Path exists" Exists="[CZP1_BoolExistjeSouborTiaXlsx]" sap2010:WorkflowViewState.IdRef="PathExists_1" Path="[CZP1_StrCestaZdrojAdresar + &quot;Nstav88_TIA_report&quot; + today.ToString(&quot;yyyyMMdd&quot;) + &quot;.xlsx&quot;]" PathType="File" />
+            <If Condition="[CZP1_BoolExistjeSouborTiaXlsx=true]" sap2010:WorkflowViewState.IdRef="If_1">
+              <If.Then>
+                <Sequence DisplayName="existuje" sap2010:WorkflowViewState.IdRef="Sequence_9">
+                  <ui:ExcelApplicationScope Password="{x:Null}" DisplayName="TIA" sap2010:WorkflowViewState.IdRef="ExcelApplicationScope_1" WorkbookPath="[CZP1_StrCestaZdrojAdresar + &quot;Nstav88_TIA_report&quot; + today.ToString(&quot;yyyyMMdd&quot;) + &quot;.xlsx&quot;]">
+                    <ui:ExcelApplicationScope.Body>
+                      <ActivityAction x:TypeArguments="ui:WorkbookApplication">
+                        <ActivityAction.Argument>
+                          <DelegateInArgument x:TypeArguments="ui:WorkbookApplication" Name="ExcelWorkbookScope" />
+                        </ActivityAction.Argument>
+                        <Sequence DisplayName="Do" sap2010:WorkflowViewState.IdRef="Sequence_6">
+                          <ui:ExcelWriteCell Cell="I2" DisplayName="1: zadání do CZP" sap2010:WorkflowViewState.IdRef="ExcelWriteCell_1" SheetName="[&quot;Nstav88_TIA_report&quot; + today.ToString(&quot;yyyyMMdd&quot;)]" Text="=COUNTIF(B:B,H2)" />
+                          <ui:ExcelWriteCell Cell="I3" DisplayName="2: zpracováno v CZP" sap2010:WorkflowViewState.IdRef="ExcelWriteCell_2" SheetName="[&quot;Nstav88_TIA_report&quot; + today.ToString(&quot;yyyyMMdd&quot;)]" Text="=COUNTIF(B:B,H3)" />
+                          <ui:ExcelWriteCell Cell="I4" DisplayName="3: zpracováno v CZP a přidáno do číselníku ZAKAZ" sap2010:WorkflowViewState.IdRef="ExcelWriteCell_3" SheetName="[&quot;Nstav88_TIA_report&quot; + today.ToString(&quot;yyyyMMdd&quot;)]" Text="=COUNTIF(B:B,H4)" />
+                          <ui:ExcelWriteCell Cell="I5" DisplayName="4: chyba - chybí příjmení nebo jméno nestálce" sap2010:WorkflowViewState.IdRef="ExcelWriteCell_4" SheetName="[&quot;Nstav88_TIA_report&quot; + today.ToString(&quot;yyyyMMdd&quot;)]" Text="=COUNTIF(B:B,H5)" />
+                          <ui:ExcelWriteCell Cell="I6" DisplayName="5: chyba zpracování" sap2010:WorkflowViewState.IdRef="ExcelWriteCell_5" SheetName="[&quot;Nstav88_TIA_report&quot; + today.ToString(&quot;yyyyMMdd&quot;)]" Text="=COUNTIF(B:B,H6)" />
+                          <ui:ExcelWriteCell Cell="I7" DisplayName="10: dokončeno" sap2010:WorkflowViewState.IdRef="ExcelWriteCell_6" SheetName="[&quot;Nstav88_TIA_report&quot; + today.ToString(&quot;yyyyMMdd&quot;)]" Text="=COUNTIF(B:B,H7)" />
+                        </Sequence>
+                      </ActivityAction>
+                    </ui:ExcelApplicationScope.Body>
+                  </ui:ExcelApplicationScope>
+                  <Assign sap2010:WorkflowViewState.IdRef="Assign_4">
+                    <Assign.To>
+                      <OutArgument x:TypeArguments="x:Int32">[TIA_xlsx]</OutArgument>
+                    </Assign.To>
+                    <Assign.Value>
+                      <InArgument x:TypeArguments="x:Int32">1</InArgument>
+                    </Assign.Value>
+                  </Assign>
+                </Sequence>
+              </If.Then>
+              <If.Else>
+                <Sequence DisplayName="neexistuje" sap2010:WorkflowViewState.IdRef="Sequence_10">
+                  <Assign sap2010:WorkflowViewState.IdRef="Assign_5">
+                    <Assign.To>
+                      <OutArgument x:TypeArguments="x:Int32">[TIA_xlsx]</OutArgument>
+                    </Assign.To>
+                    <Assign.Value>
+                      <InArgument x:TypeArguments="x:Int32">0</InArgument>
+                    </Assign.Value>
+                  </Assign>
+                </Sequence>
+              </If.Else>
+            </If>
+            <ui:PathExists DisplayName="Path exists" Exists="[CZP1_BoolExistjeSouborKdpXlsx]" sap2010:WorkflowViewState.IdRef="PathExists_2" Path="[CZP1_StrCestaZdrojAdresar + &quot;Nstav88_TIA_report&quot; + today.ToString(&quot;yyyyMMdd&quot;) + &quot;.xlsx&quot;]" PathType="File" />
+            <If Condition="[CZP1_BoolExistjeSouborKdpXlsx=true]" sap2010:WorkflowViewState.IdRef="If_2">
+              <If.Then>
+                <Sequence DisplayName="existuje" sap2010:WorkflowViewState.IdRef="Sequence_11">
+                  <ui:ExcelApplicationScope Password="{x:Null}" DisplayName="KDP" sap2010:WorkflowViewState.IdRef="ExcelApplicationScope_2" WorkbookPath="[CZP1_StrCestaZdrojAdresar + &quot;Nstav88_KDP_report&quot; + today.ToString(&quot;yyyyMMdd&quot;) + &quot;.xlsx&quot;]">
+                    <ui:ExcelApplicationScope.Body>
+                      <ActivityAction x:TypeArguments="ui:WorkbookApplication">
+                        <ActivityAction.Argument>
+                          <DelegateInArgument x:TypeArguments="ui:WorkbookApplication" Name="ExcelWorkbookScope" />
+                        </ActivityAction.Argument>
+                        <Sequence DisplayName="Do" sap2010:WorkflowViewState.IdRef="Sequence_7">
+                          <ui:ExcelWriteCell Cell="I2" DisplayName="1: zadání do CZP" sap2010:WorkflowViewState.IdRef="ExcelWriteCell_7" SheetName="[&quot;Nstav88_KDP_report&quot; + today.ToString(&quot;yyyyMMdd&quot;)]" Text="=COUNTIF(B:B,H2)" />
+                          <ui:ExcelWriteCell Cell="I3" DisplayName="2: zpracováno v CZP" sap2010:WorkflowViewState.IdRef="ExcelWriteCell_8" SheetName="[&quot;Nstav88_KDP_report&quot; + today.ToString(&quot;yyyyMMdd&quot;)]" Text="=COUNTIF(B:B,H3)" />
+                          <ui:ExcelWriteCell Cell="I4" DisplayName="3: zpracováno v CZP a přidáno do číselníku ZAKAZ" sap2010:WorkflowViewState.IdRef="ExcelWriteCell_9" SheetName="[&quot;Nstav88_KDP_report&quot; + today.ToString(&quot;yyyyMMdd&quot;)]" Text="=COUNTIF(B:B,H4)" />
+                          <ui:ExcelWriteCell Cell="I5" DisplayName="4: chyba - chybí příjmení nebo jméno nestálce" sap2010:WorkflowViewState.IdRef="ExcelWriteCell_10" SheetName="[&quot;Nstav88_KDP_report&quot; + today.ToString(&quot;yyyyMMdd&quot;)]" Text="=COUNTIF(B:B,H5)" />
+                          <ui:ExcelWriteCell Cell="I6" DisplayName="5: chyba zpracování" sap2010:WorkflowViewState.IdRef="ExcelWriteCell_11" SheetName="[&quot;Nstav88_KDP_report&quot; + today.ToString(&quot;yyyyMMdd&quot;)]" Text="=COUNTIF(B:B,H6)" />
+                          <ui:ExcelWriteCell Cell="I7" DisplayName="10: dokončeno" sap2010:WorkflowViewState.IdRef="ExcelWriteCell_12" SheetName="[&quot;Nstav88_KDP_report&quot; + today.ToString(&quot;yyyyMMdd&quot;)]" Text="=COUNTIF(B:B,H7)" />
+                        </Sequence>
+                      </ActivityAction>
+                    </ui:ExcelApplicationScope.Body>
+                  </ui:ExcelApplicationScope>
+                  <Assign sap2010:WorkflowViewState.IdRef="Assign_6">
+                    <Assign.To>
+                      <OutArgument x:TypeArguments="x:Int32">[KDP_xlsx]</OutArgument>
+                    </Assign.To>
+                    <Assign.Value>
+                      <InArgument x:TypeArguments="x:Int32">1</InArgument>
+                    </Assign.Value>
+                  </Assign>
+                </Sequence>
+              </If.Then>
+              <If.Else>
+                <Sequence DisplayName="neexistuje" sap2010:WorkflowViewState.IdRef="Sequence_12">
+                  <Assign sap2010:WorkflowViewState.IdRef="Assign_7">
+                    <Assign.To>
+                      <OutArgument x:TypeArguments="x:Int32">[KDP_xlsx]</OutArgument>
+                    </Assign.To>
+                    <Assign.Value>
+                      <InArgument x:TypeArguments="x:Int32">0</InArgument>
+                    </Assign.Value>
+                  </Assign>
+                </Sequence>
+              </If.Else>
+            </If>
+            <ui:PathExists DisplayName="Path exists" Exists="[CZP1_BoolExistjeSouborApoXlsx]" sap2010:WorkflowViewState.IdRef="PathExists_3" Path="[CZP1_StrCestaZdrojAdresar + &quot;Nstav88_TIA_report&quot; + today.ToString(&quot;yyyyMMdd&quot;) + &quot;.xlsx&quot;]" PathType="File" />
+            <If Condition="[CZP1_BoolExistjeSouborApoXlsx=true]" sap2010:WorkflowViewState.IdRef="If_3">
+              <If.Then>
+                <Sequence DisplayName="existuje" sap2010:WorkflowViewState.IdRef="Sequence_13">
+                  <ui:ExcelApplicationScope Password="{x:Null}" DisplayName="APO" sap2010:WorkflowViewState.IdRef="ExcelApplicationScope_3" WorkbookPath="[CZP1_StrCestaZdrojAdresar + &quot;Nstav88_APO_report&quot; + today.ToString(&quot;yyyyMMdd&quot;) + &quot;.xlsx&quot;]">
+                    <ui:ExcelApplicationScope.Body>
+                      <ActivityAction x:TypeArguments="ui:WorkbookApplication">
+                        <ActivityAction.Argument>
+                          <DelegateInArgument x:TypeArguments="ui:WorkbookApplication" Name="ExcelWorkbookScope" />
+                        </ActivityAction.Argument>
+                        <Sequence DisplayName="Do" sap2010:WorkflowViewState.IdRef="Sequence_8">
+                          <ui:ExcelWriteCell Cell="I2" DisplayName="1: zadání do CZP" sap2010:WorkflowViewState.IdRef="ExcelWriteCell_13" SheetName="[&quot;Nstav88_APO_report&quot; + today.ToString(&quot;yyyyMMdd&quot;)]" Text="=COUNTIF(B:B,H2)" />
+                          <ui:ExcelWriteCell Cell="I3" DisplayName="2: zpracováno v CZP" sap2010:WorkflowViewState.IdRef="ExcelWriteCell_14" SheetName="[&quot;Nstav88_APO_report&quot; + today.ToString(&quot;yyyyMMdd&quot;)]" Text="=COUNTIF(B:B,H3)" />
+                          <ui:ExcelWriteCell Cell="I4" DisplayName="3: zpracováno v CZP a přidáno do číselníku ZAKAZ" sap2010:WorkflowViewState.IdRef="ExcelWriteCell_15" SheetName="[&quot;Nstav88_APO_report&quot; + today.ToString(&quot;yyyyMMdd&quot;)]" Text="=COUNTIF(B:B,H4)" />
+                          <ui:ExcelWriteCell Cell="I5" DisplayName="4: chyba - chybí příjmení nebo jméno nestálce" sap2010:WorkflowViewState.IdRef="ExcelWriteCell_16" SheetName="[&quot;Nstav88_APO_report&quot; + today.ToString(&quot;yyyyMMdd&quot;)]" Text="=COUNTIF(B:B,H5)" />
+                          <ui:ExcelWriteCell Cell="I6" DisplayName="5: chyba zpracování" sap2010:WorkflowViewState.IdRef="ExcelWriteCell_17" SheetName="[&quot;Nstav88_APO_report&quot; + today.ToString(&quot;yyyyMMdd&quot;)]" Text="=COUNTIF(B:B,H6)" />
+                          <ui:ExcelWriteCell Cell="I7" DisplayName="10: dokončeno" sap2010:WorkflowViewState.IdRef="ExcelWriteCell_18" SheetName="[&quot;Nstav88_APO_report&quot; + today.ToString(&quot;yyyyMMdd&quot;)]" Text="=COUNTIF(B:B,H7)" />
+                        </Sequence>
+                      </ActivityAction>
+                    </ui:ExcelApplicationScope.Body>
+                  </ui:ExcelApplicationScope>
+                  <Assign sap2010:WorkflowViewState.IdRef="Assign_8">
+                    <Assign.To>
+                      <OutArgument x:TypeArguments="x:Int32">[APO_xlsx]</OutArgument>
+                    </Assign.To>
+                    <Assign.Value>
+                      <InArgument x:TypeArguments="x:Int32">1</InArgument>
+                    </Assign.Value>
+                  </Assign>
+                </Sequence>
+              </If.Then>
+              <If.Else>
+                <Sequence DisplayName="neexistuje" sap2010:WorkflowViewState.IdRef="Sequence_14">
+                  <Assign sap2010:WorkflowViewState.IdRef="Assign_9">
+                    <Assign.To>
+                      <OutArgument x:TypeArguments="x:Int32">[APO_xlsx]</OutArgument>
+                    </Assign.To>
+                    <Assign.Value>
+                      <InArgument x:TypeArguments="x:Int32">0</InArgument>
+                    </Assign.Value>
+                  </Assign>
+                </Sequence>
+              </If.Else>
+            </If>
+          </Sequence>
+          <Sequence DisplayName="odeslani emailu" sap2010:WorkflowViewState.IdRef="Sequence_3">
+            <If Condition="[TIA_xlsx=1]" sap2010:WorkflowViewState.IdRef="If_5">
+              <If.Then>
+                <If Condition="[KDP_xlsx=1]" DisplayName="soubor TIA existuje" sap2010:WorkflowViewState.IdRef="If_6">
+                  <If.Then>
+                    <If Condition="[APO_xlsx=1]" DisplayName="soubor KDP existuje" sap2010:WorkflowViewState.IdRef="If_7">
+                      <If.Then>
+                        <Sequence sap2010:WorkflowViewState.IdRef="Sequence_15">
+                          <ui:Comment sap2010:WorkflowViewState.IdRef="Comment_1" Text="TIA=1, KDP=1, APO=1" />
+                          <ui:SendOutlookMail Account="{x:Null}" MailMessage="{x:Null}" TimeoutMS="{x:Null}" Bcc="[StrKontaktRpaAdmin1 + &quot;;&quot;+ StrKontaktRpaAdmin2]" Body="&lt;p&gt;Dobrý den, ahoj, &lt;/p&gt;&lt;p&gt;právě jsem dokončil týdenní zpracování procesu: &lt;strong&gt;CZP1 - adresní nestálci NSTAV 88 a zpracování v CZP&lt;/strong&gt;. Dokončeno bez chyb (soubory: TIA, KDP, APO)... &lt;/p&gt;&lt;p&gt;&lt;strong&gt;VÝSLEDKY ZASÍLÁM V PŘÍLOZE. &lt;/strong&gt;&lt;/p&gt;&lt;br /&gt;&lt;p&gt;S pozdravem Felix Robot (Techrobot3)&lt;/p&gt;&lt;p&gt;____________________________________&lt;/p&gt;&lt;p&gt;&lt;i&gt;Pro více informací se prosím obracejte na email: vaclav.hlavacek@ceskapojistovna.cz&lt;/i&gt;&lt;/p&gt;" Cc="[StrKontaktRpaAdmin1 + &quot;;&quot;+ StrKontaktRpaAdmin2]" DisplayName="Send Outlook Mail Message" sap2010:WorkflowViewState.IdRef="SendOutlookMail_2" IsBodyHtml="True" IsDraft="False" Subject="[&quot;Robot CZP1: Zpracováno (&quot; + today.ToString(&quot;dd.MM.yyyy&quot;) + &quot;) &quot; + StrPriznakEmail]" To="[StrKontaktRpaUzivatel1 + &quot;;&quot;+ StrKontaktRpaAdmin1]">
+                            <ui:SendOutlookMail.Files>
+                              <scg:List x:TypeArguments="InArgument(x:String)" Capacity="4">
+                                <InArgument x:TypeArguments="x:String">[CZP1_StrCestaZdrojAdresar + "Nstav88_TIA_report" + today.ToString("yyyyMMdd") + “.xlsx”]</InArgument>
+                                <InArgument x:TypeArguments="x:String">[CZP1_StrCestaZdrojAdresar + "Nstav88_KDP_report" + today.ToString("yyyyMMdd") + “.xlsx”]</InArgument>
+                                <InArgument x:TypeArguments="x:String">[CZP1_StrCestaZdrojAdresar + "Nstav88_APO_report" + today.ToString("yyyyMMdd") + “.xlsx”]</InArgument>
+                              </scg:List>
+                            </ui:SendOutlookMail.Files>
+                          </ui:SendOutlookMail>
+                          <ui:LogMessage DisplayName="Log message" sap2010:WorkflowViewState.IdRef="LogMessage_6" Level="Trace" Message="Robot CZP1: Email odeslan" />
+                        </Sequence>
+                      </If.Then>
+                      <If.Else>
+                        <Sequence sap2010:WorkflowViewState.IdRef="Sequence_16">
+                          <ui:Comment sap2010:WorkflowViewState.IdRef="Comment_2" Text="TIA=1, KDP=1, APO=0" />
+                          <ui:SendOutlookMail Account="{x:Null}" MailMessage="{x:Null}" TimeoutMS="{x:Null}" Bcc="[StrKontaktRpaAdmin1 + &quot;;&quot;+ StrKontaktRpaAdmin2]" Body="&lt;p&gt;Dobrý den, ahoj, &lt;/p&gt;&lt;p&gt;právě jsem dokončil týdenní zpracování procesu: &lt;strong&gt;CZP1 - adresní nestálci NSTAV 88 a zpracování v CZP&lt;/strong&gt;. Dokončeno bez chyb (soubory: TIA, KDP)... &lt;/p&gt;&lt;p&gt;&lt;strong&gt;VÝSLEDKY ZASÍLÁM V PŘÍLOZE. &lt;/strong&gt;&lt;/p&gt;&lt;br /&gt;&lt;p&gt;S pozdravem Felix Robot (Techrobot3)&lt;/p&gt;&lt;p&gt;____________________________________&lt;/p&gt;&lt;p&gt;&lt;i&gt;Pro více informací se prosím obracejte na email: vaclav.hlavacek@ceskapojistovna.cz&lt;/i&gt;&lt;/p&gt;" Cc="[StrKontaktRpaAdmin1 + &quot;;&quot;+ StrKontaktRpaAdmin2]" DisplayName="Send Outlook Mail Message" sap2010:WorkflowViewState.IdRef="SendOutlookMail_3" IsBodyHtml="True" IsDraft="False" Subject="[&quot;Robot CZP1: Zpracováno (&quot; + today.ToString(&quot;dd.MM.yyyy&quot;) + &quot;) &quot; + StrPriznakEmail]" To="[StrKontaktRpaUzivatel1 + &quot;;&quot;+ StrKontaktRpaAdmin1]">
+                            <ui:SendOutlookMail.Files>
+                              <scg:List x:TypeArguments="InArgument(x:String)" Capacity="4">
+                                <InArgument x:TypeArguments="x:String">[CZP1_StrCestaZdrojAdresar + "Nstav88_TIA_report" + today.ToString("yyyyMMdd") + “.xlsx”]</InArgument>
+                                <InArgument x:TypeArguments="x:String">[CZP1_StrCestaZdrojAdresar + "Nstav88_KDP_report" + today.ToString("yyyyMMdd") + “.xlsx”]</InArgument>
+                              </scg:List>
+                            </ui:SendOutlookMail.Files>
+                          </ui:SendOutlookMail>
+                          <ui:LogMessage DisplayName="Log message" sap2010:WorkflowViewState.IdRef="LogMessage_7" Level="Trace" Message="Robot CZP1: Email odeslan" />
+                        </Sequence>
+                      </If.Else>
+                    </If>
+                  </If.Then>
+                  <If.Else>
+                    <If Condition="[APO_xlsx=1]" DisplayName="soubor KDP neexistuje" sap2010:WorkflowViewState.IdRef="If_8">
+                      <If.Then>
+                        <Sequence sap2010:WorkflowViewState.IdRef="Sequence_17">
+                          <ui:Comment sap2010:WorkflowViewState.IdRef="Comment_3" Text="TIA=1, KDP=0, APO=1" />
+                          <ui:SendOutlookMail Account="{x:Null}" MailMessage="{x:Null}" TimeoutMS="{x:Null}" Bcc="[StrKontaktRpaAdmin1 + &quot;;&quot;+ StrKontaktRpaAdmin2]" Body="&lt;p&gt;Dobrý den, ahoj, &lt;/p&gt;&lt;p&gt;právě jsem dokončil týdenní zpracování procesu: &lt;strong&gt;CZP1 - adresní nestálci NSTAV 88 a zpracování v CZP&lt;/strong&gt;. Dokončeno bez chyb (soubory: TIA, APO)... &lt;/p&gt;&lt;p&gt;&lt;strong&gt;VÝSLEDKY ZASÍLÁM V PŘÍLOZE. &lt;/strong&gt;&lt;/p&gt;&lt;br /&gt;&lt;p&gt;S pozdravem Felix Robot (Techrobot3)&lt;/p&gt;&lt;p&gt;____________________________________&lt;/p&gt;&lt;p&gt;&lt;i&gt;Pro více informací se prosím obracejte na email: vaclav.hlavacek@ceskapojistovna.cz&lt;/i&gt;&lt;/p&gt;" Cc="[StrKontaktRpaAdmin1 + &quot;;&quot;+ StrKontaktRpaAdmin2]" DisplayName="Send Outlook Mail Message" sap2010:WorkflowViewState.IdRef="SendOutlookMail_4" IsBodyHtml="True" IsDraft="False" Subject="[&quot;Robot CZP1: Zpracováno (&quot; + today.ToString(&quot;dd.MM.yyyy&quot;) + &quot;) &quot; + StrPriznakEmail]" To="[StrKontaktRpaUzivatel1 + &quot;;&quot;+ StrKontaktRpaAdmin1]">
+                            <ui:SendOutlookMail.Files>
+                              <scg:List x:TypeArguments="InArgument(x:String)" Capacity="4">
+                                <InArgument x:TypeArguments="x:String">[CZP1_StrCestaZdrojAdresar + "Nstav88_TIA_report" + today.ToString("yyyyMMdd") + “.xlsx”]</InArgument>
+                                <InArgument x:TypeArguments="x:String">[CZP1_StrCestaZdrojAdresar + "Nstav88_APO_report" + today.ToString("yyyyMMdd") + “.xlsx”]</InArgument>
+                              </scg:List>
+                            </ui:SendOutlookMail.Files>
+                          </ui:SendOutlookMail>
+                          <ui:LogMessage DisplayName="Log message" sap2010:WorkflowViewState.IdRef="LogMessage_8" Level="Trace" Message="Robot CZP1: Email odeslan" />
+                        </Sequence>
+                      </If.Then>
+                      <If.Else>
+                        <Sequence sap2010:WorkflowViewState.IdRef="Sequence_18">
+                          <ui:Comment sap2010:WorkflowViewState.IdRef="Comment_4" Text="TIA=1, KDP=0, APO=0" />
+                          <ui:SendOutlookMail Account="{x:Null}" MailMessage="{x:Null}" TimeoutMS="{x:Null}" Bcc="[StrKontaktRpaAdmin1 + &quot;;&quot;+ StrKontaktRpaAdmin2]" Body="&lt;p&gt;Dobrý den, ahoj, &lt;/p&gt;&lt;p&gt;právě jsem dokončil týdenní zpracování procesu: &lt;strong&gt;CZP1 - adresní nestálci NSTAV 88 a zpracování v CZP&lt;/strong&gt;. Dokončeno bez chyb (soubor TIA)... &lt;/p&gt;&lt;p&gt;&lt;strong&gt;VÝSLEDKY ZASÍLÁM V PŘÍLOZE. &lt;/strong&gt;&lt;/p&gt;&lt;br /&gt;&lt;p&gt;S pozdravem Felix Robot (Techrobot3)&lt;/p&gt;&lt;p&gt;____________________________________&lt;/p&gt;&lt;p&gt;&lt;i&gt;Pro více informací se prosím obracejte na email: vaclav.hlavacek@ceskapojistovna.cz&lt;/i&gt;&lt;/p&gt;" Cc="[StrKontaktRpaAdmin1 + &quot;;&quot;+ StrKontaktRpaAdmin2]" DisplayName="Send Outlook Mail Message" sap2010:WorkflowViewState.IdRef="SendOutlookMail_5" IsBodyHtml="True" IsDraft="False" Subject="[&quot;Robot CZP1: Zpracováno (&quot; + today.ToString(&quot;dd.MM.yyyy&quot;) + &quot;) &quot; + StrPriznakEmail]" To="[StrKontaktRpaUzivatel1 + &quot;;&quot;+ StrKontaktRpaAdmin1]">
+                            <ui:SendOutlookMail.Files>
+                              <scg:List x:TypeArguments="InArgument(x:String)" Capacity="4">
+                                <InArgument x:TypeArguments="x:String">[CZP1_StrCestaZdrojAdresar + "Nstav88_TIA_report" + today.ToString("yyyyMMdd") + “.xlsx”]</InArgument>
+                              </scg:List>
+                            </ui:SendOutlookMail.Files>
+                          </ui:SendOutlookMail>
+                          <ui:LogMessage DisplayName="Log message" sap2010:WorkflowViewState.IdRef="LogMessage_9" Level="Trace" Message="Robot CZP1: Email odeslan" />
+                        </Sequence>
+                      </If.Else>
+                    </If>
+                  </If.Else>
+                </If>
+              </If.Then>
+              <If.Else>
+                <If Condition="[KDP_xlsx=1]" DisplayName="soubor TIA neexistuje" sap2010:WorkflowViewState.IdRef="If_4">
+                  <If.Then>
+                    <If Condition="[APO_xlsx=1]" DisplayName="soubor KDP existuje" sap2010:WorkflowViewState.IdRef="If_9">
+                      <If.Then>
+                        <Sequence sap2010:WorkflowViewState.IdRef="Sequence_19">
+                          <ui:Comment sap2010:WorkflowViewState.IdRef="Comment_5" Text="TIA=0, KDP=1, APO=1" />
+                          <ui:SendOutlookMail Account="{x:Null}" MailMessage="{x:Null}" TimeoutMS="{x:Null}" Bcc="[StrKontaktRpaAdmin1 + &quot;;&quot;+ StrKontaktRpaAdmin2]" Body="&lt;p&gt;Dobrý den, ahoj, &lt;/p&gt;&lt;p&gt;právě jsem dokončil týdenní zpracování procesu: &lt;strong&gt;CZP1 - adresní nestálci NSTAV 88 a zpracování v CZP&lt;/strong&gt;. Dokončeno bez chyb (soubory: KDP, APO)... &lt;/p&gt;&lt;p&gt;&lt;strong&gt;VÝSLEDKY ZASÍLÁM V PŘÍLOZE. &lt;/strong&gt;&lt;/p&gt;&lt;br /&gt;&lt;p&gt;S pozdravem Felix Robot (Techrobot3)&lt;/p&gt;&lt;p&gt;____________________________________&lt;/p&gt;&lt;p&gt;&lt;i&gt;Pro více informací se prosím obracejte na email: vaclav.hlavacek@ceskapojistovna.cz&lt;/i&gt;&lt;/p&gt;" Cc="[StrKontaktRpaAdmin1 + &quot;;&quot;+ StrKontaktRpaAdmin2]" DisplayName="Send Outlook Mail Message" sap2010:WorkflowViewState.IdRef="SendOutlookMail_6" IsBodyHtml="True" IsDraft="False" Subject="[&quot;Robot CZP1: Zpracováno (&quot; + today.ToString(&quot;dd.MM.yyyy&quot;) + &quot;) &quot; + StrPriznakEmail]" To="[StrKontaktRpaUzivatel1 + &quot;;&quot;+ StrKontaktRpaAdmin1]">
+                            <ui:SendOutlookMail.Files>
+                              <scg:List x:TypeArguments="InArgument(x:String)" Capacity="4">
+                                <InArgument x:TypeArguments="x:String">[CZP1_StrCestaZdrojAdresar + "Nstav88_KDP_report" + today.ToString("yyyyMMdd") + “.xlsx”]</InArgument>
+                                <InArgument x:TypeArguments="x:String">[CZP1_StrCestaZdrojAdresar + "Nstav88_APO_report" + today.ToString("yyyyMMdd") + “.xlsx”]</InArgument>
+                              </scg:List>
+                            </ui:SendOutlookMail.Files>
+                          </ui:SendOutlookMail>
+                          <ui:LogMessage DisplayName="Log message" sap2010:WorkflowViewState.IdRef="LogMessage_10" Level="Trace" Message="Robot CZP1: Email odeslan" />
+                        </Sequence>
+                      </If.Then>
+                      <If.Else>
+                        <Sequence sap2010:WorkflowViewState.IdRef="Sequence_20">
+                          <ui:Comment sap2010:WorkflowViewState.IdRef="Comment_6" Text="TIA=0, KDP=1, APO=0" />
+                          <ui:SendOutlookMail Account="{x:Null}" MailMessage="{x:Null}" TimeoutMS="{x:Null}" Bcc="[StrKontaktRpaAdmin1 + &quot;;&quot;+ StrKontaktRpaAdmin2]" Body="&lt;p&gt;Dobrý den, ahoj, &lt;/p&gt;&lt;p&gt;právě jsem dokončil týdenní zpracování procesu: &lt;strong&gt;CZP1 - adresní nestálci NSTAV 88 a zpracování v CZP&lt;/strong&gt;. Dokončeno bez chyb (soubor KDP)... &lt;/p&gt;&lt;p&gt;&lt;strong&gt;VÝSLEDKY ZASÍLÁM V PŘÍLOZE. &lt;/strong&gt;&lt;/p&gt;&lt;br /&gt;&lt;p&gt;S pozdravem Felix Robot (Techrobot3)&lt;/p&gt;&lt;p&gt;____________________________________&lt;/p&gt;&lt;p&gt;&lt;i&gt;Pro více informací se prosím obracejte na email: vaclav.hlavacek@ceskapojistovna.cz&lt;/i&gt;&lt;/p&gt;" Cc="[StrKontaktRpaAdmin1 + &quot;;&quot;+ StrKontaktRpaAdmin2]" DisplayName="Send Outlook Mail Message" sap2010:WorkflowViewState.IdRef="SendOutlookMail_7" IsBodyHtml="True" IsDraft="False" Subject="[&quot;Robot CZP1: Zpracováno (&quot; + today.ToString(&quot;dd.MM.yyyy&quot;) + &quot;) &quot; + StrPriznakEmail]" To="[StrKontaktRpaUzivatel1 + &quot;;&quot;+ StrKontaktRpaAdmin1]">
+                            <ui:SendOutlookMail.Files>
+                              <scg:List x:TypeArguments="InArgument(x:String)" Capacity="4">
+                                <InArgument x:TypeArguments="x:String">[CZP1_StrCestaZdrojAdresar + "Nstav88_KDP_report" + today.ToString("yyyyMMdd") + “.xlsx”]</InArgument>
+                              </scg:List>
+                            </ui:SendOutlookMail.Files>
+                          </ui:SendOutlookMail>
+                          <ui:LogMessage DisplayName="Log message" sap2010:WorkflowViewState.IdRef="LogMessage_11" Level="Trace" Message="Robot CZP1: Email odeslan" />
+                        </Sequence>
+                      </If.Else>
+                    </If>
+                  </If.Then>
+                  <If.Else>
+                    <If Condition="[APO_xlsx=1]" DisplayName="soubor KDP neexistuje" sap2010:WorkflowViewState.IdRef="If_10">
+                      <If.Then>
+                        <Sequence sap2010:WorkflowViewState.IdRef="Sequence_21">
+                          <ui:Comment sap2010:WorkflowViewState.IdRef="Comment_7" Text="TIA=0, KDP=0, APO=1" />
+                          <ui:SendOutlookMail Account="{x:Null}" MailMessage="{x:Null}" TimeoutMS="{x:Null}" Bcc="[StrKontaktRpaAdmin1 + &quot;;&quot;+ StrKontaktRpaAdmin2]" Body="&lt;p&gt;Dobrý den, ahoj, &lt;/p&gt;&lt;p&gt;právě jsem dokončil týdenní zpracování procesu: &lt;strong&gt;CZP1 - adresní nestálci NSTAV 88 a zpracování v CZP&lt;/strong&gt;. Dokončeno bez chyb (soubor APO)... &lt;/p&gt;&lt;p&gt;&lt;strong&gt;VÝSLEDKY ZASÍLÁM V PŘÍLOZE. &lt;/strong&gt;&lt;/p&gt;&lt;br /&gt;&lt;p&gt;S pozdravem Felix Robot (Techrobot3)&lt;/p&gt;&lt;p&gt;____________________________________&lt;/p&gt;&lt;p&gt;&lt;i&gt;Pro více informací se prosím obracejte na email: vaclav.hlavacek@ceskapojistovna.cz&lt;/i&gt;&lt;/p&gt;" Cc="[StrKontaktRpaAdmin1 + &quot;;&quot;+ StrKontaktRpaAdmin2]" DisplayName="Send Outlook Mail Message" sap2010:WorkflowViewState.IdRef="SendOutlookMail_8" IsBodyHtml="True" IsDraft="False" Subject="[&quot;Robot CZP1: Zpracováno (&quot; + today.ToString(&quot;dd.MM.yyyy&quot;) + &quot;) &quot; + StrPriznakEmail]" To="[StrKontaktRpaUzivatel1 + &quot;;&quot;+ StrKontaktRpaAdmin1]">
+                            <ui:SendOutlookMail.Files>
+                              <scg:List x:TypeArguments="InArgument(x:String)" Capacity="4">
+                                <InArgument x:TypeArguments="x:String">[CZP1_StrCestaZdrojAdresar + "Nstav88_APO_report" + today.ToString("yyyyMMdd") + “.xlsx”]</InArgument>
+                              </scg:List>
+                            </ui:SendOutlookMail.Files>
+                          </ui:SendOutlookMail>
+                          <ui:LogMessage DisplayName="Log message" sap2010:WorkflowViewState.IdRef="LogMessage_12" Level="Trace" Message="Robot CZP1: Email odeslan" />
+                        </Sequence>
+                      </If.Then>
+                      <If.Else>
+                        <Sequence sap2010:WorkflowViewState.IdRef="Sequence_22">
+                          <ui:Comment sap2010:WorkflowViewState.IdRef="Comment_8" Text="TIA=0, KDP=0, APO=0" />
+                          <ui:SendOutlookMail Account="{x:Null}" MailMessage="{x:Null}" TimeoutMS="{x:Null}" Bcc="[StrKontaktRpaAdmin1 + &quot;;&quot;+ StrKontaktRpaAdmin2]" Body="&lt;p&gt;Dobrý den, ahoj, &lt;/p&gt;&lt;p&gt;právě jsem dokončil týdenní zpracování procesu: &lt;strong&gt;CZP1 - adresní nestálci NSTAV 88 a zpracování v CZP&lt;/strong&gt;. Nepracována žádna data!!! Chybí data v CZP. &lt;/p&gt;&lt;br /&gt;&lt;p&gt;S pozdravem Felix Robot (Techrobot3)&lt;/p&gt;&lt;p&gt;____________________________________&lt;/p&gt;&lt;p&gt;&lt;i&gt;Pro více informací se prosím obracejte na email: vaclav.hlavacek@ceskapojistovna.cz&lt;/i&gt;&lt;/p&gt;" Cc="[StrKontaktRpaAdmin1 + &quot;;&quot;+ StrKontaktRpaAdmin2]" DisplayName="Send Outlook Mail Message" sap2010:WorkflowViewState.IdRef="SendOutlookMail_9" IsBodyHtml="True" IsDraft="False" Subject="[&quot;Robot CZP1: Chyba (&quot; + today.ToString(&quot;dd.MM.yyyy&quot;) + &quot;) &quot; + StrPriznakEmail]" To="[StrKontaktRpaAdmin1 + &quot;;&quot;+ StrKontaktRpaAdmin2]">
+                            <ui:SendOutlookMail.Files>
+                              <scg:List x:TypeArguments="InArgument(x:String)" Capacity="4" />
+                            </ui:SendOutlookMail.Files>
+                          </ui:SendOutlookMail>
+                          <ui:LogMessage DisplayName="Log message" sap2010:WorkflowViewState.IdRef="LogMessage_13" Level="Trace" Message="Robot CZP1: Email odeslan" />
+                        </Sequence>
+                      </If.Else>
+                    </If>
+                  </If.Else>
+                </If>
+              </If.Else>
+            </If>
+          </Sequence>
+          <Assign sap2010:WorkflowViewState.IdRef="Assign_1">
+            <Assign.To>
+              <OutArgument x:TypeArguments="x:Boolean">[BoolSuccess]</OutArgument>
+            </Assign.To>
+            <Assign.Value>
+              <InArgument x:TypeArguments="x:Boolean">[True]</InArgument>
+            </Assign.Value>
+          </Assign>
+          <ui:LogMessage DisplayName="Log message" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="Info" Message="[strComponentName + &quot;: Success&quot;]" />
+        </Sequence>
+      </TryCatch.Try>
+      <TryCatch.Catches>
+        <Catch x:TypeArguments="s:Exception" sap2010:WorkflowViewState.IdRef="Catch`1_1">
+          <ActivityAction x:TypeArguments="s:Exception">
+            <ActivityAction.Argument>
+              <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
+            </ActivityAction.Argument>
+            <Sequence sap2010:WorkflowViewState.IdRef="Sequence_4">
+              <ui:LogMessage DisplayName="Log message" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Info" Message="[strComponentName + &quot; failed: &quot; + exception.Message]" />
+              <Assign sap2010:WorkflowViewState.IdRef="Assign_2">
+                <Assign.To>
+                  <OutArgument x:TypeArguments="x:Boolean">[BoolSuccess]</OutArgument>
+                </Assign.To>
+                <Assign.Value>
+                  <InArgument x:TypeArguments="x:Boolean">[False]</InArgument>
+                </Assign.Value>
+              </Assign>
+              <Assign sap2010:WorkflowViewState.IdRef="Assign_3">
+                <Assign.To>
+                  <OutArgument x:TypeArguments="x:String">[StrExceptionMessage]</OutArgument>
+                </Assign.To>
+                <Assign.Value>
+                  <InArgument x:TypeArguments="x:String">[strComponentName + " failed: " + exception.Message]</InArgument>
+                </Assign.Value>
+              </Assign>
+            </Sequence>
+          </ActivityAction>
+        </Catch>
+      </TryCatch.Catches>
+    </TryCatch>
+    <ui:LogMessage DisplayName="Log message" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[strComponentName + &quot; End&quot;]" />
+    <sads:DebugSymbol.Symbol>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</sads:DebugSymbol.Symbol>
+  </Sequence>
+  <sap2010:WorkflowViewState.ViewStateManager>
+    <sap2010:ViewStateManager>
+      <sap2010:ViewStateData Id="LogMessage_1" sap:VirtualizedContainerService.HintSize="615,87" />
+      <sap2010:ViewStateData Id="PathExists_1" sap:VirtualizedContainerService.HintSize="553,88" />
+      <sap2010:ViewStateData Id="ExcelWriteCell_1" sap:VirtualizedContainerService.HintSize="314,87" />
+      <sap2010:ViewStateData Id="ExcelWriteCell_2" sap:VirtualizedContainerService.HintSize="314,87" />
+      <sap2010:ViewStateData Id="ExcelWriteCell_3" sap:VirtualizedContainerService.HintSize="314,87" />
+      <sap2010:ViewStateData Id="ExcelWriteCell_4" sap:VirtualizedContainerService.HintSize="314,87" />
+      <sap2010:ViewStateData Id="ExcelWriteCell_5" sap:VirtualizedContainerService.HintSize="314,87" />
+      <sap2010:ViewStateData Id="ExcelWriteCell_6" sap:VirtualizedContainerService.HintSize="314,87" />
+      <sap2010:ViewStateData Id="Sequence_6" sap:VirtualizedContainerService.HintSize="336,846">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="ExcelApplicationScope_1" sap:VirtualizedContainerService.HintSize="242,49">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="Assign_4" sap:VirtualizedContainerService.HintSize="242,59" />
+      <sap2010:ViewStateData Id="Sequence_9" sap:VirtualizedContainerService.HintSize="264,272">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="Assign_5" sap:VirtualizedContainerService.HintSize="242,59" />
+      <sap2010:ViewStateData Id="Sequence_10" sap:VirtualizedContainerService.HintSize="264,183">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="If_1" sap:VirtualizedContainerService.HintSize="553,415" />
+      <sap2010:ViewStateData Id="PathExists_2" sap:VirtualizedContainerService.HintSize="553,88" />
+      <sap2010:ViewStateData Id="ExcelWriteCell_7" sap:VirtualizedContainerService.HintSize="314,87" />
+      <sap2010:ViewStateData Id="ExcelWriteCell_8" sap:VirtualizedContainerService.HintSize="314,87" />
+      <sap2010:ViewStateData Id="ExcelWriteCell_9" sap:VirtualizedContainerService.HintSize="314,87" />
+      <sap2010:ViewStateData Id="ExcelWriteCell_10" sap:VirtualizedContainerService.HintSize="314,87" />
+      <sap2010:ViewStateData Id="ExcelWriteCell_11" sap:VirtualizedContainerService.HintSize="314,87" />
+      <sap2010:ViewStateData Id="ExcelWriteCell_12" sap:VirtualizedContainerService.HintSize="314,87" />
+      <sap2010:ViewStateData Id="Sequence_7" sap:VirtualizedContainerService.HintSize="336,846">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="ExcelApplicationScope_2" sap:VirtualizedContainerService.HintSize="242,49">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="Assign_6" sap:VirtualizedContainerService.HintSize="242,59" />
+      <sap2010:ViewStateData Id="Sequence_11" sap:VirtualizedContainerService.HintSize="264,272">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="Assign_7" sap:VirtualizedContainerService.HintSize="242,59" />
+      <sap2010:ViewStateData Id="Sequence_12" sap:VirtualizedContainerService.HintSize="264,183">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="If_2" sap:VirtualizedContainerService.HintSize="553,415" />
+      <sap2010:ViewStateData Id="PathExists_3" sap:VirtualizedContainerService.HintSize="553,88" />
+      <sap2010:ViewStateData Id="ExcelWriteCell_13" sap:VirtualizedContainerService.HintSize="314,87" />
+      <sap2010:ViewStateData Id="ExcelWriteCell_14" sap:VirtualizedContainerService.HintSize="314,87" />
+      <sap2010:ViewStateData Id="ExcelWriteCell_15" sap:VirtualizedContainerService.HintSize="314,87" />
+      <sap2010:ViewStateData Id="ExcelWriteCell_16" sap:VirtualizedContainerService.HintSize="314,87" />
+      <sap2010:ViewStateData Id="ExcelWriteCell_17" sap:VirtualizedContainerService.HintSize="314,87" />
+      <sap2010:ViewStateData Id="ExcelWriteCell_18" sap:VirtualizedContainerService.HintSize="314,87" />
+      <sap2010:ViewStateData Id="Sequence_8" sap:VirtualizedContainerService.HintSize="336,846">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="ExcelApplicationScope_3" sap:VirtualizedContainerService.HintSize="242,49">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="Assign_8" sap:VirtualizedContainerService.HintSize="242,59" />
+      <sap2010:ViewStateData Id="Sequence_13" sap:VirtualizedContainerService.HintSize="264,272">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="Assign_9" sap:VirtualizedContainerService.HintSize="242,59" />
+      <sap2010:ViewStateData Id="Sequence_14" sap:VirtualizedContainerService.HintSize="264,183">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="If_3" sap:VirtualizedContainerService.HintSize="553,415" />
+      <sap2010:ViewStateData Id="Sequence_5" sap:VirtualizedContainerService.HintSize="575,1833">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="Comment_1" sap:VirtualizedContainerService.HintSize="314,55" />
+      <sap2010:ViewStateData Id="SendOutlookMail_2" sap:VirtualizedContainerService.HintSize="314,143" />
+      <sap2010:ViewStateData Id="LogMessage_6" sap:VirtualizedContainerService.HintSize="314,87" />
+      <sap2010:ViewStateData Id="Sequence_15" sap:VirtualizedContainerService.HintSize="336,489">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="Comment_2" sap:VirtualizedContainerService.HintSize="314,55" />
+      <sap2010:ViewStateData Id="SendOutlookMail_3" sap:VirtualizedContainerService.HintSize="314,143" />
+      <sap2010:ViewStateData Id="LogMessage_7" sap:VirtualizedContainerService.HintSize="314,87" />
+      <sap2010:ViewStateData Id="Sequence_16" sap:VirtualizedContainerService.HintSize="336,489">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="If_7" sap:VirtualizedContainerService.HintSize="697,632" />
+      <sap2010:ViewStateData Id="Comment_3" sap:VirtualizedContainerService.HintSize="314,55" />
+      <sap2010:ViewStateData Id="SendOutlookMail_4" sap:VirtualizedContainerService.HintSize="314,143" />
+      <sap2010:ViewStateData Id="LogMessage_8" sap:VirtualizedContainerService.HintSize="314,87" />
+      <sap2010:ViewStateData Id="Sequence_17" sap:VirtualizedContainerService.HintSize="336,489">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="Comment_4" sap:VirtualizedContainerService.HintSize="314,55" />
+      <sap2010:ViewStateData Id="SendOutlookMail_5" sap:VirtualizedContainerService.HintSize="314,143" />
+      <sap2010:ViewStateData Id="LogMessage_9" sap:VirtualizedContainerService.HintSize="314,87" />
+      <sap2010:ViewStateData Id="Sequence_18" sap:VirtualizedContainerService.HintSize="336,489">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="If_8" sap:VirtualizedContainerService.HintSize="697,632" />
+      <sap2010:ViewStateData Id="If_6" sap:VirtualizedContainerService.HintSize="1419,775" />
+      <sap2010:ViewStateData Id="Comment_5" sap:VirtualizedContainerService.HintSize="314,55" />
+      <sap2010:ViewStateData Id="SendOutlookMail_6" sap:VirtualizedContainerService.HintSize="314,143" />
+      <sap2010:ViewStateData Id="LogMessage_10" sap:VirtualizedContainerService.HintSize="314,87" />
+      <sap2010:ViewStateData Id="Sequence_19" sap:VirtualizedContainerService.HintSize="336,489">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="Comment_6" sap:VirtualizedContainerService.HintSize="314,55" />
+      <sap2010:ViewStateData Id="SendOutlookMail_7" sap:VirtualizedContainerService.HintSize="314,143" />
+      <sap2010:ViewStateData Id="LogMessage_11" sap:VirtualizedContainerService.HintSize="314,87" />
+      <sap2010:ViewStateData Id="Sequence_20" sap:VirtualizedContainerService.HintSize="336,489">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="If_9" sap:VirtualizedContainerService.HintSize="697,632" />
+      <sap2010:ViewStateData Id="Comment_7" sap:VirtualizedContainerService.HintSize="314,55" />
+      <sap2010:ViewStateData Id="SendOutlookMail_8" sap:VirtualizedContainerService.HintSize="314,143" />
+      <sap2010:ViewStateData Id="LogMessage_12" sap:VirtualizedContainerService.HintSize="314,87" />
+      <sap2010:ViewStateData Id="Sequence_21" sap:VirtualizedContainerService.HintSize="336,489">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="Comment_8" sap:VirtualizedContainerService.HintSize="314,55" />
+      <sap2010:ViewStateData Id="SendOutlookMail_9" sap:VirtualizedContainerService.HintSize="314,143" />
+      <sap2010:ViewStateData Id="LogMessage_13" sap:VirtualizedContainerService.HintSize="314,87" />
+      <sap2010:ViewStateData Id="Sequence_22" sap:VirtualizedContainerService.HintSize="336,489">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="If_10" sap:VirtualizedContainerService.HintSize="697,632" />
+      <sap2010:ViewStateData Id="If_4" sap:VirtualizedContainerService.HintSize="1419,775" />
+      <sap2010:ViewStateData Id="If_5" sap:VirtualizedContainerService.HintSize="2863,918" />
+      <sap2010:ViewStateData Id="Sequence_3" sap:VirtualizedContainerService.HintSize="575,49">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="Assign_1" sap:VirtualizedContainerService.HintSize="575,59" />
+      <sap2010:ViewStateData Id="LogMessage_4" sap:VirtualizedContainerService.HintSize="575,87" />
+      <sap2010:ViewStateData Id="Sequence_2" sap:VirtualizedContainerService.HintSize="597,2272">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="LogMessage_3" sap:VirtualizedContainerService.HintSize="314,87" />
+      <sap2010:ViewStateData Id="Assign_2" sap:VirtualizedContainerService.HintSize="314,59" />
+      <sap2010:ViewStateData Id="Assign_3" sap:VirtualizedContainerService.HintSize="314.4,60" />
+      <sap2010:ViewStateData Id="Sequence_4" sap:VirtualizedContainerService.HintSize="336,410">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="Catch`1_1" sap:VirtualizedContainerService.HintSize="601,20">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="TryCatch_1" sap:VirtualizedContainerService.HintSize="615,2490" />
+      <sap2010:ViewStateData Id="LogMessage_2" sap:VirtualizedContainerService.HintSize="615,87" />
+      <sap2010:ViewStateData Id="Sequence_1" sap:VirtualizedContainerService.HintSize="637,2906">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="Main_1" sap:VirtualizedContainerService.HintSize="677,3066" />
+    </sap2010:ViewStateManager>
+  </sap2010:WorkflowViewState.ViewStateManager>
+</Activity>

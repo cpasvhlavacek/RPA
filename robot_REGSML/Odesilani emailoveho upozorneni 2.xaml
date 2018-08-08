@@ -1,0 +1,226 @@
+﻿<Activity mc:Ignorable="sap sap2010 sads" x:Class="Odesilani_emailoveho_upozorneni_1"
+ xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities"
+ xmlns:av="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+ xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+ xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities"
+ xmlns:s="clr-namespace:System;assembly=mscorlib"
+ xmlns:sads="http://schemas.microsoft.com/netfx/2010/xaml/activities/debugger"
+ xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation"
+ xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation"
+ xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib"
+ xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=mscorlib"
+ xmlns:ui="http://schemas.uipath.com/workflow/activities"
+ xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="RS_ARG_IntPriznakHodnotaSjednani" Type="InArgument(x:Int32)" />
+    <x:Property Name="RS_ARG_IntPriznakHodnotaPocatek" Type="InArgument(x:Int32)" />
+    <x:Property Name="RS_ARG_StrHodnotaSmlouva" Type="InArgument(ui:GenericValue)" />
+    <x:Property Name="RS_ARG_StrHodnotaIcoPojistnik" Type="InArgument(ui:GenericValue)" />
+    <x:Property Name="RS_ARG_StrHodnotaJmenoPojistnik" Type="InArgument(ui:GenericValue)" />
+    <x:Property Name="RS_ARG_StrHodnotaIcoPojistitel" Type="InArgument(ui:GenericValue)" />
+    <x:Property Name="RS_ARG_StrHodnotaJmenoPojistitel" Type="InArgument(ui:GenericValue)" />
+    <x:Property Name="RS_ARG_datumSjednaniPs" Type="InArgument(s:DateTime)" />
+    <x:Property Name="RS_ARG_datumPocatekPs" Type="InArgument(s:DateTime)" />
+    <x:Property Name="RS_ARG_datumDatumDwh" Type="InArgument(s:DateTime)" />
+    <x:Property Name="RS_ARG_StrHodnotaSystem" Type="InArgument(ui:GenericValue)" />
+    <x:Property Name="RS_ARG_StrHodnotaPredmetPs" Type="InArgument(ui:GenericValue)" />
+    <x:Property Name="RS_ARG_StrHodnotaKodProduktu" Type="InArgument(ui:GenericValue)" />
+    <x:Property Name="RS_ARG_StrHodnotaNazevProduktu" Type="InArgument(ui:GenericValue)" />
+    <x:Property Name="RS_ARG_StrHodnotaRamecPs" Type="InArgument(ui:GenericValue)" />
+    <x:Property Name="RS_ARG_StrHodnotaStavPs" Type="InArgument(ui:GenericValue)" />
+    <x:Property Name="RS_ARG_StrHodnotaZverejnitTypPs" Type="InArgument(ui:GenericValue)" />
+    <x:Property Name="RS_ARG_StrKontaktEmailSpravaPs" Type="InArgument(x:String)" />
+    <x:Property Name="RS_ARG_StrKontaktRpaAdmin1" Type="InArgument(x:String)" />
+    <x:Property Name="RS_ARG_StrKontaktRpaAdmin2" Type="InArgument(x:String)" />
+    <x:Property Name="RS_ARG_StrHodnotaRocniPojistne" Type="InArgument(x:String)" />
+  </x:Members>
+  <mva:VisualBasic.Settings>
+    <x:Null />
+  </mva:VisualBasic.Settings>
+  <sap2010:WorkflowViewState.IdRef>Odesilani_emailoveho_upozorneni_1_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <sco:Collection x:TypeArguments="x:String">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+    </sco:Collection>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <sco:Collection x:TypeArguments="AssemblyReference">
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>UiPath.Core</AssemblyReference>
+      <AssemblyReference>UiPath.Core.Activities</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>PresentationCore</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+    </sco:Collection>
+  </TextExpression.ReferencesForImplementation>
+  <Flowchart sap2010:Annotation.AnnotationText="18.4.2018 - pridano &quot;rocni pojistne&quot; (RS_ARG_StrHodnotaRocniPojistne)" DisplayName="Odesilani emailoveho upozorneni 2" sap2010:WorkflowViewState.IdRef="Flowchart_1">
+    <Flowchart.StartNode>
+      <FlowStep x:Name="__ReferenceID0" sap2010:WorkflowViewState.IdRef="FlowStep_1">
+        <Sequence sap2010:WorkflowViewState.IdRef="Sequence_1">
+          <If Condition="[RS_ARG_IntPriznakHodnotaSjednani=0 and RS_ARG_IntPriznakHodnotaPocatek=0]" DisplayName="Pokud je prazdne datum sjednani i pocatku PS" sap2010:WorkflowViewState.IdRef="If_1">
+            <If.Then>
+              <Sequence sap2010:WorkflowViewState.IdRef="Sequence_3">
+                <ui:Comment sap2010:WorkflowViewState.IdRef="Comment_1" Text="Pokud jsou hodnoty SMLO_DAT_SJEDN_SML a SMLO_DAT_POC_SML prazdne, odesle telo emailu bez techto udaju" />
+                <ui:SendOutlookMail Account="{x:Null}" MailMessage="{x:Null}" TimeoutMS="{x:Null}" Bcc="[RS_ARG_StrKontaktRpaAdmin1]" Body="[&quot;&lt;p&gt;Dobrý den, &lt;br&gt;prosíme o zveřejnění níže uvedené smlouvy v Registru smluv.&lt;br&gt;Děkujeme.&lt;/p&gt;&lt;p&gt;_____________________________________________&lt;/p&gt;&lt;p&gt;&lt;strong&gt;Číslo pojistné smlouvy: &lt;/strong&gt;&quot; + RS_ARG_StrHodnotaSmlouva + &quot;&lt;br&gt;&lt;strong&gt;IČO klienta: &lt;/strong&gt;&quot; + RS_ARG_StrHodnotaIcoPojistnik + &quot;&lt;br&gt;&lt;strong&gt;Jméno klienta: &lt;/strong&gt;&quot; + RS_ARG_StrHodnotaJmenoPojistnik + &quot;&lt;br&gt;&lt;strong&gt;IČO pojistitele: &lt;/strong&gt;&quot; + RS_ARG_StrHodnotaIcoPojistitel + &quot;&lt;br&gt;&lt;strong&gt;Jméno pojistitele: &lt;/strong&gt;&quot; + RS_ARG_StrHodnotaJmenoPojistitel + &quot;&lt;br&gt;&lt;strong&gt;Datum sjednání smlouvy: &lt;/strong&gt;neuvedeno ve zdrojových datech&lt;br&gt;&lt;strong&gt;Datum počátku smlouvy: &lt;/strong&gt;neuvedeno ve zdrojových datech&lt;br&gt;&lt;strong&gt;Datum importu dat do DWH: &lt;/strong&gt;&quot; + RS_ARG_datumDatumDwh.ToString(&quot;dd.MM.yyyy&quot;) + &quot;&lt;br&gt;&lt;strong&gt;Zdrojový systém: &lt;/strong&gt;&quot; + RS_ARG_StrHodnotaSystem + &quot;&lt;br&gt;&lt;strong&gt;Hodnota předmětu smlouvy: &lt;/strong&gt;&quot; + RS_ARG_StrHodnotaPredmetPs + &quot;&lt;br&gt;&lt;strong&gt;Roční pojistné: &lt;/strong&gt;&quot; + RS_ARG_StrHodnotaRocniPojistne + &quot;&lt;br&gt;&lt;strong&gt;Předmět smlouvy: &lt;/strong&gt;&lt;br&gt;&lt;strong&gt;Kód produktu: &lt;/strong&gt;&quot; + RS_ARG_StrHodnotaKodProduktu + &quot;&lt;br&gt;&lt;strong&gt;Název produktu: &lt;/strong&gt;&quot; + RS_ARG_StrHodnotaNazevProduktu + &quot;&lt;br&gt;&lt;strong&gt;Smlouva / rámcová smlouva: &lt;/strong&gt;&quot; + RS_ARG_StrHodnotaRamecPs + &quot;&lt;br&gt;&lt;strong&gt;Změna smlouvy / nová smlouva: &lt;/strong&gt;&quot; + RS_ARG_StrHodnotaStavPs + &quot;&lt;br&gt;&lt;strong&gt;Zveřejnit pouze změnu / zveřejnit změnu vč. původní smlouvy: &lt;/strong&gt;&quot; + RS_ARG_StrHodnotaZverejnitTypPs + &quot;&lt;/p&gt;&quot;]" Cc="[RS_ARG_StrKontaktRpaAdmin1]" DisplayName="Send Outlook Mail Message" sap2010:WorkflowViewState.IdRef="SendOutlookMail_1" IsBodyHtml="True" IsDraft="False" Subject="[&quot;Registr smluv – žádost o prověření/zveřejnění smlouvy č. &quot; + RS_ARG_StrHodnotaSmlouva]" To="[RS_ARG_StrKontaktEmailSpravaPs]">
+                  <ui:SendOutlookMail.Files>
+                    <scg:List x:TypeArguments="InArgument(x:String)" Capacity="0" />
+                  </ui:SendOutlookMail.Files>
+                </ui:SendOutlookMail>
+              </Sequence>
+            </If.Then>
+            <If.Else>
+              <If Condition="[RS_ARG_IntPriznakHodnotaSjednani=0]" DisplayName="Pokud je prazdne datum sjednani" sap2010:WorkflowViewState.IdRef="If_2">
+                <If.Then>
+                  <Sequence sap2010:WorkflowViewState.IdRef="Sequence_4">
+                    <ui:Comment sap2010:WorkflowViewState.IdRef="Comment_2" Text="Pokud nejsou prazdne obe hodnoty, muze byt pradzna pouze hodnota SMLO_DAT_SJEDN_SML, robot odesle telo emailu bez tohoto udaje" />
+                    <ui:SendOutlookMail Account="{x:Null}" MailMessage="{x:Null}" TimeoutMS="{x:Null}" Bcc="[RS_ARG_StrKontaktRpaAdmin1]" Body="[&quot;&lt;p&gt;Dobrý den, &lt;br&gt;prosíme o zveřejnění níže uvedené smlouvy v Registru smluv.&lt;br&gt;Děkujeme.&lt;/p&gt;&lt;p&gt;_____________________________________________&lt;/p&gt;&lt;p&gt;&lt;strong&gt;Číslo pojistné smlouvy: &lt;/strong&gt;&quot; + RS_ARG_StrHodnotaSmlouva + &quot;&lt;br&gt;&lt;strong&gt;IČO klienta: &lt;/strong&gt;&quot; + RS_ARG_StrHodnotaIcoPojistnik + &quot;&lt;br&gt;&lt;strong&gt;Jméno klienta: &lt;/strong&gt;&quot; + RS_ARG_StrHodnotaJmenoPojistnik + &quot;&lt;br&gt;&lt;strong&gt;IČO pojistitele: &lt;/strong&gt;&quot; + RS_ARG_StrHodnotaIcoPojistitel + &quot;&lt;br&gt;&lt;strong&gt;Jméno pojistitele: &lt;/strong&gt;&quot; + RS_ARG_StrHodnotaJmenoPojistitel + &quot;&lt;br&gt;&lt;strong&gt;Datum sjednání smlouvy: &lt;/strong&gt;neuvedeno ve zdrojových datech&lt;br&gt;&lt;strong&gt;Datum počátku smlouvy: &lt;/strong&gt;&quot; + RS_ARG_datumPocatekPs.ToString(&quot;dd.MM.yyyy&quot;) + &quot;&lt;br&gt;&lt;strong&gt;Datum importu dat do DWH: &lt;/strong&gt;&quot; + RS_ARG_datumDatumDwh.ToString(&quot;dd.MM.yyyy&quot;) + &quot;&lt;br&gt;&lt;strong&gt;Zdrojový systém: &lt;/strong&gt;&quot; + RS_ARG_StrHodnotaSystem + &quot;&lt;br&gt;&lt;strong&gt;Hodnota předmětu smlouvy: &lt;/strong&gt;&quot; + RS_ARG_StrHodnotaPredmetPs + &quot;&lt;br&gt;&lt;strong&gt;Roční pojistné: &lt;/strong&gt;&quot; + RS_ARG_StrHodnotaRocniPojistne + &quot;&lt;br&gt;&lt;strong&gt;Předmět smlouvy: &lt;/strong&gt;&lt;br&gt;&lt;strong&gt;Kód produktu: &lt;/strong&gt;&quot; + RS_ARG_StrHodnotaKodProduktu + &quot;&lt;br&gt;&lt;strong&gt;Název produktu: &lt;/strong&gt;&quot; + RS_ARG_StrHodnotaNazevProduktu + &quot;&lt;br&gt;&lt;strong&gt;Smlouva / rámcová smlouva: &lt;/strong&gt;&quot; + RS_ARG_StrHodnotaRamecPs + &quot;&lt;br&gt;&lt;strong&gt;Změna smlouvy / nová smlouva: &lt;/strong&gt;&quot; + RS_ARG_StrHodnotaStavPs + &quot;&lt;br&gt;&lt;strong&gt;Zveřejnit pouze změnu / zveřejnit změnu vč. původní smlouvy: &lt;/strong&gt;&quot; + RS_ARG_StrHodnotaZverejnitTypPs + &quot;&lt;/p&gt;&quot;]" Cc="[RS_ARG_StrKontaktRpaAdmin1]" DisplayName="Send Outlook Mail Message" sap2010:WorkflowViewState.IdRef="SendOutlookMail_2" IsBodyHtml="True" IsDraft="False" Subject="[&quot;Registr smluv – žádost o prověření/zveřejnění smlouvy č. &quot; + RS_ARG_StrHodnotaSmlouva]" To="[RS_ARG_StrKontaktEmailSpravaPs]">
+                      <ui:SendOutlookMail.Files>
+                        <scg:List x:TypeArguments="InArgument(x:String)" Capacity="0" />
+                      </ui:SendOutlookMail.Files>
+                    </ui:SendOutlookMail>
+                  </Sequence>
+                </If.Then>
+                <If.Else>
+                  <Sequence sap2010:WorkflowViewState.IdRef="Sequence_2">
+                    <If Condition="[RS_ARG_IntPriznakHodnotaPocatek=0]" DisplayName="Pokud je prazdne datum pocatku PS" sap2010:WorkflowViewState.IdRef="If_3">
+                      <If.Then>
+                        <Sequence sap2010:WorkflowViewState.IdRef="Sequence_5">
+                          <ui:Comment sap2010:WorkflowViewState.IdRef="Comment_3" Text="Pokud nejsou prazdne obe hodnoty ani hodnota SMLO_DAT_SJEDN_SML, muze byt prazdna hodnota SMLO_DAT_POC_SML, robot odesle telo emailu bez tohoto udaje" />
+                          <ui:SendOutlookMail Account="{x:Null}" MailMessage="{x:Null}" TimeoutMS="{x:Null}" Bcc="[RS_ARG_StrKontaktRpaAdmin1]" Body="[&quot;&lt;p&gt;Dobrý den, &lt;br&gt;prosíme o zveřejnění níže uvedené smlouvy v Registru smluv.&lt;br&gt;Děkujeme.&lt;/p&gt;&lt;p&gt;_____________________________________________&lt;/p&gt;&lt;p&gt;&lt;strong&gt;Číslo pojistné smlouvy: &lt;/strong&gt;&quot; + RS_ARG_StrHodnotaSmlouva + &quot;&lt;br&gt;&lt;strong&gt;IČO klienta: &lt;/strong&gt;&quot; + RS_ARG_StrHodnotaIcoPojistnik + &quot;&lt;br&gt;&lt;strong&gt;Jméno klienta: &lt;/strong&gt;&quot; + RS_ARG_StrHodnotaJmenoPojistnik + &quot;&lt;br&gt;&lt;strong&gt;IČO pojistitele: &lt;/strong&gt;&quot; + RS_ARG_StrHodnotaIcoPojistitel + &quot;&lt;br&gt;&lt;strong&gt;Jméno pojistitele: &lt;/strong&gt;&quot; + RS_ARG_StrHodnotaJmenoPojistitel + &quot;&lt;br&gt;&lt;strong&gt;Datum sjednání smlouvy: &lt;/strong&gt;&quot; + RS_ARG_datumSjednaniPs.ToString(&quot;dd.MM.yyyy&quot;) + &quot;&lt;br&gt;&lt;strong&gt;Datum počátku smlouvy: &lt;/strong&gt;neuvedeno ve zdrojových datech&lt;br&gt;&lt;strong&gt;Datum importu dat do DWH: &lt;/strong&gt;&quot; + RS_ARG_datumDatumDwh.ToString(&quot;dd.MM.yyyy&quot;) + &quot;&lt;br&gt;&lt;strong&gt;Zdrojový systém: &lt;/strong&gt;&quot; + RS_ARG_StrHodnotaSystem + &quot;&lt;br&gt;&lt;strong&gt;Hodnota předmětu smlouvy: &lt;/strong&gt;&quot; + RS_ARG_StrHodnotaPredmetPs + &quot;&lt;br&gt;&lt;strong&gt;Roční pojistné: &lt;/strong&gt;&quot; + RS_ARG_StrHodnotaRocniPojistne + &quot;&lt;br&gt;&lt;strong&gt;Předmět smlouvy: &lt;/strong&gt;&lt;br&gt;&lt;strong&gt;Kód produktu: &lt;/strong&gt;&quot; + RS_ARG_StrHodnotaKodProduktu + &quot;&lt;br&gt;&lt;strong&gt;Název produktu: &lt;/strong&gt;&quot; + RS_ARG_StrHodnotaNazevProduktu + &quot;&lt;br&gt;&lt;strong&gt;Smlouva / rámcová smlouva: &lt;/strong&gt;&quot; + RS_ARG_StrHodnotaRamecPs + &quot;&lt;br&gt;&lt;strong&gt;Změna smlouvy / nová smlouva: &lt;/strong&gt;&quot; + RS_ARG_StrHodnotaStavPs + &quot;&lt;br&gt;&lt;strong&gt;Zveřejnit pouze změnu / zveřejnit změnu vč. původní smlouvy: &lt;/strong&gt;&quot; + RS_ARG_StrHodnotaZverejnitTypPs + &quot;&lt;/p&gt;&quot;]" Cc="[RS_ARG_StrKontaktRpaAdmin1]" DisplayName="Send Outlook Mail Message" sap2010:WorkflowViewState.IdRef="SendOutlookMail_3" IsBodyHtml="True" IsDraft="False" Subject="[&quot;Registr smluv – žádost o prověření/zveřejnění smlouvy č. &quot; + RS_ARG_StrHodnotaSmlouva]" To="[RS_ARG_StrKontaktEmailSpravaPs]">
+                            <ui:SendOutlookMail.Files>
+                              <scg:List x:TypeArguments="InArgument(x:String)" Capacity="0" />
+                            </ui:SendOutlookMail.Files>
+                          </ui:SendOutlookMail>
+                        </Sequence>
+                      </If.Then>
+                      <If.Else>
+                        <Sequence sap2010:WorkflowViewState.IdRef="Sequence_6">
+                          <ui:Comment sap2010:WorkflowViewState.IdRef="Comment_4" Text="Robot odesle kompletni telo emailu (vsechny hodnoty byly v datech)" />
+                          <ui:SendOutlookMail Account="{x:Null}" MailMessage="{x:Null}" TimeoutMS="{x:Null}" Bcc="[RS_ARG_StrKontaktRpaAdmin1]" Body="[&quot;&lt;p&gt;Dobrý den, &lt;br&gt;prosíme o zveřejnění níže uvedené smlouvy v Registru smluv.&lt;br&gt;Děkujeme.&lt;/p&gt;&lt;p&gt;_____________________________________________&lt;/p&gt;&lt;p&gt;&lt;strong&gt;Číslo pojistné smlouvy: &lt;/strong&gt;&quot; + RS_ARG_StrHodnotaSmlouva + &quot;&lt;br&gt;&lt;strong&gt;IČO klienta: &lt;/strong&gt;&quot; + RS_ARG_StrHodnotaIcoPojistnik + &quot;&lt;br&gt;&lt;strong&gt;Jméno klienta: &lt;/strong&gt;&quot; + RS_ARG_StrHodnotaJmenoPojistnik + &quot;&lt;br&gt;&lt;strong&gt;IČO pojistitele: &lt;/strong&gt;&quot; + RS_ARG_StrHodnotaIcoPojistitel + &quot;&lt;br&gt;&lt;strong&gt;Jméno pojistitele: &lt;/strong&gt;&quot; + RS_ARG_StrHodnotaJmenoPojistitel + &quot;&lt;br&gt;&lt;strong&gt;Datum sjednání smlouvy: &lt;/strong&gt;&quot; + RS_ARG_datumSjednaniPs.ToString(&quot;dd.MM.yyyy&quot;) + &quot;&lt;br&gt;&lt;strong&gt;Datum počátku smlouvy: &lt;/strong&gt;&quot; + RS_ARG_datumPocatekPs.ToString(&quot;dd.MM.yyyy&quot;) + &quot;&lt;br&gt;&lt;strong&gt;Datum importu dat do DWH: &lt;/strong&gt;&quot; + RS_ARG_datumDatumDwh.ToString(&quot;dd.MM.yyyy&quot;) + &quot;&lt;br&gt;&lt;strong&gt;Zdrojový systém: &lt;/strong&gt;&quot; + RS_ARG_StrHodnotaSystem + &quot;&lt;br&gt;&lt;strong&gt;Hodnota předmětu smlouvy: &lt;/strong&gt;&quot; + RS_ARG_StrHodnotaPredmetPs + &quot;&lt;br&gt;&lt;strong&gt;Roční pojistné: &lt;/strong&gt;&quot; + RS_ARG_StrHodnotaRocniPojistne + &quot;&lt;br&gt;&lt;strong&gt;Předmět smlouvy: &lt;/strong&gt;&lt;br&gt;&lt;strong&gt;Kód produktu: &lt;/strong&gt;&quot; + RS_ARG_StrHodnotaKodProduktu + &quot;&lt;br&gt;&lt;strong&gt;Název produktu: &lt;/strong&gt;&quot; + RS_ARG_StrHodnotaNazevProduktu + &quot;&lt;br&gt;&lt;strong&gt;Smlouva / rámcová smlouva: &lt;/strong&gt;&quot; + RS_ARG_StrHodnotaRamecPs + &quot;&lt;br&gt;&lt;strong&gt;Změna smlouvy / nová smlouva: &lt;/strong&gt;&quot; + RS_ARG_StrHodnotaStavPs + &quot;&lt;br&gt;&lt;strong&gt;Zveřejnit pouze změnu / zveřejnit změnu vč. původní smlouvy: &lt;/strong&gt;&quot; + RS_ARG_StrHodnotaZverejnitTypPs + &quot;&lt;/p&gt;&quot;]" Cc="[RS_ARG_StrKontaktRpaAdmin1]" DisplayName="Send Outlook Mail Message" sap2010:WorkflowViewState.IdRef="SendOutlookMail_4" IsBodyHtml="True" IsDraft="False" Subject="[&quot;Registr smluv – žádost o prověření/zveřejnění smlouvy č. &quot; + RS_ARG_StrHodnotaSmlouva]" To="[RS_ARG_StrKontaktEmailSpravaPs]">
+                            <ui:SendOutlookMail.Files>
+                              <scg:List x:TypeArguments="InArgument(x:String)" Capacity="0" />
+                            </ui:SendOutlookMail.Files>
+                          </ui:SendOutlookMail>
+                        </Sequence>
+                      </If.Else>
+                    </If>
+                  </Sequence>
+                </If.Else>
+              </If>
+            </If.Else>
+          </If>
+        </Sequence>
+      </FlowStep>
+    </Flowchart.StartNode>
+    <x:Reference>__ReferenceID0</x:Reference>
+    <sads:DebugSymbol.Symbol>d1tDOlxVc2Vyc1xWSGxhdmFjZWtcRG9jdW1lbnRzXFVpUGF0aFxyb2JvdF9SRUdTTUxfMS40XE9kZXNpbGFuaSBlbWFpbG92ZWhvIHVwb3pvcm5lbmkgMi54YW1sKVcDlAEPAgEBWgmPARQCAQJbC44BEAIBA1sZW2UCAQRdD2QaAgEvZw+MARQCAQdeEV64AQIBOV8RYyYCATBnHWdDAgEIaRNwHgIBJHMTigEeAgEKX9wSX/4SAgE3X2hfhgECATVfzxBf7RACATNfjAFfyxACATJf9BFf2BICATFqFWrVAQIBLmsVbyoCASV0FYkBGgIBC2uKE2usEwIBLGtsa4oBAgEqa/0Qa5sRAgEoa5ABa/kQAgEna6ISa4YTAgEmdCN0SAIBDHYZfSQCARmAARmHASQCAQ53G3fyAQIBI3gbfDACARqBARuBAZ8BAgEYggEbhgEwAgEPeJETeLMTAgEheHJ4kAECAR94hBF4ohECAR14lgF4gBECARx4qRJ4jRMCARuCAbsTggHdEwIBFoIBcoIBkAECARSCAa4RggHMEQIBEoIBlgGCAaoRAgERggHTEoIBtxMCARA=</sads:DebugSymbol.Symbol>
+  </Flowchart>
+  <sap2010:WorkflowViewState.ViewStateManager>
+    <sap2010:ViewStateManager>
+      <sap2010:ViewStateData Id="Comment_1" sap:VirtualizedContainerService.HintSize="314,93" />
+      <sap2010:ViewStateData Id="SendOutlookMail_1" sap:VirtualizedContainerService.HintSize="314,143" />
+      <sap2010:ViewStateData Id="Sequence_3" sap:VirtualizedContainerService.HintSize="336,400">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="Comment_2" sap:VirtualizedContainerService.HintSize="314,93" />
+      <sap2010:ViewStateData Id="SendOutlookMail_2" sap:VirtualizedContainerService.HintSize="314,143" />
+      <sap2010:ViewStateData Id="Sequence_4" sap:VirtualizedContainerService.HintSize="336,400">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="Comment_3" sap:VirtualizedContainerService.HintSize="314,112" />
+      <sap2010:ViewStateData Id="SendOutlookMail_3" sap:VirtualizedContainerService.HintSize="314,143" />
+      <sap2010:ViewStateData Id="Sequence_5" sap:VirtualizedContainerService.HintSize="336,419">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="Comment_4" sap:VirtualizedContainerService.HintSize="314,74" />
+      <sap2010:ViewStateData Id="SendOutlookMail_4" sap:VirtualizedContainerService.HintSize="314,143" />
+      <sap2010:ViewStateData Id="Sequence_6" sap:VirtualizedContainerService.HintSize="336,381">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="If_3" sap:VirtualizedContainerService.HintSize="697,562" />
+      <sap2010:ViewStateData Id="Sequence_2" sap:VirtualizedContainerService.HintSize="719,686">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="If_2" sap:VirtualizedContainerService.HintSize="1080,829" />
+      <sap2010:ViewStateData Id="If_1" sap:VirtualizedContainerService.HintSize="1441,972" />
+      <sap2010:ViewStateData Id="Sequence_1" sap:VirtualizedContainerService.HintSize="200,49">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="FlowStep_1">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <av:Point x:Key="ShapeLocation">200,135.5</av:Point>
+            <av:Size x:Key="ShapeSize">200,49</av:Size>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="Flowchart_1" sap:VirtualizedContainerService.HintSize="614,661">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+            <av:Point x:Key="ShapeLocation">270,2.5</av:Point>
+            <av:Size x:Key="ShapeSize">60,75</av:Size>
+            <av:PointCollection x:Key="ConnectorLocation">300,77.5 300,135.5</av:PointCollection>
+            <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="Odesilani_emailoveho_upozorneni_1_1" sap:VirtualizedContainerService.HintSize="654,741" />
+    </sap2010:ViewStateManager>
+  </sap2010:WorkflowViewState.ViewStateManager>
+</Activity>

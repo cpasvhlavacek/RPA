@@ -1,0 +1,460 @@
+﻿<Activity mc:Ignorable="sap sap2010 sads" x:Class="00_LC_directory"
+ xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities"
+ xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+ xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities"
+ xmlns:s="clr-namespace:System;assembly=mscorlib"
+ xmlns:sads="http://schemas.microsoft.com/netfx/2010/xaml/activities/debugger"
+ xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation"
+ xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation"
+ xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib"
+ xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=mscorlib"
+ xmlns:ui="http://schemas.uipath.com/workflow/activities"
+ xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="BoolSuccess" Type="OutArgument(x:Boolean)" />
+    <x:Property Name="StrExceptionMessage" Type="OutArgument(x:String)" />
+    <x:Property Name="Arg_StrNameRobot" Type="InArgument(x:String)" />
+    <x:Property Name="Arg_StrAdresarData" Type="OutArgument(x:String)" />
+    <x:Property Name="Arg_StrAdresarZalohy" Type="OutArgument(x:String)" />
+    <x:Property Name="Arg_StrAdresarDokumenty" Type="OutArgument(x:String)" />
+    <x:Property Name="Arg_StrAdresarVyvoj" Type="OutArgument(x:String)" />
+    <x:Property Name="Arg_StrAdresarPackages" Type="OutArgument(x:String)" />
+    <x:Property Name="Arg_StrAdresarTest" Type="OutArgument(x:String)" />
+    <x:Property Name="Arg_StrAdresarData00" Type="OutArgument(x:String)" />
+    <x:Property Name="Arg_StrAdresarData01" Type="OutArgument(x:String)" />
+    <x:Property Name="Arg_StrAdresarData02" Type="OutArgument(x:String)" />
+    <x:Property Name="Arg_StrAdresarData03" Type="OutArgument(x:String)" />
+    <x:Property Name="Arg_StrAdresarData04" Type="OutArgument(x:String)" />
+  </x:Members>
+  <mva:VisualBasic.Settings>
+    <x:Null />
+  </mva:VisualBasic.Settings>
+  <sap2010:WorkflowViewState.IdRef>Main_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <sco:Collection x:TypeArguments="x:String">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Framework.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>System.Xml.Serialization</x:String>
+    </sco:Collection>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <sco:Collection x:TypeArguments="AssemblyReference">
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>UiPath.Core</AssemblyReference>
+      <AssemblyReference>UiPath.Framework.Activities</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>PresentationCore</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
+      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
+    </sco:Collection>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence sap2010:Annotation.AnnotationText="Component Name: &lt;ROBOT&gt; - &lt;00_LC_directory&gt;&#xD;&#xA;Version: 1.0 (logical component)&#xA;Description: Declaration variables and arguments for path to the directory" DisplayName="Component" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="x:String" Default="&lt;ROBOT&gt; - &lt;00_LC_directory&gt;" Name="strComponentName" />
+      <Variable x:TypeArguments="x:String" Name="StrCestaAdresarRpa" />
+      <Variable x:TypeArguments="x:String" Name="StrAdresarData" />
+      <Variable x:TypeArguments="x:String" Name="StrAdresarZalohy" />
+      <Variable x:TypeArguments="x:String" Name="StrAdresarDokumenty" />
+      <Variable x:TypeArguments="x:String" Name="StrAdresarVyvoj" />
+      <Variable x:TypeArguments="x:String" Name="StrAdresarPackages" />
+      <Variable x:TypeArguments="x:String" Name="StrAdresarTest" />
+      <Variable x:TypeArguments="x:String" Name="StrAdresarData04" />
+      <Variable x:TypeArguments="x:String" Name="StrAdresarData03" />
+      <Variable x:TypeArguments="x:String" Name="StrAdresarData02" />
+      <Variable x:TypeArguments="x:String" Name="StrAdresarData01" />
+      <Variable x:TypeArguments="x:String" Name="StrAdresarData00" />
+      <Variable x:TypeArguments="x:String" Default="[Arg_StrNameRobot]" Name="StrNameRobot" />
+    </Sequence.Variables>
+    <ui:LogMessage DisplayName="Log message" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[strComponentName + &quot;: Start&quot;]" />
+    <TryCatch DisplayName="Try catch" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+      <TryCatch.Try>
+        <Sequence sap2010:WorkflowViewState.IdRef="Sequence_2">
+          <ui:Comment sap2010:WorkflowViewState.IdRef="Comment_1" Text="' ======= macro no. 2 ======= '&#xA;Public Sub vytvoreniAdresaruRobot()&#xA;'*&#xA;'******************************************************************************'&#xA;'***** Pro CESKOU POJISTOVNU vytvoril: VACLAV HLAVACEK (hlavacek@vahl.cz) *****'&#xA;'******************************************************************************'&#xA;'******************************************************************************'&#xA;'* v1.0     11.07.2018      Hlavacek,Vaclav     Vytvoreno                     *'&#xA;'******************************************************************************'&#xA;'*&#xA;' deklarace promennych&#xA;Run (&quot;VARIABLE&quot;)&#xA;'&#xA;Dim cestaProRobota As String&#xA;Dim nazevRobota As String, nazevAdresare As String&#xA;'&#xA;cestaProRobota = &quot;\\sfs01\Dokumenty\RTP_BO\RPA\robots\&quot;&#xA;nazevRobota = InputBox(&quot;Název: &quot;)&#xA;nazevAdresare = &quot;robot_&quot; &amp; nazevRobota&#xA;&#xA;'******************************************************************************'&#xA;'&#xA;Application.ScreenUpdating = False&#xA;'******************************************************************************'&#xA;MkDir cestaProRobota &amp; nazevAdresare&#xA;'&#xA;MkDir cestaProRobota &amp; nazevAdresare &amp; &quot;\&quot; &amp; &quot;00_data&quot;&#xA;MkDir cestaProRobota &amp; nazevAdresare &amp; &quot;\&quot; &amp; &quot;01_zalohy&quot;&#xA;MkDir cestaProRobota &amp; nazevAdresare &amp; &quot;\&quot; &amp; &quot;02_dokumenty&quot;&#xA;MkDir cestaProRobota &amp; nazevAdresare &amp; &quot;\&quot; &amp; &quot;03_vyvoj&quot;&#xA;MkDir cestaProRobota &amp; nazevAdresare &amp; &quot;\&quot; &amp; &quot;04_packages&quot;&#xA;MkDir cestaProRobota &amp; nazevAdresare &amp; &quot;\&quot; &amp; &quot;05_test&quot;&#xA;'&#xA;MkDir cestaProRobota &amp; nazevAdresare &amp; &quot;\00_data\&quot; &amp; &quot;00_aktualne&quot;&#xA;MkDir cestaProRobota &amp; nazevAdresare &amp; &quot;\00_data\&quot; &amp; &quot;01_zpracovano&quot;&#xA;MkDir cestaProRobota &amp; nazevAdresare &amp; &quot;\00_data\&quot; &amp; &quot;02_archiv&quot;&#xA;MkDir cestaProRobota &amp; nazevAdresare &amp; &quot;\00_data\&quot; &amp; &quot;03_errscreen&quot;&#xA;MkDir cestaProRobota &amp; nazevAdresare &amp; &quot;\00_data\&quot; &amp; &quot;04_zalohy&quot;&#xA;'&#xA;MsgBox (&quot;Vytvořeno &quot;), vbOKOnly, &quot;created by VHLAVACEK&quot;&#xA;'******************************************************************************'&#xA;Application.ScreenUpdating = True&#xA;End Sub" />
+          <ui:LogMessage DisplayName="Log message" sap2010:WorkflowViewState.IdRef="LogMessage_19" Level="Info" Message="[&quot;nazev robota: &quot; + StrNameRobot]" />
+          <Sequence DisplayName="Variables with name directory and path" sap2010:WorkflowViewState.IdRef="Sequence_3">
+            <Assign DisplayName="cesta adresare RPA" sap2010:WorkflowViewState.IdRef="Assign_4">
+              <Assign.To>
+                <OutArgument x:TypeArguments="x:String">[StrCestaAdresarRpa]</OutArgument>
+              </Assign.To>
+              <Assign.Value>
+                <InArgument x:TypeArguments="x:String">\\sfs01\Dokumenty\RTP_BO\RPA\robots\</InArgument>
+              </Assign.Value>
+            </Assign>
+            <Assign DisplayName="adresar RPA: 00_data" sap2010:WorkflowViewState.IdRef="Assign_5">
+              <Assign.To>
+                <OutArgument x:TypeArguments="x:String">[StrAdresarData]</OutArgument>
+              </Assign.To>
+              <Assign.Value>
+                <InArgument x:TypeArguments="x:String">\00_data</InArgument>
+              </Assign.Value>
+            </Assign>
+            <Sequence DisplayName="adresare v 00_data" sap2010:WorkflowViewState.IdRef="Sequence_5">
+              <Assign DisplayName="adresar RPA: 00_data\00_aktualne" sap2010:WorkflowViewState.IdRef="Assign_11">
+                <Assign.To>
+                  <OutArgument x:TypeArguments="x:String">[StrAdresarData00]</OutArgument>
+                </Assign.To>
+                <Assign.Value>
+                  <InArgument x:TypeArguments="x:String">\00_data\00_aktualne</InArgument>
+                </Assign.Value>
+              </Assign>
+              <Assign DisplayName="adresar RPA: 00_data\01_zpracovano" sap2010:WorkflowViewState.IdRef="Assign_12">
+                <Assign.To>
+                  <OutArgument x:TypeArguments="x:String">[StrAdresarData01]</OutArgument>
+                </Assign.To>
+                <Assign.Value>
+                  <InArgument x:TypeArguments="x:String">\00_data\01_zpracovano</InArgument>
+                </Assign.Value>
+              </Assign>
+              <Assign DisplayName="adresar RPA: 00_data\02_archiv" sap2010:WorkflowViewState.IdRef="Assign_13">
+                <Assign.To>
+                  <OutArgument x:TypeArguments="x:String">[StrAdresarData02]</OutArgument>
+                </Assign.To>
+                <Assign.Value>
+                  <InArgument x:TypeArguments="x:String">\00_data\02_archiv</InArgument>
+                </Assign.Value>
+              </Assign>
+              <Assign DisplayName="adresar RPA: 00_data\03_errscreen" sap2010:WorkflowViewState.IdRef="Assign_14">
+                <Assign.To>
+                  <OutArgument x:TypeArguments="x:String">[StrAdresarData03]</OutArgument>
+                </Assign.To>
+                <Assign.Value>
+                  <InArgument x:TypeArguments="x:String">\00_data\03_errscreen</InArgument>
+                </Assign.Value>
+              </Assign>
+              <Assign DisplayName="adresar RPA: 00_data\04_zalohy" sap2010:WorkflowViewState.IdRef="Assign_15">
+                <Assign.To>
+                  <OutArgument x:TypeArguments="x:String">[StrAdresarData04]</OutArgument>
+                </Assign.To>
+                <Assign.Value>
+                  <InArgument x:TypeArguments="x:String">\00_data\04_zalohy</InArgument>
+                </Assign.Value>
+              </Assign>
+            </Sequence>
+            <Assign DisplayName="adresar RPA: 01_zalohy" sap2010:WorkflowViewState.IdRef="Assign_6">
+              <Assign.To>
+                <OutArgument x:TypeArguments="x:String">[StrAdresarZalohy]</OutArgument>
+              </Assign.To>
+              <Assign.Value>
+                <InArgument x:TypeArguments="x:String">\01_zalohy</InArgument>
+              </Assign.Value>
+            </Assign>
+            <Assign DisplayName="adresar RPA: 02_dokumenty" sap2010:WorkflowViewState.IdRef="Assign_7">
+              <Assign.To>
+                <OutArgument x:TypeArguments="x:String">[StrAdresarDokumenty]</OutArgument>
+              </Assign.To>
+              <Assign.Value>
+                <InArgument x:TypeArguments="x:String">\02_dokumenty</InArgument>
+              </Assign.Value>
+            </Assign>
+            <Assign DisplayName="adresar RPA: 03_vyvoj" sap2010:WorkflowViewState.IdRef="Assign_8">
+              <Assign.To>
+                <OutArgument x:TypeArguments="x:String">[StrAdresarVyvoj]</OutArgument>
+              </Assign.To>
+              <Assign.Value>
+                <InArgument x:TypeArguments="x:String">\03_vyvoj</InArgument>
+              </Assign.Value>
+            </Assign>
+            <Assign DisplayName="adresar RPA: 04_packages" sap2010:WorkflowViewState.IdRef="Assign_9">
+              <Assign.To>
+                <OutArgument x:TypeArguments="x:String">[StrAdresarPackages]</OutArgument>
+              </Assign.To>
+              <Assign.Value>
+                <InArgument x:TypeArguments="x:String">\04_packages</InArgument>
+              </Assign.Value>
+            </Assign>
+            <Assign DisplayName="adresar RPA: 05_test" sap2010:WorkflowViewState.IdRef="Assign_10">
+              <Assign.To>
+                <OutArgument x:TypeArguments="x:String">[StrAdresarTest]</OutArgument>
+              </Assign.To>
+              <Assign.Value>
+                <InArgument x:TypeArguments="x:String">\05_test</InArgument>
+              </Assign.Value>
+            </Assign>
+          </Sequence>
+          <Sequence DisplayName="Arguments" sap2010:WorkflowViewState.IdRef="Sequence_6">
+            <Assign DisplayName="00" sap2010:WorkflowViewState.IdRef="Assign_16">
+              <Assign.To>
+                <OutArgument x:TypeArguments="x:String">[Arg_StrAdresarData]</OutArgument>
+              </Assign.To>
+              <Assign.Value>
+                <InArgument x:TypeArguments="x:String">[StrCestaAdresarRpa + StrNameRobot + StrAdresarData]</InArgument>
+              </Assign.Value>
+            </Assign>
+            <Assign DisplayName="00/00" sap2010:WorkflowViewState.IdRef="Assign_17">
+              <Assign.To>
+                <OutArgument x:TypeArguments="x:String">[Arg_StrAdresarData00]</OutArgument>
+              </Assign.To>
+              <Assign.Value>
+                <InArgument x:TypeArguments="x:String">[StrCestaAdresarRpa + StrNameRobot + StrAdresarData + StrAdresarData00]</InArgument>
+              </Assign.Value>
+            </Assign>
+            <Assign DisplayName="00/01" sap2010:WorkflowViewState.IdRef="Assign_18">
+              <Assign.To>
+                <OutArgument x:TypeArguments="x:String">[Arg_StrAdresarData01]</OutArgument>
+              </Assign.To>
+              <Assign.Value>
+                <InArgument x:TypeArguments="x:String">[StrCestaAdresarRpa + StrNameRobot + StrAdresarData + StrAdresarData01]</InArgument>
+              </Assign.Value>
+            </Assign>
+            <Assign DisplayName="00/02" sap2010:WorkflowViewState.IdRef="Assign_19">
+              <Assign.To>
+                <OutArgument x:TypeArguments="x:String">[Arg_StrAdresarData02]</OutArgument>
+              </Assign.To>
+              <Assign.Value>
+                <InArgument x:TypeArguments="x:String">[StrCestaAdresarRpa + StrNameRobot + StrAdresarData + StrAdresarData02]</InArgument>
+              </Assign.Value>
+            </Assign>
+            <Assign DisplayName="00/03" sap2010:WorkflowViewState.IdRef="Assign_20">
+              <Assign.To>
+                <OutArgument x:TypeArguments="x:String">[Arg_StrAdresarData03]</OutArgument>
+              </Assign.To>
+              <Assign.Value>
+                <InArgument x:TypeArguments="x:String">[StrCestaAdresarRpa + StrNameRobot + StrAdresarData + StrAdresarData03]</InArgument>
+              </Assign.Value>
+            </Assign>
+            <Assign DisplayName="00/04" sap2010:WorkflowViewState.IdRef="Assign_21">
+              <Assign.To>
+                <OutArgument x:TypeArguments="x:String">[Arg_StrAdresarData04]</OutArgument>
+              </Assign.To>
+              <Assign.Value>
+                <InArgument x:TypeArguments="x:String">[StrCestaAdresarRpa + StrNameRobot + StrAdresarData + StrAdresarData04]</InArgument>
+              </Assign.Value>
+            </Assign>
+            <Assign DisplayName="01" sap2010:WorkflowViewState.IdRef="Assign_22">
+              <Assign.To>
+                <OutArgument x:TypeArguments="x:String">[Arg_StrAdresarZalohy]</OutArgument>
+              </Assign.To>
+              <Assign.Value>
+                <InArgument x:TypeArguments="x:String">[StrCestaAdresarRpa + StrNameRobot + StrAdresarZalohy]</InArgument>
+              </Assign.Value>
+            </Assign>
+            <Assign DisplayName="02" sap2010:WorkflowViewState.IdRef="Assign_23">
+              <Assign.To>
+                <OutArgument x:TypeArguments="x:String">[Arg_StrAdresarDokumenty]</OutArgument>
+              </Assign.To>
+              <Assign.Value>
+                <InArgument x:TypeArguments="x:String">[StrCestaAdresarRpa + StrNameRobot + StrAdresarDokumenty]</InArgument>
+              </Assign.Value>
+            </Assign>
+            <Assign DisplayName="03" sap2010:WorkflowViewState.IdRef="Assign_24">
+              <Assign.To>
+                <OutArgument x:TypeArguments="x:String">[Arg_StrAdresarVyvoj]</OutArgument>
+              </Assign.To>
+              <Assign.Value>
+                <InArgument x:TypeArguments="x:String">[StrCestaAdresarRpa + StrNameRobot + StrAdresarVyvoj]</InArgument>
+              </Assign.Value>
+            </Assign>
+            <Assign DisplayName="04" sap2010:WorkflowViewState.IdRef="Assign_25">
+              <Assign.To>
+                <OutArgument x:TypeArguments="x:String">[Arg_StrAdresarPackages]</OutArgument>
+              </Assign.To>
+              <Assign.Value>
+                <InArgument x:TypeArguments="x:String">[StrCestaAdresarRpa + StrNameRobot + StrAdresarPackages]</InArgument>
+              </Assign.Value>
+            </Assign>
+            <Assign DisplayName="05" sap2010:WorkflowViewState.IdRef="Assign_26">
+              <Assign.To>
+                <OutArgument x:TypeArguments="x:String">[Arg_StrAdresarTest]</OutArgument>
+              </Assign.To>
+              <Assign.Value>
+                <InArgument x:TypeArguments="x:String">[StrCestaAdresarRpa + StrNameRobot + StrAdresarTest]</InArgument>
+              </Assign.Value>
+            </Assign>
+          </Sequence>
+          <Sequence DisplayName="Log arguments" sap2010:WorkflowViewState.IdRef="Sequence_7">
+            <ui:LogMessage DisplayName="log: 00" sap2010:WorkflowViewState.IdRef="LogMessage_5" Level="Trace" Message="[&quot;Arg_StrAdresarData: &quot; + Arg_StrAdresarData]" />
+            <ui:LogMessage DisplayName="log: 00/00" sap2010:WorkflowViewState.IdRef="LogMessage_9" Level="Trace" Message="[&quot;Arg_StrAdresarData00: &quot; + Arg_StrAdresarData00]" />
+            <ui:LogMessage DisplayName="log: 00/01" sap2010:WorkflowViewState.IdRef="LogMessage_10" Level="Trace" Message="[&quot;Arg_StrAdresarData01: &quot; + Arg_StrAdresarData01]" />
+            <ui:LogMessage DisplayName="log: 00/02" sap2010:WorkflowViewState.IdRef="LogMessage_11" Level="Trace" Message="[&quot;Arg_StrAdresarData02: &quot; + Arg_StrAdresarData02]" />
+            <ui:LogMessage DisplayName="log: 00/03" sap2010:WorkflowViewState.IdRef="LogMessage_12" Level="Trace" Message="[&quot;Arg_StrAdresarData03: &quot; + Arg_StrAdresarData03]" />
+            <ui:LogMessage DisplayName="log: 00/04" sap2010:WorkflowViewState.IdRef="LogMessage_13" Level="Trace" Message="[&quot;Arg_StrAdresarData04: &quot; + Arg_StrAdresarData04]" />
+            <ui:LogMessage DisplayName="log: 01" sap2010:WorkflowViewState.IdRef="LogMessage_14" Level="Trace" Message="[&quot;Arg_StrAdresarZalohy: &quot; + Arg_StrAdresarZalohy]" />
+            <ui:LogMessage DisplayName="log: 02" sap2010:WorkflowViewState.IdRef="LogMessage_15" Level="Trace" Message="[&quot;Arg_StrAdresarDokumenty: &quot; + Arg_StrAdresarDokumenty]" />
+            <ui:LogMessage DisplayName="log: 03" sap2010:WorkflowViewState.IdRef="LogMessage_16" Level="Trace" Message="[&quot;Arg_StrAdresarVyvoj: &quot; + Arg_StrAdresarVyvoj]" />
+            <ui:LogMessage DisplayName="log: 04" sap2010:WorkflowViewState.IdRef="LogMessage_17" Level="Trace" Message="[&quot;Arg_StrAdresarPackages: &quot; + Arg_StrAdresarPackages]" />
+            <ui:LogMessage DisplayName="log: 05" sap2010:WorkflowViewState.IdRef="LogMessage_18" Level="Trace" Message="[&quot;Arg_StrAdresarTest: &quot; + Arg_StrAdresarTest]" />
+          </Sequence>
+          <Assign sap2010:WorkflowViewState.IdRef="Assign_1">
+            <Assign.To>
+              <OutArgument x:TypeArguments="x:Boolean">[BoolSuccess]</OutArgument>
+            </Assign.To>
+            <Assign.Value>
+              <InArgument x:TypeArguments="x:Boolean">[True]</InArgument>
+            </Assign.Value>
+          </Assign>
+          <ui:LogMessage DisplayName="Log message" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="Info" Message="[strComponentName + &quot;: Success&quot;]" />
+        </Sequence>
+      </TryCatch.Try>
+      <TryCatch.Catches>
+        <Catch x:TypeArguments="s:Exception" sap2010:WorkflowViewState.IdRef="Catch`1_1">
+          <ActivityAction x:TypeArguments="s:Exception">
+            <ActivityAction.Argument>
+              <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
+            </ActivityAction.Argument>
+            <Sequence sap2010:WorkflowViewState.IdRef="Sequence_4">
+              <ui:LogMessage DisplayName="Log message" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Info" Message="[strComponentName + &quot; failed: &quot; + exception.Message]" />
+              <Assign sap2010:WorkflowViewState.IdRef="Assign_2">
+                <Assign.To>
+                  <OutArgument x:TypeArguments="x:Boolean">[BoolSuccess]</OutArgument>
+                </Assign.To>
+                <Assign.Value>
+                  <InArgument x:TypeArguments="x:Boolean">[False]</InArgument>
+                </Assign.Value>
+              </Assign>
+              <Assign sap2010:WorkflowViewState.IdRef="Assign_3">
+                <Assign.To>
+                  <OutArgument x:TypeArguments="x:String">[StrExceptionMessage]</OutArgument>
+                </Assign.To>
+                <Assign.Value>
+                  <InArgument x:TypeArguments="x:String">[strComponentName + " failed: " + exception.Message]</InArgument>
+                </Assign.Value>
+              </Assign>
+            </Sequence>
+          </ActivityAction>
+        </Catch>
+      </TryCatch.Catches>
+    </TryCatch>
+    <ui:LogMessage DisplayName="Log message" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[strComponentName + &quot; End&quot;]" />
+    <sads:DebugSymbol.Symbol>d0VDOlxVc2Vyc1xURUNIUk9CT1QzXERvY3VtZW50c1xVaVBhdGhccm9ib3RfQ1pQMV8xLjBcMDBfZGlyZWN0b3J5LnhhbWx5UQPdAg4CAQFTNFNdAgEEYDRgSAIBAmIFYp8BAwHLAWMF2gIQAgEI2wIF2wKcAQIBBWJyYpwBAwHMAWUJvAIUAgEYxAIN1gIYAgEJ2wJy2wKZAQIBBmYLZo8UAwHKAWcLZ6kBAwHHAWgLywEWAwGVAcwBC6UCFgIBQqYCC7ICFgIBILMCC7oCFAIBHLsCC7sCpwECARnFAg/FAr8BAgEUxgIPzQIYAgEQzgIP1QIYAgEKZ3lnpgEDAcgBaQ1wFgMBwwFxDXgWAwG/AXkNogEYAwGqAaMBDaoBFgMBpgGrAQ2yARYDAaIBswENugEWAwGeAbsBDcIBFgMBmgHDAQ3KARYDAZYBzQEN1AEWAwGOAdUBDdwBFgMBhgHdAQ3kARYCAX7lAQ3sARYCAXbtAQ30ARYCAW71AQ38ARYCAWb9AQ2EAhYCAV+FAg2MAhYCAViNAg2UAhYCAVGVAg2cAhYCAUqdAg2kAhYCAUOnAg2nArMBAgE/qAINqAK6AQIBPKkCDakCuwECATmqAg2qArsBAgE2qwINqwK7AQIBM6wCDawCuwECATCtAg2tArgBAgEtrgINrgK+AQIBKq8CDa8CtgECASewAg2wArwBAgEksQINsQK0AQIBIbgCN7gCPQIBH7UCOLUCRQIBHbsCeLsCpAECARrFAnzFArwBAgEVywI7ywJCAgETyAI8yAJJAgER0wI60wJuAgEN0AI70AJQAgELbjhuXAMBxgFrOWtNAwHEAXY4dkADAcIBczlzSQMBwAF6D4EBGAMBuwGCAQ+JARgDAbcBigEPkQEYAwGzAZIBD5kBGAMBrwGaAQ+hARgDAasBqAE4qAFCAwGpAaUBOaUBSwMBpwGwATiwAUUDAaUBrQE5rQFOAwGjAbgBOLgBQQMBoQG1ATm1AUoDAZ8BwAE4wAFEAwGdAb0BOb0BTQMBmwHIATjIAUADAZkBxQE5xQFJAwGXAdIBONIBbAMBkQHPATnPAU0DAY8B2gE42gF/AwGJAdcBOdcBTwMBhwHiATjiAX8DAYEB3wE53wFPAgF/6gE46gF/AgF55wE55wFPAgF38gE48gF/AgFx7wE57wFPAgFv+gE4+gF/AgFp9wE59wFPAgFnggI4ggJuAgFi/wE5/wFPAgFgigI4igJxAgFbhwI5hwJSAgFZkgI4kgJtAgFUjwI5jwJOAgFSmgI4mgJwAgFNlwI5lwJRAgFLogI4ogJsAgFGnwI5nwJNAgFEpwJ3pwKwAQIBQKgCeqgCtwECAT2pAnupArgBAgE6qgJ7qgK4AQIBN6sCe6sCuAECATSsAnusArgBAgExrQJ4rQK1AQIBLq4CeK4CuwECASuvAnivArMBAgEosAJ4sAK5AQIBJbECeLECsQECASJ/On9OAwG+AXw7fE0DAbwBhwE6hwFQAwG6AYQBO4QBTQMBuAGPATqPAUwDAbYBjAE7jAFNAwG0AZcBOpcBTwMBsgGUATuUAU0DAbABnwE6nwFMAwGuAZwBO5wBTQMBrAE=</sads:DebugSymbol.Symbol>
+  </Sequence>
+  <sap2010:WorkflowViewState.ViewStateManager>
+    <sap2010:ViewStateManager>
+      <sap2010:ViewStateData Id="LogMessage_1" sap:VirtualizedContainerService.HintSize="418,87" />
+      <sap2010:ViewStateData Id="Comment_1" sap:VirtualizedContainerService.HintSize="314,536" />
+      <sap2010:ViewStateData Id="LogMessage_19" sap:VirtualizedContainerService.HintSize="314,87" />
+      <sap2010:ViewStateData Id="Assign_4" sap:VirtualizedContainerService.HintSize="264,59" />
+      <sap2010:ViewStateData Id="Assign_5" sap:VirtualizedContainerService.HintSize="264,59" />
+      <sap2010:ViewStateData Id="Assign_11" sap:VirtualizedContainerService.HintSize="242,59" />
+      <sap2010:ViewStateData Id="Assign_12" sap:VirtualizedContainerService.HintSize="242,59" />
+      <sap2010:ViewStateData Id="Assign_13" sap:VirtualizedContainerService.HintSize="242,59" />
+      <sap2010:ViewStateData Id="Assign_14" sap:VirtualizedContainerService.HintSize="242,59" />
+      <sap2010:ViewStateData Id="Assign_15" sap:VirtualizedContainerService.HintSize="242,59" />
+      <sap2010:ViewStateData Id="Sequence_5" sap:VirtualizedContainerService.HintSize="264,579">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="Assign_6" sap:VirtualizedContainerService.HintSize="264,59" />
+      <sap2010:ViewStateData Id="Assign_7" sap:VirtualizedContainerService.HintSize="264,59" />
+      <sap2010:ViewStateData Id="Assign_8" sap:VirtualizedContainerService.HintSize="264,59" />
+      <sap2010:ViewStateData Id="Assign_9" sap:VirtualizedContainerService.HintSize="264,59" />
+      <sap2010:ViewStateData Id="Assign_10" sap:VirtualizedContainerService.HintSize="264,59" />
+      <sap2010:ViewStateData Id="Sequence_3" sap:VirtualizedContainerService.HintSize="314,49">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="Assign_16" sap:VirtualizedContainerService.HintSize="242,59" />
+      <sap2010:ViewStateData Id="Assign_17" sap:VirtualizedContainerService.HintSize="242,59" />
+      <sap2010:ViewStateData Id="Assign_18" sap:VirtualizedContainerService.HintSize="242,59" />
+      <sap2010:ViewStateData Id="Assign_19" sap:VirtualizedContainerService.HintSize="242,59" />
+      <sap2010:ViewStateData Id="Assign_20" sap:VirtualizedContainerService.HintSize="242,59" />
+      <sap2010:ViewStateData Id="Assign_21" sap:VirtualizedContainerService.HintSize="242,59" />
+      <sap2010:ViewStateData Id="Assign_22" sap:VirtualizedContainerService.HintSize="242,59" />
+      <sap2010:ViewStateData Id="Assign_23" sap:VirtualizedContainerService.HintSize="242,59" />
+      <sap2010:ViewStateData Id="Assign_24" sap:VirtualizedContainerService.HintSize="242,59" />
+      <sap2010:ViewStateData Id="Assign_25" sap:VirtualizedContainerService.HintSize="242,59" />
+      <sap2010:ViewStateData Id="Assign_26" sap:VirtualizedContainerService.HintSize="242,59" />
+      <sap2010:ViewStateData Id="Sequence_6" sap:VirtualizedContainerService.HintSize="314,49">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="LogMessage_5" sap:VirtualizedContainerService.HintSize="314,87" />
+      <sap2010:ViewStateData Id="LogMessage_9" sap:VirtualizedContainerService.HintSize="314,87" />
+      <sap2010:ViewStateData Id="LogMessage_10" sap:VirtualizedContainerService.HintSize="314,87" />
+      <sap2010:ViewStateData Id="LogMessage_11" sap:VirtualizedContainerService.HintSize="314,87" />
+      <sap2010:ViewStateData Id="LogMessage_12" sap:VirtualizedContainerService.HintSize="314,87" />
+      <sap2010:ViewStateData Id="LogMessage_13" sap:VirtualizedContainerService.HintSize="314,87" />
+      <sap2010:ViewStateData Id="LogMessage_14" sap:VirtualizedContainerService.HintSize="314,87" />
+      <sap2010:ViewStateData Id="LogMessage_15" sap:VirtualizedContainerService.HintSize="314,87" />
+      <sap2010:ViewStateData Id="LogMessage_16" sap:VirtualizedContainerService.HintSize="314,87" />
+      <sap2010:ViewStateData Id="LogMessage_17" sap:VirtualizedContainerService.HintSize="314,87" />
+      <sap2010:ViewStateData Id="LogMessage_18" sap:VirtualizedContainerService.HintSize="314,87" />
+      <sap2010:ViewStateData Id="Sequence_7" sap:VirtualizedContainerService.HintSize="314,49">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="Assign_1" sap:VirtualizedContainerService.HintSize="314,59" />
+      <sap2010:ViewStateData Id="LogMessage_4" sap:VirtualizedContainerService.HintSize="314,87" />
+      <sap2010:ViewStateData Id="Sequence_2" sap:VirtualizedContainerService.HintSize="336,1280">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="LogMessage_3" sap:VirtualizedContainerService.HintSize="314,87" />
+      <sap2010:ViewStateData Id="Assign_2" sap:VirtualizedContainerService.HintSize="314,59" />
+      <sap2010:ViewStateData Id="Assign_3" sap:VirtualizedContainerService.HintSize="314,59" />
+      <sap2010:ViewStateData Id="Sequence_4" sap:VirtualizedContainerService.HintSize="336,409">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="Catch`1_1" sap:VirtualizedContainerService.HintSize="404,20">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="TryCatch_1" sap:VirtualizedContainerService.HintSize="418,1498" />
+      <sap2010:ViewStateData Id="LogMessage_2" sap:VirtualizedContainerService.HintSize="418,87" />
+      <sap2010:ViewStateData Id="Sequence_1" sap:VirtualizedContainerService.HintSize="440,1927">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="Main_1" sap:VirtualizedContainerService.HintSize="480,2007" />
+    </sap2010:ViewStateManager>
+  </sap2010:WorkflowViewState.ViewStateManager>
+</Activity>

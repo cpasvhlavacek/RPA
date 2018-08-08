@@ -1,0 +1,29 @@
+{
+  "name": "robot_REGSML",
+  "description": "RPA - Vaclav Hlavacek",
+  "main": "Main.xaml",
+  "dependencies": {
+    "Microsoft.Activities.Extensions": "2.0.6.9",
+    "Twilio.Workflow.Activities": "1.0.0.0",
+    "UiPath.Cognitive.Activities": "1.0.6479.13212",
+    "UiPath.Core.Activities": "18.1.6603.13899",
+    "UiPath.Credentials.Activities": "1.1.6479.13204",
+    "UiPath.Database.Activities": "1.1.6660.26865",
+    "UiPath.Excel.Activities": "2.3.6660.23035",
+    "UiPath.Framework.Activities": "1.0.5905.30080",
+    "UiPath.FTP.Activities": "1.0.6479.13206",
+    "UiPath.Mail.Activities": "1.1.6562.21018",
+    "UiPath.PDF.Activities": "1.0.6479.13204",
+    "UiPath.Terminal.Activities": "1.1.6464.20815",
+    "UiPath.WebAPI.Activities": "1.1.6479.13209",
+    "UiPath.Word.Activities": "1.1.6479.13205"
+  },
+  "excludedData": [
+    "Private:*",
+    "*password*"
+  ],
+  "toolVersion": "18.1.1.13",
+  "projectVersion": "1.0.6694.21099",
+  "packOptions": {},
+  "runtimeOptions": {}
+}

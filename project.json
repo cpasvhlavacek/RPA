@@ -1,0 +1,14 @@
+{
+  "name": "UiPath",
+  "description": "Project",
+  "main": "C:\\Users\\VHlavacek\\Documents\\UiPath\\Automation Component.xaml",
+  "dependencies": {},
+  "excludedData": [
+    "Private:*",
+    "*password*"
+  ],
+  "toolVersion": "18.1.1.13",
+  "projectVersion": "1.0.6682.23567",
+  "packOptions": {},
+  "runtimeOptions": {}
+}

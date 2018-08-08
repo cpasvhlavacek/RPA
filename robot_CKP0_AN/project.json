@@ -1,0 +1,14 @@
+{
+  "name": "robot_CKP0",
+  "description": "RPA - Vaclav Hlavacek",
+  "main": "Main.xaml",
+  "dependencies": {},
+  "excludedData": [
+    "Private:*",
+    "*password*"
+  ],
+  "toolVersion": "18.1.1.13",
+  "projectVersion": "1.0.6655.22727",
+  "packOptions": {},
+  "runtimeOptions": {}
+}
